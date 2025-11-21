@@ -1,0 +1,7 @@
+VRProduction/.vsconfig
+*.csproj
+/VRProduction/Library
+/VRProduction/Logs
+/VRProduction/Temp
+/VRProduction/UserSettings
+*.sln
