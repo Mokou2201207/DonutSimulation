@@ -10,16 +10,14 @@
         "dependencies": [
           {
             "name": "Animation",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AnimationClip",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -27,7 +25,7 @@
           {
             "name": "Animator",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -35,7 +33,7 @@
           {
             "name": "AnimatorController",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -47,31 +45,9 @@
             "icon": null
           },
           {
-            "name": "Behaviour",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "IConstraint",
-            "scenes": [],
-            "dependencyType": 1,
-            "icon": null
-          },
-          {
             "name": "Motion",
             "scenes": [],
             "dependencyType": 1,
-            "icon": null
-          },
-          {
-            "name": "RotationConstraint",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
             "icon": null
           },
           {
@@ -88,23 +64,21 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AudioClip",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AudioListener",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -117,17 +91,13 @@
           },
           {
             "name": "AudioResource",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
+            "scenes": [],
+            "dependencyType": 1,
             "icon": null
           },
           {
             "name": "AudioSource",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -163,7 +133,7 @@
           {
             "name": "Camera",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -182,9 +152,7 @@
           },
           {
             "name": "Cubemap",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -203,7 +171,7 @@
           {
             "name": "EditorExtension",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -217,7 +185,7 @@
           {
             "name": "GameObject",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -249,7 +217,7 @@
           {
             "name": "LevelGameManager",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -257,15 +225,7 @@
           {
             "name": "Light",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "LightProbeGroup",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -278,24 +238,20 @@
           },
           {
             "name": "LightProbes",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "LightingSettings",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "LightmapSettings",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -303,7 +259,7 @@
           {
             "name": "LineRenderer",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -317,7 +273,7 @@
           {
             "name": "Material",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -325,7 +281,7 @@
           {
             "name": "Mesh",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -333,7 +289,7 @@
           {
             "name": "MeshFilter",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -341,7 +297,7 @@
           {
             "name": "MeshRenderer",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -349,7 +305,7 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -363,7 +319,7 @@
           {
             "name": "MonoScript",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -371,7 +327,7 @@
           {
             "name": "NamedObject",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -409,23 +365,21 @@
           {
             "name": "RectTransform",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "ReflectionProbe",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "RenderSettings",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -457,7 +411,7 @@
           {
             "name": "Shader",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -471,7 +425,7 @@
           {
             "name": "SkinnedMeshRenderer",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -485,7 +439,7 @@
           {
             "name": "SortingGroup",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -493,7 +447,7 @@
           {
             "name": "Sprite",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -524,14 +478,18 @@
           },
           {
             "name": "Texture",
-            "scenes": [],
-            "dependencyType": 1,
+            "scenes": [
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           },
           {
             "name": "Texture2D",
-            "scenes": [],
-            "dependencyType": 1,
+            "scenes": [
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           },
           {
@@ -975,17 +933,13 @@
         "dependencies": [
           {
             "name": "ParticleSystem",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "ParticleSystemRenderer",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           }
@@ -997,23 +951,21 @@
           {
             "name": "BoxCollider",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CapsuleCollider",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CharacterController",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1027,7 +979,7 @@
           {
             "name": "MeshCollider",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1039,26 +991,16 @@
             "icon": null
           },
           {
-            "name": "PhysicsMaterial",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
             "name": "Rigidbody",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "SphereCollider",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -1439,7 +1381,7 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1482,23 +1424,21 @@
           {
             "name": "Canvas",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CanvasGroup",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CanvasRenderer",
             "scenes": [
-              "Assets/Scenes/SampleScene.unity"
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1686,18 +1626,8 @@
         "name": "Video",
         "dependencies": [
           {
-            "name": "VideoClip",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
             "name": "VideoPlayer",
-            "scenes": [
-              "Assets/Scenes/SampleScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           }

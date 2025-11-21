@@ -7,6 +7,11 @@
 
 
 
+extern void Door_Start_m21FDBEEE08A08BAED224B9928B91C5AB578FF330 (void);
+extern void Door_Update_m3F40A4C15E86B20E0797D4CC3B43B62B86EA58BA (void);
+extern void Door_OnTriggerEnter_m4F2D74E90F3519BC737F450B2E85638F725C611F (void);
+extern void Door_OnTriggerExit_m0A557DEA41ADAA1B33F4C018D79E5054D0E37D7F (void);
+extern void Door__ctor_m3D2DF383E9B8EE863AD8F8421F0DF83F5B35EAB1 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
 extern void AnchorVisuals_Start_m84A5BBC02FFBE8BF40D0A3E2D7B36D1FD701DED6 (void);
@@ -156,8 +161,22 @@ extern void XRPokeFollowAffordanceFill_OnTransformTweenableVariableUpdated_m8B3C
 extern void XRPokeFollowAffordanceFill_OnPokeStrengthChanged_m480B681A9BE7B6C71724392FC3368A029EA4CED6 (void);
 extern void XRPokeFollowAffordanceFill_OnPokeStateDataUpdated_m6233708D9CEEA9A7920B821FDBD306F4D7CBFAE6 (void);
 extern void XRPokeFollowAffordanceFill__ctor_mAED1746F6E90C5676967671BFBB11E3B7C6B1E98 (void);
-static Il2CppMethodPointer s_methodPointers[149] = 
+extern void SimpleCameraController_OnEnable_mE82248046F093F6C5640BDCC8FF4B9996C6D2381 (void);
+extern void SimpleCameraController_GetInputTranslationDirection_mB7EE1B0B3331A6CC8F52D5671A504D15A4ECB558 (void);
+extern void SimpleCameraController_Update_mA30F5F5EC736E8A3B298CF87F9A786F6D7E2CB1D (void);
+extern void SimpleCameraController__ctor_m094201165462FC27919DE9E98C4D53A061197148 (void);
+extern void CameraState_SetFromTransform_mCC26B175D14198A00A2121289F2B3504FEDAC157 (void);
+extern void CameraState_Translate_m0EF16D858AC07E47E11EAA3AD0D856DEB282B02E (void);
+extern void CameraState_LerpTowards_m59D846E2B246B06ACE4CF5F0AB68C3A2B3AF6213 (void);
+extern void CameraState_UpdateTransform_m8174E7238F01C8A72D7793F7A850C8E904190084 (void);
+extern void CameraState__ctor_m93055CACFEBEBA19E2BD9AF02AF66C66CF56D98F (void);
+static Il2CppMethodPointer s_methodPointers[163] = 
 {
+	Door_Start_m21FDBEEE08A08BAED224B9928B91C5AB578FF330,
+	Door_Update_m3F40A4C15E86B20E0797D4CC3B43B62B86EA58BA,
+	Door_OnTriggerEnter_m4F2D74E90F3519BC737F450B2E85638F725C611F,
+	Door_OnTriggerExit_m0A557DEA41ADAA1B33F4C018D79E5054D0E37D7F,
+	Door__ctor_m3D2DF383E9B8EE863AD8F8421F0DF83F5B35EAB1,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 	AnchorVisuals_Start_m84A5BBC02FFBE8BF40D0A3E2D7B36D1FD701DED6,
@@ -307,6 +326,15 @@ static Il2CppMethodPointer s_methodPointers[149] =
 	XRPokeFollowAffordanceFill_OnPokeStrengthChanged_m480B681A9BE7B6C71724392FC3368A029EA4CED6,
 	XRPokeFollowAffordanceFill_OnPokeStateDataUpdated_m6233708D9CEEA9A7920B821FDBD306F4D7CBFAE6,
 	XRPokeFollowAffordanceFill__ctor_mAED1746F6E90C5676967671BFBB11E3B7C6B1E98,
+	SimpleCameraController_OnEnable_mE82248046F093F6C5640BDCC8FF4B9996C6D2381,
+	SimpleCameraController_GetInputTranslationDirection_mB7EE1B0B3331A6CC8F52D5671A504D15A4ECB558,
+	SimpleCameraController_Update_mA30F5F5EC736E8A3B298CF87F9A786F6D7E2CB1D,
+	SimpleCameraController__ctor_m094201165462FC27919DE9E98C4D53A061197148,
+	CameraState_SetFromTransform_mCC26B175D14198A00A2121289F2B3504FEDAC157,
+	CameraState_Translate_m0EF16D858AC07E47E11EAA3AD0D856DEB282B02E,
+	CameraState_LerpTowards_m59D846E2B246B06ACE4CF5F0AB68C3A2B3AF6213,
+	CameraState_UpdateTransform_m8174E7238F01C8A72D7793F7A850C8E904190084,
+	CameraState__ctor_m93055CACFEBEBA19E2BD9AF02AF66C66CF56D98F,
 };
 extern void TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk (void);
 extern void TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk (void);
@@ -314,14 +342,19 @@ extern void TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F03
 extern void TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[4] = 
 {
-	{ 0x06000079, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
-	{ 0x0600007A, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
-	{ 0x0600007B, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
-	{ 0x0600007C, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
+	{ 0x0600007E, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
+	{ 0x0600007F, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
+	{ 0x06000080, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
+	{ 0x06000081, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[149] = 
+static const int32_t s_InvokerIndices[163] = 
 {
-	26404,
+	15356,
+	15356,
+	11655,
+	11655,
+	15356,
+	26402,
 	15356,
 	15356,
 	15356,
@@ -376,7 +409,7 @@ static const int32_t s_InvokerIndices[149] =
 	15356,
 	15356,
 	15356,
-	24353,
+	24351,
 	15356,
 	15356,
 	11655,
@@ -470,12 +503,21 @@ static const int32_t s_InvokerIndices[149] =
 	11746,
 	11682,
 	15356,
+	15356,
+	15345,
+	15356,
+	15356,
+	11655,
+	11833,
+	2675,
+	11655,
+	15356,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	149,
+	163,
 	s_methodPointers,
 	4,
 	s_adjustorThunks,
