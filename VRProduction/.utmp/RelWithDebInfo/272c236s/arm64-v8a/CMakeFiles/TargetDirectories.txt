@@ -1,0 +1,5 @@
+C:/ANBK/GameEngine1/DonutSimulation/VRProduction/.utmp/RelWithDebInfo/272c236s/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/ANBK/GameEngine1/DonutSimulation/VRProduction/.utmp/RelWithDebInfo/272c236s/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/ANBK/GameEngine1/DonutSimulation/VRProduction/.utmp/RelWithDebInfo/272c236s/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/ANBK/GameEngine1/DonutSimulation/VRProduction/.utmp/RelWithDebInfo/272c236s/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/ANBK/GameEngine1/DonutSimulation/VRProduction/.utmp/RelWithDebInfo/272c236s/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
