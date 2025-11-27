@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Refrigerator : MonoBehaviour
+public class Refrigerator : FurnitureOwner
 {
     [Header("アニメーター自動")]
     [SerializeField] Animator[] m_animator;
@@ -16,10 +16,10 @@ public class Refrigerator : MonoBehaviour
             Debug.Log("取得したAnimator: " + anim.gameObject.name);
         }
     }
-    private void Update()
+    public override void Interact()
     {
         //Qキーを押したらドアが開く
-        if (Input.GetKeyDown(KeyCode.Q) && !m_DoorRefrigerator)
+        if (!m_DoorRefrigerator)
         {
             foreach (var anim in m_animator)
             {
@@ -30,7 +30,6 @@ public class Refrigerator : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Q) && m_DoorRefrigerator)
                 foreach (var anim in m_animator)
                 {
                     Debug.Log("冷蔵庫のドアが閉まった");
@@ -39,5 +38,6 @@ public class Refrigerator : MonoBehaviour
                 }
         }
     }
+
 
 }

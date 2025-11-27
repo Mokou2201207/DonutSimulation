@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - Item
+  - Furniture
   layers:
   - Default
   - TransparentFX
