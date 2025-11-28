@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class KeyUI : MonoBehaviour
 {
     public Image m_Image;
-
-    private void Start()
+    public Text m_KeyText; // UIのテキスト
+    public void SetKey(string keyName)
     {
-        m_Image.enabled = false;
+        m_KeyText.text = keyName;
     }
 }

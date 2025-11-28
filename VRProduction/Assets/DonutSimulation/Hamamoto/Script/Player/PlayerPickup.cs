@@ -1,11 +1,24 @@
 using UnityEngine;
+using static FurnitureOwner;
 
 public class PlayerPickup : MonoBehaviour
 {
     [Header("拾える距離")]
     public float m_pickUpDistance = 5f;
+    [Header("アイテムの移動速度")]
+    public float m_ItemMoveSpeed = 0.1f;
+    [Header("拾える距離")]
+    public float m_ItemDistance = 5f;
+    [Header("アイテムを持つ場所")]
+    public Transform m_HandHave;
     [Header("KeyUIをアタッチ")]
     public KeyUI m_KeyUI;
+    [Header("今何を持っているか")]
+    public GameObject m_HaveItem;
+    //手に持っているかどうか
+    public bool m_HandHaveNow=false;
+    private bool m_IsPickUpFrame=false;
+    private float m_PickUpItemDist;
     private FurnitureOwner m_currentFurniture;
     private void Update()
     {
@@ -15,26 +28,237 @@ public class PlayerPickup : MonoBehaviour
         RaycastHit hit;
         m_currentFurniture = null;
         bool furnitureHit = false;
+        int layerMask = LayerMask.GetMask("Item", "RaycastBlock");
 
         //3m以内でヒットしたら処理を行う
-        if (Physics.Raycast(ray, out hit, m_pickUpDistance))
+        if (Physics.Raycast(ray, out hit, m_pickUpDistance, layerMask))
         {
-            // FurnitureAction コンポーネントがあれば取得
+            // FurnitureOwner コンポーネントがあれば取得
             FurnitureOwner furniture = hit.collider.GetComponent<FurnitureOwner>();
             if (furniture != null)
             {
                 m_currentFurniture = furniture;
                 furnitureHit = true;
-                Debug.Log("家具にクロスヘアが重なってます");
+                Debug.Log("物がクロスヘアが重なってます");
             }
         }
         // UIの表示/非表示は Raycast と FurnitureOwner の判定で決める
         //Image仮
         m_KeyUI.m_Image.enabled = furnitureHit;
-        // Qキーでインタラクト
-        if (m_currentFurniture != null && Input.GetKeyDown(KeyCode.Q))
+        if (furnitureHit)
         {
-            m_currentFurniture.Interact();
+            m_KeyUI.SetKey(m_currentFurniture.m_KeyHint);
+        }
+        //Key入力
+        if (m_currentFurniture != null)
+        {
+            if (CheckInput(m_currentFurniture.useKey))
+            {
+                m_currentFurniture.Interact();
+            }
+        }
+
+
+        UpdatePickUp();
+    }
+    private void FixedUpdate()
+    {
+        if (m_HaveItem != null)
+        {
+            Vector3 havePos = m_HandHave.position;
+            m_HaveItem.transform.position = havePos + m_HandHave.forward * m_PickUpItemDist;
+        }
+       
+    }
+    private void UpdatePickUp()
+    {
+        if (m_HaveItem == null) return;
+     
+        if (m_IsPickUpFrame)
+        {
+            m_IsPickUpFrame = false;
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Drop();
+                return;
+            }
+        }
+        
+        float scrollDelta = Input.mouseScrollDelta.y;
+        if (scrollDelta != 0f)
+        {
+            m_PickUpItemDist += m_ItemMoveSpeed * scrollDelta;
+            m_PickUpItemDist = Mathf.Clamp(m_PickUpItemDist, 0f, m_ItemDistance);        
         }
     }
-}
+
+    //ここでKey設定
+    //UseKey.LeftClick←ここを新しくするにはFurnitureOwnerで
+    private bool CheckInput(UseKey key)
+    {
+        switch (key)
+        {
+            case UseKey.LeftClick:
+                return Input.GetMouseButtonDown(0);
+
+            case UseKey.RightClick:
+                return Input.GetMouseButtonDown(1);
+
+            case UseKey.E:
+                return Input.GetKeyDown(KeyCode.E);
+
+            case UseKey.F:
+                return Input.GetKeyDown(KeyCode.F);
+
+            case UseKey.Q:
+                return Input.GetKeyDown(KeyCode.Q);
+        }
+
+        return false;
+    }
+    //手に持つ処理
+    public void PickUp(GameObject item)
+    {
+        //アイテムを持っていなかったら掴む
+
+        if (!m_HandHaveNow)
+        {
+            m_HandHaveNow = true;
+            m_IsPickUpFrame = true;
+
+            // Scene上のアイテムを手の子にする
+           // item.transform.SetParent(m_HandHave);
+
+            // ローカル座標をリセット
+            item.transform.position = m_HandHave.position;
+            item.transform.rotation = m_HandHave.rotation;
+            m_PickUpItemDist = 0f;
+
+            m_HaveItem = item;
+            Collider col = m_HaveItem.GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+            Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+            }
+
+            Debug.Log("アイテム取得：" + item.name);
+        }
+        else
+        {
+            Debug.Log("すでにアイテムを持っています。");
+        }
+
+    }
+
+    public void Drop()
+    {
+        if (m_HaveItem == null) return;
+
+        Collider col=m_HaveItem.GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = true;
+        }
+        Rigidbody rb=m_HaveItem.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
+
+        // 所持情報をクリア
+        m_HaveItem = null;
+        // 持っていない状態に戻す
+        m_HandHaveNow = false;
+    }
+    //手に持つ処理
+    public void HandHave(GameObject Item)
+    {
+        //アイテムを持っていなかったら掴む
+        if (!m_HandHaveNow)
+        {
+            //手に持っている
+            m_HandHaveNow = true;
+            m_IsPickUpFrame = true;
+            //プレイヤーの手の位置に生成
+            GameObject obj= Instantiate(Item, m_HandHave.position, m_HandHave.rotation);
+            obj.transform.position = m_HandHave.position;
+            obj.transform.rotation = m_HandHave.rotation;
+            m_PickUpItemDist = 0f;
+            //今なにを持っているか保存
+            m_HaveItem = obj;
+            Collider col = m_HaveItem.GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+            Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+            }
+            Debug.Log("アイテム取得：" + Item.name);
+
+        }
+        else
+        {
+            Debug.Log("すでにアイテムを持っています。");
+        }
+    }
+    ////アイテムを離す処理
+    //public void PlaceItem()
+    //{
+    //    //アイテムを持っていなかったら実行しない
+    //    if (!m_HandHaveNow || m_HaveItem == null) return;
+
+    //    // クロスヘア方向にRayを飛ばす
+    //    Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+    //    RaycastHit hit;
+    //    int layerMask = LayerMask.GetMask("Furniture"); // 置けるテーブル用のLayer
+
+    //    if (Physics.Raycast(ray, out hit, 5f, layerMask))
+    //    {
+    //        // 手から外す
+    //        m_HaveItem.transform.SetParent(null);
+
+    //        // アイテムの位置をRayが当たった位置に
+    //        m_HaveItem.transform.position = hit.point;
+
+    //        // アイテムの回転をテーブルの法線方向に合わせる
+    //        m_HaveItem.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90, 0, 0);
+
+    //        // 手を空にする
+    //        m_HaveItem = null;
+    //        m_HandHaveNow = false;
+
+    //        Debug.Log("アイテムを置きました：" + hit.collider.name);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("置ける場所がありません");
+    //    }
+    //}
+    public bool CheckHaveItem(string tag)
+    {
+        if(m_HaveItem==null) return false;
+        return m_HaveItem.CompareTag(tag);
+
+    }
+    public void UseItem()
+    {
+        if (m_HaveItem == null) return;
+        // 手に持っているチョコを消す
+        Destroy(m_HaveItem);
+        // 所持情報をクリア
+       m_HaveItem = null;
+        // 持っていない状態に戻す
+        m_HandHaveNow = false;
+    }
+    }

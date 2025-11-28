@@ -7,3 +7,6 @@ VRProduction/.vsconfig
 *.sln
 VRProduction/Assets/Tokyo_Street/URP_Tokyo_Street.unitypackage
 VRProduction/Assets/Tokyo_Street/URP_Tokyo_Street.unitypackage.meta
+/VRProduction/obj
+/VRProduction/.vs
+/VRProduction/.utmp

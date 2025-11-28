@@ -1,2 +1,0 @@
-C:\ANBK\GameEngine1\DonutSimulation\VRProduction\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
-C:\ANBK\GameEngine1\DonutSimulation\VRProduction\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

@@ -7,6 +7,7 @@ TagManager:
   - Anchor
   - Item
   - Furniture
+  - Chocolate
   layers:
   - Default
   - TransparentFX
@@ -14,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Hand
-  - HandSearch
-  - 
-  - 
+  - Item
+  - RaycastBlock
+  - Furniture
+  - Field
   - 
   - 
   - 

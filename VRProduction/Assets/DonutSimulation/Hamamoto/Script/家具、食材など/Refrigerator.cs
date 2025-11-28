@@ -9,6 +9,10 @@ public class Refrigerator : FurnitureOwner
     {
         // Žq‚ÌAnimator‚ð‘S‚ÄŽæ“¾
         m_animator = GetComponent<Animator>();
+        //Key‚Ì“ü—Í‚ð“ü‚ê‚é
+        useKey = UseKey.Q;
+        //UI‚ð•\Ž¦
+        m_KeyHint = "Q";
     }
     public override void Interact()
     {
