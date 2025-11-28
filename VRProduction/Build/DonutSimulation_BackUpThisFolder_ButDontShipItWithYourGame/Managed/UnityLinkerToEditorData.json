@@ -1000,7 +1000,9 @@
           },
           {
             "name": "SphereCollider",
-            "scenes": [],
+            "scenes": [
+              "Assets/DonutSimulation/Yamamoto/Sence/YamamotoScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },

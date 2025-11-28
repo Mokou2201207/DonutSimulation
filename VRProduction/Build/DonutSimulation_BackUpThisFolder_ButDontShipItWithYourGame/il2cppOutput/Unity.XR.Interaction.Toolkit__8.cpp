@@ -29488,9 +29488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GestureTouchesUtility__cctor_m0B3B804DCA
 		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:216>
 		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:217>
 		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:218>
-		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:219>
-		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:220>
-		((GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_StaticFields*)il2cpp_codegen_static_fields_for(GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_il2cpp_TypeInfo_var))->___defaultTouchInputSource = 1;
+		((GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_StaticFields*)il2cpp_codegen_static_fields_for(GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_il2cpp_TypeInfo_var))->___defaultTouchInputSource = 0;
 		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/AR/Gestures/GestureTouchesUtility.cs:223>
 		int32_t L_0 = ((GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_StaticFields*)il2cpp_codegen_static_fields_for(GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_il2cpp_TypeInfo_var))->___defaultTouchInputSource;
 		((GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_StaticFields*)il2cpp_codegen_static_fields_for(GestureTouchesUtility_t21BF3E49166B77B8A88AF1653443BF68D87AE495_il2cpp_TypeInfo_var))->___U3CtouchInputSourceU3Ek__BackingField = L_0;
@@ -35622,7 +35620,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool NativeArray_1_get_IsCreated_
 		return (bool)((((int32_t)((((intptr_t)L_0) == ((intptr_t)((uintptr_t)0)))? 1 : 0)) == ((int32_t)0))? 1 : 0);
 	}
 }
-// Method Definition Index: 81381
+// Method Definition Index: 81424
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* SubsystemWithProvider_3_get_provider_m963D70D839CE42A2C17A2C183A61C25F0E2C6732_gshared_inline (SubsystemWithProvider_3_t548D9C2A4778C7ADB62496A2A07F8B7563309893* __this, const RuntimeMethod* method) 
 {
 	{
