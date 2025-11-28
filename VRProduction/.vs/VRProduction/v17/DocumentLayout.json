@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|c:\\anbk\\gameengine1\\donutsimulation\\vrproduction\\assets\\donutsimulation\\yamamoto\\gametimemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|solutionrelative:assets\\donutsimulation\\yamamoto\\gametimemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\assets\\donutsimulation\\yamamoto\\boxinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|solutionrelative:assets\\donutsimulation\\yamamoto\\boxinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|c:\\anbk\\gameengine1\\donutsimulation\\vrproduction\\assets\\donutsimulation\\yamamoto\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\assets\\donutsimulation\\yamamoto\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|solutionrelative:assets\\donutsimulation\\yamamoto\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|c:\\anbk\\gameengine1\\donutsimulation\\vrproduction\\assets\\donutsimulation\\yamamoto\\interactionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\assets\\donutsimulation\\yamamoto\\interactionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9B8DA84-A787-88ED-50EA-203662B2616A}|Assembly-CSharp.csproj|solutionrelative:assets\\donutsimulation\\yamamoto\\interactionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -71,11 +75,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "GameTimeManager.cs",
+              "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\GameTimeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\GameTimeManager.cs",
+              "ToolTip": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\GameTimeManager.cs",
+              "RelativeToolTip": "Assets\\DonutSimulation\\Yamamoto\\GameTimeManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T05:47:57.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Hand.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\Hand.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\Hand.cs",
@@ -83,12 +100,11 @@
               "RelativeToolTip": "Assets\\DonutSimulation\\Yamamoto\\Hand.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAAsAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T02:38:21.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T02:38:21.765Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InteractionManager.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\InteractionManager.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\InteractionManager.cs",
@@ -96,12 +112,11 @@
               "RelativeToolTip": "Assets\\DonutSimulation\\Yamamoto\\InteractionManager.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAzwBIAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T02:26:56.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T02:26:56.868Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "XRBaseInteractor.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\XRBaseInteractor.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\XRBaseInteractor.cs",
@@ -113,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "XRBaseInputInteractor.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\XRBaseInputInteractor.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\XRBaseInputInteractor.cs",
@@ -125,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "NearFarInteractor.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\NearFarInteractor.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactors\\NearFarInteractor.cs",
@@ -137,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ColiiderEvent.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\ColiiderEvent.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\ColiiderEvent.cs",
@@ -149,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BoxInventory.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\BoxInventory.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\BoxInventory.cs",
@@ -157,12 +172,11 @@
               "RelativeToolTip": "Assets\\DonutSimulation\\Yamamoto\\BoxInventory.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAUwEkAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T00:54:56.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T00:54:56.337Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "BoxGrabber.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Yamamoto\\BoxGrabber.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Yamamoto\\BoxGrabber.cs",
@@ -174,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Move.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Player\\Move.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Hamamoto\\Script\\Player\\Move.cs",
@@ -186,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Refrigerator.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u3001\u98DF\u6750\u306A\u3069\\Refrigerator.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u3001\u98DF\u6750\u306A\u3069\\Refrigerator.cs",
@@ -198,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PlayerPickup.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Player\\PlayerPickup.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Hamamoto\\Script\\Player\\PlayerPickup.cs",
@@ -210,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "FurnitureOwner.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u306E\u30AA\u30FC\u30CA\u30FC\u3001UI\\FurnitureOwner.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u306E\u30AA\u30FC\u30CA\u30FC\u3001UI\\FurnitureOwner.cs",
@@ -222,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "KeyUI.cs",
               "DocumentMoniker": "C:\\ANBK\\GameEngine1\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u306E\u30AA\u30FC\u30CA\u30FC\u3001UI\\KeyUI.cs",
               "RelativeDocumentMoniker": "Assets\\DonutSimulation\\Hamamoto\\Script\\\u5BB6\u5177\u306E\u30AA\u30FC\u30CA\u30FC\u3001UI\\KeyUI.cs",
@@ -234,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Bgm.cs",
               "DocumentMoniker": "C:\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Bgm.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Bgm.cs",
@@ -245,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Move.cs",
               "DocumentMoniker": "C:\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Move.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Move.cs",
@@ -256,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Flayer.cs",
               "DocumentMoniker": "C:\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Flayer.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\GitHub\\DonutSimulation\\VRProduction\\Assets\\DonutSimulation\\Hamamoto\\Script\\Flayer.cs",
