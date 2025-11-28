@@ -67,8 +67,8 @@ public class Playercontroller : MonoBehaviour
         velocity.y = m_Rigidbody.linearVelocity.y;
         m_Rigidbody.linearVelocity = velocity;
         //キャラアニメーションで動く
-        m_Animator.SetFloat("X", Input.GetAxis("Horizontal"));
-        m_Animator.SetFloat("Y", Input.GetAxis("Vertical"));
+        //m_Animator.SetFloat("X", Input.GetAxis("Horizontal"));
+        //m_Animator.SetFloat("Y", Input.GetAxis("Vertical"));
     }
 
 
