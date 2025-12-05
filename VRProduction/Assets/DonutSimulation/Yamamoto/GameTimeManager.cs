@@ -1,32 +1,46 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class GameTimeManager : MonoBehaviour
 {
+    [Header("UI")]
     public TextMeshProUGUI timeText;
 
-    public int hour = 0;       // 0ŽžƒXƒ^[ƒg
-    public int minute = 0;     // 0•ªƒXƒ^[ƒg
-    public float timeSpeed = 60f; // 1•b‚Å1•ªi‚Þ
-
-    public int openTime = 9;
-    public int closeTime = 22;
+    [Header("Time Settings")]
+    public int hour = 0;
+    public int minute = 0;
+    public float timeSpeed = 60f; // 1ç§’ = 1ã‚²ãƒ¼ãƒ å†…åˆ†
 
     private float timer = 0f;
 
+    [Header("Shop Settings")]
+    public int openTime = 9;
+    public int closeTime = 22;
+
+    [Header("Lighting")]
     public Light mainLight;
     public float dayLightIntensity = 1f;
     public float nightLightIntensity = 0.2f;
     public float transitionSpeed = 1f;
 
+    [Header("Sky System")]
+    public Ultrabolt.SkyEngine.SkyCore skyCore;
     void Update()
     {
-        // ŽžŠÔis
+        UpdateTime();
+        UpdateUI();
+        UpdateLighting();
+        UpdateSky(); // â˜…æ™‚é–“ã¨ç©ºã‚’é€£å‹•
+    }
+
+    void UpdateTime()
+    {
         timer += Time.deltaTime * timeSpeed;
+
         if (timer >= 60f)
         {
             minute++;
-            timer = 0;
+            timer = 0f;
         }
 
         if (minute >= 60)
@@ -36,15 +50,13 @@ public class GameTimeManager : MonoBehaviour
         }
 
         if (hour >= 24)
-        {
             hour = 0;
-        }
+    }
 
-        // UIXV
-        timeText.text = $"{hour:00}:{minute:00}";
-
-        // ’‹–éƒ‰ƒCƒgXV
-        UpdateLighting();
+    void UpdateUI()
+    {
+        if (timeText != null)
+            timeText.text = $"{hour:00}:{minute:00}";
     }
 
     public bool IsOpen()
@@ -54,17 +66,39 @@ public class GameTimeManager : MonoBehaviour
 
     void UpdateLighting()
     {
-        float targetIntensity;
+        if (mainLight == null) return;
 
-        if (hour >= 22 || hour < 6)
-        {
-            targetIntensity = nightLightIntensity;
-        }
-        else
-        {
-            targetIntensity = dayLightIntensity;
-        }
+        float target = (hour >= 22 || hour < 6) ? nightLightIntensity : dayLightIntensity;
 
-        mainLight.intensity = Mathf.Lerp(mainLight.intensity, targetIntensity, Time.deltaTime * transitionSpeed);
+        mainLight.intensity = Mathf.Lerp(
+            mainLight.intensity,
+            target,
+            Time.deltaTime * transitionSpeed
+        );
     }
+
+    //==============================
+    // â˜… SkyEngine ã®å¤ªé™½ãƒ»æœˆè§’åº¦æ›´æ–°
+    //==============================
+
+    void UpdateSky()
+    {
+        if (skyCore == null) return;
+
+        float totalMinutes = hour * 60 + minute;
+
+        // 1æ—¥ã®é€²è¡Œåº¦ï¼ˆ0ã€œ1ï¼‰
+        float dayProgress = totalMinutes / (24f * 60f);
+
+        // SkyCore ã¯ 6æ™‚ã‚¹ã‚¿ãƒ¼ãƒˆãªã®ã§ã€é€†è£œæ­£ã™ã‚‹
+        dayProgress -= (6f / 24f);
+
+        // ãƒžã‚¤ãƒŠã‚¹ã«ãªã£ãŸæ™‚ã®è£œæ­£
+        if (dayProgress < 0)
+            dayProgress += 1f;
+
+        // SkyCore ã«æ¸¡ã™
+        skyCore.timeOfDay = dayProgress;
+    }
+
 }
