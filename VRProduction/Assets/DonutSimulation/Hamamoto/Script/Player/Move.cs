@@ -1,6 +1,8 @@
 using System;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class Playercontroller : MonoBehaviour
@@ -21,7 +23,10 @@ public class Playercontroller : MonoBehaviour
     private Rigidbody m_Rigidbody;
     private Transform m_Transform;
     private Animator m_Animator;
-
+    private PlayerInput m_PlayerInput;
+    private InputAction m_MoveAction;
+    private InputAction m_LookAction;
+    public Text m_debugText;
     private void Start()
     {
 
@@ -29,6 +34,10 @@ public class Playercontroller : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Transform = GetComponent<Transform>();
         m_Animator = GetComponent<Animator>();
+        m_PlayerInput=GetComponent<PlayerInput>();
+        m_PlayerInput.currentActionMap.Enable();
+        m_MoveAction = m_PlayerInput.actions.FindAction("Move");
+        m_LookAction = m_PlayerInput.actions.FindAction("Look");
         //カーソルを中央に固定
         Cursor.lockState = CursorLockMode.Locked;
         //カーソル非表示
@@ -51,16 +60,19 @@ public class Playercontroller : MonoBehaviour
         {
             m_CameraPivot.localRotation = Quaternion.Euler(m_Pitch, 0f, 0f);
         }
-    }
 
+        m_debugText.text = string.Format("Move：{0}", m_MoveAction.ReadValue<Vector2>());
+    }
+    
     void FixedUpdate()
     {
 
         // キャラクターとカメラの左右回転（Y軸）
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * CameraSpeed, 0));
+        //transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * CameraSpeed, 0));
         //移動
-        float moveX = (Input.GetAxis("Horizontal") * moveSpeed);
-        float moveZ = (Input.GetAxis("Vertical") * moveSpeed);
+        Vector2 input = m_MoveAction.ReadValue<Vector2>();
+        float moveX = input.x * moveSpeed;
+        float moveZ = input.y * moveSpeed;
 
         //水平方向の速度を設定（Y速度は維持）
         Vector3 velocity = transform.right * moveX + transform.forward * moveZ;
