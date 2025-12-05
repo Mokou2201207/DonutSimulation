@@ -7,7 +7,7 @@ public class Refrigerator : FurnitureOwner
     [SerializeField] bool m_DoorRefrigerator = false;
     private void Start()
     {
-        // Žq‚ÌAnimator‚ð‘S‚ÄŽæ“¾
+        // Animator‚ð‘S‚ÄŽæ“¾
         m_animator = GetComponent<Animator>();
         //Key‚Ì“ü—Í‚ð“ü‚ê‚é
         useKey = UseKey.Q;

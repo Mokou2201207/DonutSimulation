@@ -13,8 +13,8 @@ public class Hotpot : FurnitureOwner
         //非表示
         m_HptpotChoko.SetActive(false);
         //Key入力とUI表示
-        useKey = UseKey.LeftClick;
-        m_KeyHint = "左クリック";
+        useKey = UseKey.RightClick;
+        m_KeyHint = "右クリック";
     }
     public override void Interact()
     {

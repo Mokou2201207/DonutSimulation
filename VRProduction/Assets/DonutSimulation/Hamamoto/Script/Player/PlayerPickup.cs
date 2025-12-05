@@ -3,6 +3,8 @@ using static FurnitureOwner;
 
 public class PlayerPickup : MonoBehaviour
 {
+    [Header("アイテムを拾う音")]
+    public AudioClip m_ItemGetSE;
     [Header("拾える距離")]
     public float m_pickUpDistance = 5f;
     [Header("アイテムの移動速度")]
@@ -16,14 +18,27 @@ public class PlayerPickup : MonoBehaviour
     [Header("今何を持っているか")]
     public GameObject m_HaveItem;
     //手に持っているかどうか
-    public bool m_HandHaveNow=false;
-    private bool m_IsPickUpFrame=false;
+    public bool m_HandHaveNow = false;
+    private bool m_IsPickUpFrame = false;
     private float m_PickUpItemDist;
     private FurnitureOwner m_currentFurniture;
+    private AudioSource m_AudioSource;
+
+    private void Start()
+    {
+        if (m_AudioSource == null)
+        {
+            m_AudioSource = GetComponent<AudioSource>();
+            if (m_AudioSource == null)
+            {
+                Debug.LogError("AudioSourceが入ってません。");
+            }
+        }
+    }
     private void Update()
     {
         //Rayをカメラの真ん中に設定
-        Ray ray=Camera.main.ScreenPointToRay(new Vector3(Screen.width/2,Screen.height/2,0));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         //※Raycast が「何に当たったか？」を教えてくれるのが RaycastHit。
         RaycastHit hit;
         m_currentFurniture = null;
@@ -68,12 +83,12 @@ public class PlayerPickup : MonoBehaviour
             Vector3 havePos = m_HandHave.position;
             m_HaveItem.transform.position = havePos + m_HandHave.forward * m_PickUpItemDist;
         }
-       
+
     }
     private void UpdatePickUp()
     {
         if (m_HaveItem == null) return;
-     
+
         if (m_IsPickUpFrame)
         {
             m_IsPickUpFrame = false;
@@ -86,12 +101,12 @@ public class PlayerPickup : MonoBehaviour
                 return;
             }
         }
-        
+
         float scrollDelta = Input.mouseScrollDelta.y;
         if (scrollDelta != 0f)
         {
             m_PickUpItemDist += m_ItemMoveSpeed * scrollDelta;
-            m_PickUpItemDist = Mathf.Clamp(m_PickUpItemDist, 0f, m_ItemDistance);        
+            m_PickUpItemDist = Mathf.Clamp(m_PickUpItemDist, 0f, m_ItemDistance);
         }
     }
 
@@ -130,7 +145,7 @@ public class PlayerPickup : MonoBehaviour
             m_IsPickUpFrame = true;
 
             // Scene上のアイテムを手の子にする
-           // item.transform.SetParent(m_HandHave);
+            // item.transform.SetParent(m_HandHave);
 
             // ローカル座標をリセット
             item.transform.position = m_HandHave.position;
@@ -162,12 +177,12 @@ public class PlayerPickup : MonoBehaviour
     {
         if (m_HaveItem == null) return;
 
-        Collider col=m_HaveItem.GetComponent<Collider>();
+        Collider col = m_HaveItem.GetComponent<Collider>();
         if (col != null)
         {
             col.enabled = true;
         }
-        Rigidbody rb=m_HaveItem.GetComponent<Rigidbody>();
+        Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = false;
@@ -184,11 +199,13 @@ public class PlayerPickup : MonoBehaviour
         //アイテムを持っていなかったら掴む
         if (!m_HandHaveNow)
         {
+            //アイテムゲットSE
+            m_AudioSource.PlayOneShot(m_ItemGetSE);
             //手に持っている
             m_HandHaveNow = true;
             m_IsPickUpFrame = true;
             //プレイヤーの手の位置に生成
-            GameObject obj= Instantiate(Item, m_HandHave.position, m_HandHave.rotation);
+            GameObject obj = Instantiate(Item, m_HandHave.position, m_HandHave.rotation);
             obj.transform.position = m_HandHave.position;
             obj.transform.rotation = m_HandHave.rotation;
             m_PickUpItemDist = 0f;
@@ -212,7 +229,7 @@ public class PlayerPickup : MonoBehaviour
             Debug.Log("すでにアイテムを持っています。");
         }
     }
-    ////アイテムを離す処理
+    //アイテムを離す処理
     //public void PlaceItem()
     //{
     //    //アイテムを持っていなかったら実行しない
@@ -247,7 +264,7 @@ public class PlayerPickup : MonoBehaviour
     //}
     public bool CheckHaveItem(string tag)
     {
-        if(m_HaveItem==null) return false;
+        if (m_HaveItem == null) return false;
         return m_HaveItem.CompareTag(tag);
 
     }
@@ -257,8 +274,8 @@ public class PlayerPickup : MonoBehaviour
         // 手に持っているチョコを消す
         Destroy(m_HaveItem);
         // 所持情報をクリア
-       m_HaveItem = null;
+        m_HaveItem = null;
         // 持っていない状態に戻す
         m_HandHaveNow = false;
     }
-    }
+}

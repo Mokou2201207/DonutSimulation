@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class Chocolate : FurnitureOwner
+public class IngredientStock: FurnitureOwner
 {
-    [Header("チョコ（欠片）")]
-    public GameObject m_Choko;
+    [Header("手に持つ食材")]
+    public GameObject m_IngredientStock;
+    [Header("PlayerPickupをアタッチ")]
     public PlayerPickup m_PlayerHand;
     private void Start()
     {
-        if (m_Choko==null)
+        if (m_IngredientStock == null)
         {
-            Debug.LogError("チョコレートの欠片が入ってません");
+            Debug.LogError("手に持つ食材が入ってません");
         }
         if (m_PlayerHand==null)
         {
@@ -27,9 +28,9 @@ public class Chocolate : FurnitureOwner
         {
             Debug.LogError("PlayerHand が見つかりません");
             return;
-        }
+        }      
         //チョコレートを手に（条件が満たせば）
-        m_PlayerHand.HandHave(m_Choko);
+        m_PlayerHand.HandHave(m_IngredientStock);
         
     }
 }

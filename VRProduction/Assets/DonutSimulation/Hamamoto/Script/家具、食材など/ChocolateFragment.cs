@@ -22,11 +22,13 @@ public class ChocolateFragment : FurnitureOwner
         useKey = UseKey.LeftClick;
         //コメントUI
         m_KeyHint = "左クリック";
+        
     }
     public override void Interact()
     {
         if (m_PlayerPickup != null)
         {
+           
             // Scene上の m_Choko を拾う場合
             m_PlayerPickup.PickUp(m_Choko);
 
