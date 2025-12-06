@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 //家具のオーナーここから子に行く
 public abstract class FurnitureOwner : MonoBehaviour
 {

@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Flayer :FurnitureOwner
+public class Flayer : FurnitureOwner
 {
     [Header("入ってるドーナツ")]
     public GameObject[] m_InDount;
     [Header("今入ってるドーナツの数")]
-    public int m_CurrentCount=0;
+    public int m_CurrentCount = 0;
     [Header("PlayerPickupscriptをアタッチ")]
     public PlayerPickup m_playerpickup;
     [Header("アニメーター自動")]
     [SerializeField] Animator m_animator;
+    [Header("油のメーターをアタッチ")]
+    [SerializeField] Slider m_Oilslider;
+    [SerializeField] int m_Oilcount=10;
     [SerializeField] bool m_FlayerIN = false;
     // 入っている状態を見せるスロット3つ
     public GameObject[] m_DountSlots;
@@ -26,32 +30,70 @@ public class Flayer :FurnitureOwner
         useKey = UseKey.LeftClick;
         //UIを表示
         m_KeyHint = "左クリック";
+        //オイルの時間を設定
+        m_Oilslider.maxValue = 10f;
+        m_Oilslider.value = 0f;
+        //非表示
+        m_Oilslider.gameObject.SetActive(false);
     }
 
     public override void Interact()
     {
         //ドーナツ生地を持っていればかつドーナツが三つ以上入って無ければ
-        if (m_playerpickup.CheckHaveItem("Doughnutdough")&& m_CurrentCount < 3)
+        if (m_playerpickup.CheckHaveItem("Doughnutdough") && m_CurrentCount < 3)
         {
 
             m_playerpickup.UseItem();
             PutInChocolate();
         }
-        /*//左クリック押したら油にIN
-        if (!m_FlayerIN)
+
+    }
+
+
+
+    private void Update()
+    {
+        //右クリック押すとフライヤーにIn
+        if (Input.GetMouseButtonDown(1)) // 右クリック
         {
-            Debug.Log("油にドーナツをIN");
-            m_animator.SetBool("IN", true);
-            //油に入れた
-            m_FlayerIN=true;
+            HandleFryerInOut();
         }
-        else
+        // INのときだけ油のカウントを進める
+        if (m_FlayerIN)
         {
-            Debug.Log("油にドーナツを出した");
-            m_animator.SetBool("IN", false);
-            //油から出した
-            m_FlayerIN = false;
-        }*/
+            OilCount();
+        }
+    }
+    //フライヤーアニメーション処理
+    private void HandleFryerInOut()
+    {
+        //ドーナツが一つでも入ってたら処理を行う
+        if (m_CurrentCount >= 1)
+        {
+            if (!m_FlayerIN)
+            {
+                Debug.Log("油にドーナツをIN");
+                m_animator.SetBool("IN", true);
+                m_FlayerIN = true;
+                //カウントをリセット
+                m_Oilslider.value = 0f;
+                //表示
+                m_Oilslider.gameObject.SetActive(true);
+            }
+            //カウントが０になったら上げる
+            else if(m_Oilslider.value >= m_Oilslider.maxValue)
+            {
+                Debug.Log("油からドーナツをOUT");
+                m_animator.SetBool("IN", false);
+                m_FlayerIN = false;
+                //表示
+                m_Oilslider.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("まだ焼き上がってない！");
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -68,10 +110,11 @@ public class Flayer :FurnitureOwner
             }
         }
     }
+    //ドーナツをカウントする処理
     private bool PutInChocolate()
     {
         //三つ以上入れようとしたら入れれなくなる
-        if (m_CurrentCount>=3)
+        if (m_CurrentCount >= 3)
         {
             Debug.Log("もうドーナツが満タンです");
             return false;
@@ -83,11 +126,24 @@ public class Flayer :FurnitureOwner
         UpdateDountSlots();
         return true;
     }
+    //ドーナツを入れたときの表示
     private void UpdateDountSlots()
     {
         for (int i = 0; i < m_InDount.Length; i++)
         {
             m_InDount[i].SetActive(i < m_CurrentCount);
+        }
+    }
+    //オイルに入れたときのタイマー
+    private void OilCount()
+    {
+        m_Oilslider.value += Time.deltaTime;
+
+        // 10秒経過したら完成
+        if (m_Oilslider.value >= m_Oilslider.maxValue)
+        {
+            m_Oilslider.value = m_Oilslider.maxValue;
+            Debug.Log("揚げ終わり！ OUTできる状態！");
         }
     }
 }
