@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 7832789}
   - component: {fileID: 7832790}
   m_Layer: 7
-  m_Name: GameObject (2)
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_LODs.Array.data[2].renderers.Array.data[0].renderer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1075371960637621414, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
+      propertyPath: m_LODs.Array.data[2].renderers.Array.data[1].renderer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1870702862201414048, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -246,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2943863881280080516, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
       propertyPath: m_Name
-      value: GameMap (1)
+      value: AseetMap
       objectReference: {fileID: 0}
     - target: {fileID: 3514501507685633330, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
       propertyPath: m_IsActive
@@ -413,22 +417,7 @@ PrefabInstance:
     - {fileID: 1046284318399409190, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
     - {fileID: 7619916923524664390, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
     - {fileID: 4280391437716107627, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1538174516}
-    - targetCorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1575340897}
-    - targetCorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 126336979}
-    - targetCorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 816492661}
-    - targetCorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 423329581}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3514501507685633330, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
       insertIndex: -1
@@ -641,7 +630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (28)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -718,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (17)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -893,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (12)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1147,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (30)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1458,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (1)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1584,7 +1573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126336979}
   m_Layer: 0
-  m_Name: "\u30EC\u30B8"
+  m_Name: Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1607,7 +1596,7 @@ Transform:
   - {fileID: 1561287772}
   - {fileID: 1472374605}
   - {fileID: 2046034350}
-  m_Father: {fileID: 1233382180}
+  m_Father: {fileID: 1949430458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132210068 stripped
 GameObject:
@@ -1700,7 +1689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (55)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1777,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (6)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1899,7 +1888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (59)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -1924,7 +1913,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3651966197742019746, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_Size.y
@@ -1940,15 +1929,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5372143
+      value: -12.434301
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93269986
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.49614906
+      value: -8.703868
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1991,6 +1980,43 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
+--- !u!1 &145953062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145953063}
+  m_Layer: 0
+  m_Name: Doughnut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145953063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145953062}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 711668578}
+  - {fileID: 19868106}
+  - {fileID: 1606976584}
+  - {fileID: 1650196668}
+  - {fileID: 572610872}
+  - {fileID: 1455378491}
+  m_Father: {fileID: 1702202523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &151126076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2049,7 +2075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (67)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -2074,7 +2100,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 1919572545826736863, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2086,15 +2112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6583385
+      value: -16.629854
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93269974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.39101982
+      value: -8.808997
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2126,7 +2152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716649975524417073, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_Name
-      value: "\u30D5\u30E9\u30A4\u30E4\u30FC"
+      value: Flyer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2207,7 +2233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (37)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -2238,7 +2264,7 @@ GameObject:
   - component: {fileID: 164078025}
   - component: {fileID: 164078026}
   m_Layer: 5
-  m_Name: Image
+  m_Name: crosshairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2359,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (7)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -2422,7 +2448,7 @@ GameObject:
   - component: {fileID: 174218404}
   - component: {fileID: 174218405}
   m_Layer: 7
-  m_Name: GameObject (1)
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2621,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (75)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -2871,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (41)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -2948,7 +2974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (4)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -3025,7 +3051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (58)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -3180,7 +3206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (60)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -3236,7 +3262,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 193000360555080461, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_IsActive
@@ -3244,15 +3270,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112226912059890188, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.62924767
+      value: -13.342268
       objectReference: {fileID: 0}
     - target: {fileID: 2112226912059890188, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1977554
+      value: 0.7349446
       objectReference: {fileID: 0}
     - target: {fileID: 2112226912059890188, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4825611
+      value: -8.717456
       objectReference: {fileID: 0}
     - target: {fileID: 2112226912059890188, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3471,7 +3497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (32)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -3612,7 +3638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (33)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -3854,7 +3880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (38)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -4049,7 +4075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (73)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -4113,7 +4139,7 @@ GameObject:
   - component: {fileID: 423063426}
   - component: {fileID: 423063425}
   m_Layer: 0
-  m_Name: Bgm (1)
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4237,12 +4263,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423063424}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 33.08665, y: -1.01093, z: 15.0621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1038721530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423329580
 GameObject:
@@ -4254,7 +4280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423329581}
   m_Layer: 0
-  m_Name: "\u30EC\u30B8 (2)"
+  m_Name: Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4277,7 +4303,7 @@ Transform:
   - {fileID: 764447283}
   - {fileID: 1767176027}
   - {fileID: 1891345292}
-  m_Father: {fileID: 1233382180}
+  m_Father: {fileID: 1949430458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436240764 stripped
 GameObject:
@@ -4357,7 +4383,7 @@ GameObject:
   - component: {fileID: 439433265}
   - component: {fileID: 439433264}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: KeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4513,7 +4539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (39)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -4546,7 +4572,7 @@ GameObject:
   - component: {fileID: 484503046}
   - component: {fileID: 484503044}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: 'Canvas '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4697,7 +4723,7 @@ GameObject:
   - component: {fileID: 502659701}
   - component: {fileID: 502659700}
   m_Layer: 6
-  m_Name: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730\u5165\u308C"
+  m_Name: DoughnutDoughBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4711,8 +4737,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502659698}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.34, y: 0.251, z: 3.354}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -10.6315155, y: 1.1837, z: -5.846017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4797,7 +4823,7 @@ Transform:
   - {fileID: 1385386477}
   - {fileID: 1407076513}
   - {fileID: 1040116177}
-  m_Father: {fileID: 1291566371}
+  m_Father: {fileID: 2040545291}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &502659700
 MonoBehaviour:
@@ -4999,7 +5025,7 @@ GameObject:
   - component: {fileID: 525813615}
   - component: {fileID: 525813614}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: 'Directional Light '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5434,7 +5460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (40)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -5516,7 +5542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (74)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -5593,7 +5619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (26)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -5670,7 +5696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (49)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -5781,7 +5807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
-      value: XR Origin (XR Rig) (1)
+      value: 'XR Origin (XR Rig) '
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RootOrder
@@ -5936,19 +5962,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0756588
+      value: -13.895857
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.39002037
+      value: -8.809997
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5980,7 +6006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_Name
-      value: Prop_StorageCabinet_02 (1)
+      value: 'Prop_StorageCabinet_02 '
       objectReference: {fileID: 0}
     - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_Layer
@@ -5997,19 +6023,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 2283308109265603744, guid: a434923c2bf0a4557946976bca1397ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.38887405
+      value: -13.582642
       objectReference: {fileID: 0}
     - target: {fileID: 2283308109265603744, guid: a434923c2bf0a4557946976bca1397ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1977554
+      value: 0.7349446
       objectReference: {fileID: 0}
     - target: {fileID: 2283308109265603744, guid: a434923c2bf0a4557946976bca1397ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.49803543
+      value: -8.701982
       objectReference: {fileID: 0}
     - target: {fileID: 2283308109265603744, guid: a434923c2bf0a4557946976bca1397ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6106,7 +6132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (3)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6367,7 +6393,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3651966197742019746, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_Size.y
@@ -6383,15 +6409,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7996597
+      value: -11.171856
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93269986
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.49614906
+      value: -8.703868
       objectReference: {fileID: 0}
     - target: {fileID: 3976062412673591142, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6423,7 +6449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352200305128078812, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_Name
-      value: Prop_Stove (1)
+      value: 'Prop_Stove '
       objectReference: {fileID: 0}
     - target: {fileID: 4352200305128078812, guid: 65aeeaef3d6863a428686ba3b34e8c58, type: 3}
       propertyPath: m_Layer
@@ -6478,7 +6504,7 @@ GameObject:
   - component: {fileID: 684728341}
   - component: {fileID: 684728342}
   m_Layer: 7
-  m_Name: GameObject (2)
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6578,7 +6604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (50)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6660,7 +6686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (35)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6770,7 +6796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (42)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6847,7 +6873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (19)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6934,7 +6960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -6959,7 +6985,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3288771619126639498, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Layer
@@ -6975,15 +7001,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.28
+      value: -10.691515
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.0399995
+      value: -4.160018
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6991,7 +7017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.y
@@ -6999,7 +7025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7015,7 +7041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4539018100729812022, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Name
-      value: "\u51B7\u8535\u5EAB (2)"
+      value: Refrigerator
       objectReference: {fileID: 0}
     - target: {fileID: 5543348175604144905, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Size.y
@@ -7113,7 +7139,7 @@ GameObject:
   - component: {fileID: 749457162}
   - component: {fileID: 749457161}
   m_Layer: 0
-  m_Name: XR Interaction Manager (1)
+  m_Name: 'XRInteractionManager '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7206,7 +7232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (23)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -7302,19 +7328,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.984
+      value: -11.987516
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7346,7 +7372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B (2)"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -7466,7 +7492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (25)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -7491,19 +7517,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5403404
+      value: -15.511856
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.39002037
+      value: -8.809997
       objectReference: {fileID: 0}
     - target: {fileID: 3964434568993975441, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7639,7 +7665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816492661}
   m_Layer: 0
-  m_Name: "\u30EC\u30B8 (1)"
+  m_Name: Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7662,7 +7688,7 @@ Transform:
   - {fileID: 1804882045}
   - {fileID: 1847568900}
   - {fileID: 810788644}
-  m_Father: {fileID: 1233382180}
+  m_Father: {fileID: 1949430458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &819169933
 PrefabInstance:
@@ -7670,19 +7696,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.542
+      value: -12.429516
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7714,7 +7740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B (1)"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -7744,19 +7770,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.217
+      value: -10.754515
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7788,7 +7814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B (5)"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -8099,7 +8125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (46)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8280,7 +8306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (20)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8357,7 +8383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (21)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8434,7 +8460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (22)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8459,19 +8485,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1376591
+      value: -12.833857
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8503,7 +8529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -8649,7 +8675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (61)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8726,7 +8752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (54)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8803,7 +8829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (15)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -8886,7 +8912,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1016831498
+--- !u!1 &1038721529
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8894,43 +8920,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1016831499}
+  - component: {fileID: 1038721530}
   m_Layer: 0
-  m_Name: "\u5BB6\u5177"
+  m_Name: AudioSoundManageer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1016831499
+--- !u!4 &1038721530
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016831498}
+  m_GameObject: {fileID: 1038721529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -33.08665, y: 1.01093, z: -15.0621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1706126888}
-  - {fileID: 1511376789}
-  - {fileID: 2069912587}
-  - {fileID: 417078269}
-  - {fileID: 2121415790}
-  - {fileID: 580549756}
-  - {fileID: 1170525175}
-  - {fileID: 2003345439}
-  - {fileID: 1054636382}
-  - {fileID: 331310629}
-  - {fileID: 903442380}
-  - {fileID: 841220521}
-  - {fileID: 1370454719}
-  - {fileID: 1394594810}
-  - {fileID: 510558475}
-  m_Father: {fileID: 1291566371}
+  - {fileID: 423063427}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1039096366
 PrefabInstance:
@@ -9004,19 +9016,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 523821974839553560, guid: 0237281380e6d4d86ad7742a225628c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.37147713
+      value: -14.342993
       objectReference: {fileID: 0}
     - target: {fileID: 523821974839553560, guid: 0237281380e6d4d86ad7742a225628c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1977554
+      value: 0.7349446
       objectReference: {fileID: 0}
     - target: {fileID: 523821974839553560, guid: 0237281380e6d4d86ad7742a225628c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.56521034
+      value: -8.634807
       objectReference: {fileID: 0}
     - target: {fileID: 523821974839553560, guid: 0237281380e6d4d86ad7742a225628c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9141,19 +9153,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.38
+      value: -11.5915165
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9185,7 +9197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B (3)"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -9267,7 +9279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (72)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -9523,7 +9535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (5)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -9633,7 +9645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (13)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -9787,7 +9799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (45)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -9864,7 +9876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (36)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10049,7 +10061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (52)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10173,7 +10185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (57)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10236,7 +10248,7 @@ GameObject:
   - component: {fileID: 1184486281}
   - component: {fileID: 1184486282}
   m_Layer: 5
-  m_Name: "\u6CB9\u306E\u30E1\u30FC\u30BF\u30FC"
+  m_Name: OilMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10405,7 +10417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (62)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10424,11 +10436,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1529056479}
   m_SourcePrefab: {fileID: 100100000, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
---- !u!4 &1233382180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9044399453456747537, guid: 5735b2b15fc22a7409c839c4dbf9d73e, type: 3}
-  m_PrefabInstance: {fileID: 11850589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235215097
 GameObject:
   m_ObjectHideFlags: 0
@@ -10440,7 +10447,7 @@ GameObject:
   - component: {fileID: 1235215098}
   - component: {fileID: 1235215099}
   m_Layer: 7
-  m_Name: GameObject
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10606,7 +10613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (34)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10683,7 +10690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (24)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -10735,45 +10742,6 @@ CapsuleCollider:
   m_Height: 0.14657807
   m_Direction: 1
   m_Center: {x: 0.00065898895, y: 0.026283145, z: 0.0017309189}
---- !u!1 &1291566370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1291566371}
-  m_Layer: 0
-  m_Name: "\uFF1D\u30DE\u30C3\u30D7\uFF1D (1)"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1291566371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291566370}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.14366, y: 0.9327, z: -18.56102}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1016831499}
-  - {fileID: 711668578}
-  - {fileID: 19868106}
-  - {fileID: 1606976584}
-  - {fileID: 1650196668}
-  - {fileID: 572610872}
-  - {fileID: 1455378491}
-  - {fileID: 502659699}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302177741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
@@ -10818,7 +10786,7 @@ GameObject:
   - component: {fileID: 1316857082}
   - component: {fileID: 1316857081}
   m_Layer: 0
-  m_Name: "\u79FB\u52D5\u5834\u6240"
+  m_Name: MoveRoute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10984,7 +10952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (63)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -11080,19 +11048,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.83
+      value: -11.141516
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09130007
+      value: 1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63401985
+      value: -8.565997
       objectReference: {fileID: 0}
     - target: {fileID: 2309158849412854077, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11124,7 +11092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Name
-      value: "\u30C1\u30E7\u30B3\u934B (4)"
+      value: ChocolateHotPot
       objectReference: {fileID: 0}
     - target: {fileID: 3116516306866908039, guid: 772b12e3998be144eb54ea25ab1e1884, type: 3}
       propertyPath: m_Layer
@@ -11312,7 +11280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (78)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -11493,7 +11461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (70)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -11524,7 +11492,7 @@ GameObject:
   - component: {fileID: 1426793411}
   - component: {fileID: 1426793410}
   m_Layer: 5
-  m_Name: Image
+  m_Name: crosshairsUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11740,7 +11708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (11)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -11926,7 +11894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (43)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -12003,7 +11971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (68)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -12080,7 +12048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (29)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -12105,19 +12073,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.31
+      value: -17.281515
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.63
+      value: -5.570017
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12125,7 +12093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalRotation.y
@@ -12133,7 +12101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2488196155509341483, guid: 84897b65c1aad0446aa9f7450df88b60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12171,7 +12139,7 @@ GameObject:
   - component: {fileID: 1502450819}
   - component: {fileID: 1502450818}
   m_Layer: 0
-  m_Name: "\u79FB\u52D5\u5834\u6240 (1)"
+  m_Name: MoveRoute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12315,7 +12283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538174516}
   m_Layer: 6
-  m_Name: "\u30EC\u30B8\u673A"
+  m_Name: CashRegisterDesk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12337,7 +12305,7 @@ Transform:
   - {fileID: 316650683}
   - {fileID: 884977907}
   - {fileID: 795828124}
-  m_Father: {fileID: 1233382180}
+  m_Father: {fileID: 1949430458}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1540856993 stripped
 GameObject:
@@ -12430,7 +12398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (9)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -12488,19 +12456,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 4313571296901872756, guid: fcfb4cbcc867a4808af09e55c877dfc0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.59148216
+      value: -14.562998
       objectReference: {fileID: 0}
     - target: {fileID: 4313571296901872756, guid: fcfb4cbcc867a4808af09e55c877dfc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1977554
+      value: 0.7349446
       objectReference: {fileID: 0}
     - target: {fileID: 4313571296901872756, guid: fcfb4cbcc867a4808af09e55c877dfc0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.58717537
+      value: -8.612842
       objectReference: {fileID: 0}
     - target: {fileID: 4313571296901872756, guid: fcfb4cbcc867a4808af09e55c877dfc0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12772,7 +12740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (71)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -12836,7 +12804,7 @@ GameObject:
   - component: {fileID: 1575340899}
   - component: {fileID: 1575340898}
   m_Layer: 6
-  m_Name: "\u6BB5\u30DC\u30FC\u30C1\u30E7\u30B3"
+  m_Name: ChocolateBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12856,7 +12824,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 688254929}
-  m_Father: {fileID: 1233382180}
+  m_Father: {fileID: 2040545291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1575340898
 BoxCollider:
@@ -12901,7 +12869,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 3641111544981939413, guid: 435e2e8a8e9cd48e3adcf379d3c4d7e2, type: 3}
       propertyPath: m_Name
@@ -12909,15 +12877,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9125509856304890511, guid: 435e2e8a8e9cd48e3adcf379d3c4d7e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.13071442
+      value: -13.840801
       objectReference: {fileID: 0}
     - target: {fileID: 9125509856304890511, guid: 435e2e8a8e9cd48e3adcf379d3c4d7e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.19775534
+      value: 0.73494464
       objectReference: {fileID: 0}
     - target: {fileID: 9125509856304890511, guid: 435e2e8a8e9cd48e3adcf379d3c4d7e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55755997
+      value: -8.642457
       objectReference: {fileID: 0}
     - target: {fileID: 9125509856304890511, guid: 435e2e8a8e9cd48e3adcf379d3c4d7e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13103,7 +13071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (51)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13213,7 +13181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (14)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13356,7 +13324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (79)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13385,7 +13353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649300205}
   m_Layer: 0
-  m_Name: SpownChild (1)
+  m_Name: 'SpownChild '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13469,7 +13437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (69)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13634,7 +13602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (76)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13711,7 +13679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (18)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13894,7 +13862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (77)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -13982,6 +13950,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1702202522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702202523}
+  m_Layer: 0
+  m_Name: CustomMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702202523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702202522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.172144, y: 0, z: -9.361003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1949430458}
+  - {fileID: 145953063}
+  - {fileID: 2040545291}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1706126888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
@@ -14157,7 +14159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (44)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14267,7 +14269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (64)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14344,7 +14346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (47)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14421,7 +14423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (65)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14532,7 +14534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (10)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14751,7 +14753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (27)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -14782,7 +14784,7 @@ GameObject:
   - component: {fileID: 1827368078}
   - component: {fileID: 1827368077}
   m_Layer: 0
-  m_Name: EventSystem (1)
+  m_Name: 'EventSystem '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15270,7 +15272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (31)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -15333,7 +15335,7 @@ GameObject:
   - component: {fileID: 1930661167}
   - component: {fileID: 1930661168}
   m_Layer: 7
-  m_Name: GameObject (1)
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15433,7 +15435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (2)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -15561,13 +15563,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1332045801}
   m_SourcePrefab: {fileID: 100100000, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
+--- !u!1 &1949430457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949430458}
+  m_Layer: 0
+  m_Name: Furniture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1949430458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949430457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2069912587}
+  - {fileID: 417078269}
+  - {fileID: 2121415790}
+  - {fileID: 580549756}
+  - {fileID: 1706126888}
+  - {fileID: 1511376789}
+  - {fileID: 1170525175}
+  - {fileID: 2003345439}
+  - {fileID: 1054636382}
+  - {fileID: 331310629}
+  - {fileID: 903442380}
+  - {fileID: 841220521}
+  - {fileID: 1538174516}
+  - {fileID: 1394594810}
+  - {fileID: 510558475}
+  - {fileID: 1370454719}
+  - {fileID: 126336979}
+  - {fileID: 816492661}
+  - {fileID: 423329581}
+  m_Father: {fileID: 1702202523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1952657971
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 3288771619126639498, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Layer
@@ -15583,15 +15635,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.31
+      value: -10.661516
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.36
+      value: -5.8400173
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15599,7 +15651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15607,7 +15659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3870285625942986380, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15623,7 +15675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4539018100729812022, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Name
-      value: "\u51B7\u8535\u5EAB (1)"
+      value: Refrigerator
       objectReference: {fileID: 0}
     - target: {fileID: 5543348175604144905, guid: ba9199147aa40894ca7f66b182e48c40, type: 3}
       propertyPath: m_Size.y
@@ -15843,7 +15895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (56)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -16117,7 +16169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (53)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -16241,7 +16293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (48)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -16318,7 +16370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (8)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -16395,7 +16447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (16)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -16420,7 +16472,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1291566371}
+    m_TransformParent: {fileID: 145953063}
     m_Modifications:
     - target: {fileID: 186799609498798025, guid: 2881fef2849194f4788664e1e7c11866, type: 3}
       propertyPath: m_Name
@@ -16428,15 +16480,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671197638419177875, guid: 2881fef2849194f4788664e1e7c11866, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12453079
+      value: -14.096046
       objectReference: {fileID: 0}
     - target: {fileID: 5671197638419177875, guid: 2881fef2849194f4788664e1e7c11866, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1977554
+      value: 0.7349446
       objectReference: {fileID: 0}
     - target: {fileID: 5671197638419177875, guid: 2881fef2849194f4788664e1e7c11866, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5251751
+      value: -8.674842
       objectReference: {fileID: 0}
     - target: {fileID: 5671197638419177875, guid: 2881fef2849194f4788664e1e7c11866, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16501,6 +16553,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38135650}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2040545290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040545291}
+  m_Layer: 0
+  m_Name: FoodBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040545291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040545290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1575340897}
+  - {fileID: 502659699}
+  m_Father: {fileID: 1702202523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2045474095
 GameObject:
@@ -16912,7 +16997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730 (66)"
+      value: DoughnutDough
       objectReference: {fileID: 0}
     - target: {fileID: 5869213248351403094, guid: c8c21689e419d46b08cd83b3f6f0af1c, type: 3}
       propertyPath: m_TagString
@@ -17044,7 +17129,7 @@ GameObject:
   - component: {fileID: 2139072934}
   - component: {fileID: 2139072935}
   m_Layer: 7
-  m_Name: GameObject
+  m_Name: RayCastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17092,7 +17177,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1016831499}
+    m_TransformParent: {fileID: 1949430458}
     m_Modifications:
     - target: {fileID: 1919572545826736863, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17100,15 +17185,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3763409
+      value: -17.347857
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93269974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.39101982
+      value: -8.808997
       objectReference: {fileID: 0}
     - target: {fileID: 4908446894387135627, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17140,7 +17225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716649975524417073, guid: 7f8bf37bb7a312f478ae92d0810f02b4, type: 3}
       propertyPath: m_Name
-      value: "\u30D5\u30E9\u30A4\u30E4\u30FC (1)"
+      value: Flyer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -17161,14 +17246,14 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1316857082}
-  - {fileID: 38135650}
+  - {fileID: 525813616}
+  - {fileID: 749457162}
   - {fileID: 1827368079}
+  - {fileID: 1038721530}
   - {fileID: 484503045}
   - {fileID: 11850589}
-  - {fileID: 1291566371}
-  - {fileID: 423063427}
-  - {fileID: 749457162}
+  - {fileID: 1702202523}
+  - {fileID: 1316857082}
   - {fileID: 1502450819}
-  - {fileID: 525813616}
+  - {fileID: 38135650}
   - {fileID: 2045474102}
