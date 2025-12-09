@@ -1,15 +1,20 @@
 using UnityEngine;
-
+/// <summary>
+/// チョコレートの欠片の処理
+/// </summary>
 public class ChocolateFragment : FurnitureOwner
 {
-    [Header("（自動）PlayerPickupをアタッチ")]
-    public PlayerPickup m_PlayerPickup;
+    [Header("（自動）PlayerPickupをアタッチ"),SerializeField]
+    private PlayerPickup m_PlayerPickup;
+
     [Header("チョコレートの欠片")]
-    public GameObject m_Choko;
+    private GameObject m_Choko;
+
     private void Start()
     {
         // タグ "Player" のオブジェクトを探して PlayerPickup を取得
         GameObject playerObj = GameObject.FindWithTag("Player");
+
         if (playerObj != null)
         {
             m_PlayerPickup = playerObj.GetComponent<PlayerPickup>();
@@ -18,8 +23,10 @@ public class ChocolateFragment : FurnitureOwner
                 Debug.LogError("PlayerPickup が Player にアタッチされていません");
             }
         }
+
         //Key入力
-        useKey = UseKey.LeftClick;
+        m_UseKey = UseKey.LeftClick;
+
         //コメントUI
         m_KeyHint = "左クリック";
         

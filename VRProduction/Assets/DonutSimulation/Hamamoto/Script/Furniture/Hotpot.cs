@@ -1,21 +1,34 @@
 using UnityEngine;
-
+/// <summary>
+/// チョコレートを入れる鍋の処理
+/// </summary>
 public class Hotpot : FurnitureOwner
 {
-    [Header("PlayerPickupscriptをアタッチ")]
-    public PlayerPickup m_PlayerPickup;
-    [Header("鍋に入ってるチョコ")]
-    public GameObject m_HptpotChoko;
-    //チョコをいれたかどうか
+    [Header("PlayerPickupscriptをアタッチ"),SerializeField]
+    private PlayerPickup m_PlayerPickup;
+
+    [Header("鍋に入ってるチョコ"),SerializeField]
+    private GameObject m_HptpotChoko;
+
+    [Header("チョコレートを入れたかどうか"), SerializeField]
     private bool m_InChoko=false;
+
+    /// <summary>
+    /// 開始
+    /// </summary>
     private void Start()
     {
         //非表示
         m_HptpotChoko.SetActive(false);
+
         //Key入力とUI表示
-        useKey = UseKey.RightClick;
+        m_UseKey = UseKey.RightClick;
         m_KeyHint = "右クリック";
     }
+
+    /// <summary>
+    /// 鍋にチョコかどうかを調べる
+    /// </summary>
     public override void Interact()
     {
         //何も持っていなかったら
@@ -39,11 +52,18 @@ public class Hotpot : FurnitureOwner
 
        
     }
+
+    /// <summary>
+    /// 鍋の中身がChocolateかどうか調べる
+    /// </summary>
+    /// <param name="other">鍋の中身</param>
     private void OnTriggerEnter(Collider other)
     {
+        //レイヤーがItemじゃなかったら処理しない
         if (other.gameObject.layer != LayerMask.NameToLayer("Item")) return;
 
-        GameObject itemObj= other.gameObject;
+        //Chocolateなら持っているチョコレートを消して次の処理へ
+        GameObject itemObj = other.gameObject;
         if(itemObj.CompareTag("Chocolate"))
         {
             bool success = PutInChocolate();
@@ -53,8 +73,14 @@ public class Hotpot : FurnitureOwner
             }
         }
     }
+
+    /// <summary>
+    /// 鍋にチョコレート入れる処理
+    /// </summary>
+    /// <returns>チョコが入ってなかったらtrue,満たされていたらfalse</returns>
     private bool PutInChocolate()
     {
+        //中にチョコレートが入っていたら何もしない
         if (m_InChoko)
         {
             Debug.Log("もう中にチョコが入ってます");
@@ -62,7 +88,11 @@ public class Hotpot : FurnitureOwner
         }
 
         Debug.Log("チョコを鍋に");
+
+        //表示
         m_HptpotChoko.SetActive(true);
+
+        //フラグをオン
         m_InChoko = true;
 
         return true;

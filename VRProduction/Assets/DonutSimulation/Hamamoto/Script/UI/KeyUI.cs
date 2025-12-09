@@ -1,10 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// KeyのText表示処理
+/// </summary>
 public class KeyUI : MonoBehaviour
 {
-    public Image m_Image;
-    public Text m_KeyText; // UIのテキスト
+    [Header("Keyの枠のUI")]
+    public Image m_KeyImage;
+
+    [Header("KeyのText"),SerializeField]
+    private Text m_KeyText; 
+
+    /// <summary>
+    /// ここでKeyのTextが変わる
+    /// </summary>
+    /// <param name="keyName">KeyのTextの名前</param>
     public void SetKey(string keyName)
     {
         m_KeyText.text = keyName;

@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 164078025}
   - component: {fileID: 164078026}
   m_Layer: 5
-  m_Name: crosshairs
+  m_Name: UIKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,6 +1428,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 322593277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &478869998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1680501587, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 609605015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &484503043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec57d297343b53c4cbf21462defeef8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyUI
-  m_Image: {fileID: 164078026}
+  m_KeyImage: {fileID: 164078026}
   m_KeyText: {fileID: 439433264}
 --- !u!224 &484503045
 RectTransform:
@@ -1820,11 +1825,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 791876779898888062, guid: 344c816f11f22694ea8606956e715213, type: 3}
   m_PrefabInstance: {fileID: 1383374062}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &724434422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-  m_PrefabInstance: {fileID: 609605015}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &724434428 stripped
 Transform:
@@ -2815,8 +2815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1558e02a7c65743b8132eb854874a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSwitcher
-  pcCamera: {fileID: 0}
-  xrOrigin: {fileID: 724434422}
 --- !u!1 &1944568603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,13 +3135,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPickup
   m_ItemGetSE: {fileID: 8300000, guid: c146ddb966050c045a1aeec3b99e6cce, type: 3}
-  m_pickUpDistance: 3
+  m_PickUpDistance: 5
   m_ItemMoveSpeed: 0.1
   m_ItemDistance: 5
   m_HandHave: {fileID: 461105822}
   m_KeyUI: {fileID: 484503044}
   m_HaveItem: {fileID: 0}
   m_HandHaveNow: 0
+  m_IsPickUpFrame: 0
+  m_PickUpItemDist: 0
+  m_currentFurniture: {fileID: 0}
+  m_AudioSource: {fileID: 0}
 --- !u!54 &2045474099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3183,14 +3185,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314cfcdf05d09fd459f5a792da3ff8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Move
-  m_CameraPivot: {fileID: 322593277}
+  m_CameraPivot: {fileID: 478869998}
   m_PitchSpeed: 60
-  minPitch: -30
-  maxPitch: 45
-  CameraSpeed: 1
-  moveSpeed: 5
-  isArea: 0
+  m_MinPitch: -30
+  m_MaxPitch: 45
+  m_Pitch: 0
+  m_CameraSpeed: 2
+  m_MoveSpeed: 5
   m_debugText: {fileID: 1713334706}
+  m_Rigidbody: {fileID: 0}
+  m_PlayerInput: {fileID: 2045474103}
+  m_MoveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1995af47-fc73-4193-9e28-676fed5d31fb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e6ba4c06-1c32-4e1c-8f23-e904812c0b2c
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
+    m_Flags: 0
 --- !u!136 &2045474101
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3359,6 +3380,14 @@ PrefabInstance:
       propertyPath: m_playerpickup
       value: 
       objectReference: {fileID: 2045474098}
+    - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_FlayerPlayerPickup
+      value: 
+      objectReference: {fileID: 2045474098}
+    - target: {fileID: 1750806042468582574, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_Name
+      value: FlyerInDonutDough
+      objectReference: {fileID: 0}
     - target: {fileID: 1975489700373345737, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_PlayerPickup
       value: 
@@ -3375,10 +3404,18 @@ PrefabInstance:
       propertyPath: m_PlayerHand
       value: 
       objectReference: {fileID: 2045474098}
+    - target: {fileID: 3183953314441432363, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_Name
+      value: FlyerInDonutDough
+      objectReference: {fileID: 0}
     - target: {fileID: 3340085170671051719, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_PlayerPickup
       value: 
       objectReference: {fileID: 2045474098}
+    - target: {fileID: 5780339658569161995, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_Name
+      value: FlyerInDonutDough
+      objectReference: {fileID: 0}
     - target: {fileID: 6300246135239100230, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_PlayerPickup
       value: 

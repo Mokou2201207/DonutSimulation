@@ -1,23 +1,26 @@
-using UnityEngine;
-
+using UnityEngine;//※このスクリプトは今は使われてません31行が無効されてます
+/// <summary>
+/// 持っているアイテムを落とす処理
+/// </summary>
 public class ItemDrop : MonoBehaviour
 {
-    [Header("（自動）PlayerPickupアタッチ")]
-    [SerializeField]private PlayerPickup m_playerPickup;
+    [Header("（自動）PlayerPickupアタッチ"), SerializeField]
+    private PlayerPickup m_playerPickup;
 
+    /// <summary>
+    /// 開始
+    /// </summary>
     private void Start()
     {
         if (m_playerPickup==null)
         {
             m_playerPickup = GetComponent<PlayerPickup>();
-            if (m_playerPickup==null)
-            {
-                Debug.LogError("PlayerPickupがアタッチされてません");
-            }
         }
-
     }
 
+    /// <summary>
+    /// 更新
+    /// </summary>
     private void Update()
     {
         //アイテムを持っていたなら

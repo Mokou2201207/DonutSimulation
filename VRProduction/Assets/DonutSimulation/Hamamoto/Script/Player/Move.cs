@@ -1,60 +1,75 @@
-using System;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
-
-public class Playercontroller : MonoBehaviour
+/// <summary>
+/// プレイヤーの操作とカメラの左右上下の処理
+/// </summary>
+public class Move : MonoBehaviour
 {
-    [Header("カメラのピボット（上下回転専用）")]
-    public Transform m_CameraPivot;
+    [Header("カメラのピボット（上下回転専用）"), SerializeField]
+    private Transform m_CameraPivot;
 
-    [Header("上下回転設定")]
-    public float m_PitchSpeed = 60f;
-    public float minPitch = -30f;
-    public float maxPitch = 45f;
+    [Header("上下回転設定"), SerializeField]
+    private float m_PitchSpeed = 60f;
+
+    [Header("視点の下のMax設定"), SerializeField]
+    private float m_MinPitch = -30f;
+
+    [Header("視点の上のMax設定"), SerializeField]
+    private float m_MaxPitch = 45f;
+
+    [Header("視点の最初の位置を固定"), SerializeField]
     private float m_Pitch = 0f;
-    [Header("カメラスピード")]
-    public float CameraSpeed;
-    [Header("スピード")]
-    public float moveSpeed;
-    public bool isArea;
-    private Rigidbody m_Rigidbody;
-    private Transform m_Transform;
-    private Animator m_Animator;
-    private PlayerInput m_PlayerInput;
-    private InputAction m_MoveAction;
-    private InputAction m_LookAction;
-    public Text m_debugText;
+
+    [Header("カメラスピード"), SerializeField]
+    private float m_CameraSpeed;
+
+    [Header("移動スピード"), SerializeField]
+    private float m_MoveSpeed;
+
+    [Header("Debug用のText"), SerializeField]
+    private Text m_debugText;
+
+    [SerializeField] private Rigidbody m_Rigidbody;
+
+    [SerializeField] private PlayerInput m_PlayerInput;
+
+    [SerializeField] private InputAction m_MoveAction;
+
+    /// <summary>
+    /// 開始
+    /// </summary>
     private void Start()
     {
-
         //格納
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_Transform = GetComponent<Transform>();
-        m_Animator = GetComponent<Animator>();
-        m_PlayerInput=GetComponent<PlayerInput>();
+        m_PlayerInput = GetComponent<PlayerInput>();
+
         m_PlayerInput.currentActionMap.Enable();
+
         m_MoveAction = m_PlayerInput.actions.FindAction("Move");
-        m_LookAction = m_PlayerInput.actions.FindAction("Look");
+
         //カーソルを中央に固定
         Cursor.lockState = CursorLockMode.Locked;
+
         //カーソル非表示
         Cursor.visible = false;
     }
 
+    /// <summary>
+    /// 更新
+    /// </summary>
     private void Update()
     {
         //左右回転（プレイヤー本体）
         float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseX * CameraSpeed, 0);
+        transform.Rotate(0, mouseX * m_CameraSpeed, 0);
 
         //上下回転（CameraPivot）
         float mouseY = Input.GetAxis("Mouse Y");
 
         m_Pitch -= mouseY * m_PitchSpeed * Time.deltaTime;
-        m_Pitch = Mathf.Clamp(m_Pitch, minPitch, maxPitch);
+        m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitch, m_MaxPitch);
 
         if (m_CameraPivot != null)
         {
@@ -63,29 +78,17 @@ public class Playercontroller : MonoBehaviour
 
         m_debugText.text = string.Format("Move：{0}", m_MoveAction.ReadValue<Vector2>());
     }
-    
+
     void FixedUpdate()
     {
-
-        // キャラクターとカメラの左右回転（Y軸）
-        //transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * CameraSpeed, 0));
         //移動
         Vector2 input = m_MoveAction.ReadValue<Vector2>();
-        float moveX = input.x * moveSpeed;
-        float moveZ = input.y * moveSpeed;
+        float moveX = input.x * m_MoveSpeed;
+        float moveZ = input.y * m_MoveSpeed;
 
         //水平方向の速度を設定（Y速度は維持）
         Vector3 velocity = transform.right * moveX + transform.forward * moveZ;
         velocity.y = m_Rigidbody.linearVelocity.y;
         m_Rigidbody.linearVelocity = velocity;
-        //キャラアニメーションで動く
-        //m_Animator.SetFloat("X", Input.GetAxis("Horizontal"));
-        //m_Animator.SetFloat("Y", Input.GetAxis("Vertical"));
     }
-
-
-
-
-
-
 }
