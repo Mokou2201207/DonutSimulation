@@ -5,29 +5,38 @@ using UnityEngine.UI;
 /// </summary>
 public class Flayer : FurnitureOwner
 {
-    [Header("入ってるドーナツ"),SerializeField]
+    [Header("入ってるドーナツ"), SerializeField]
     private GameObject[] m_InDount;
 
-    [Header("今入ってるドーナツの数"),SerializeField]
+    [Header("今入ってるドーナツの数"), SerializeField]
     private int m_CurrentCount = 0;
 
-    [Header("PlayerPickupscriptをアタッチ"),SerializeField]
+    [Header("PlayerPickupscriptをアタッチ"), SerializeField]
     private PlayerPickup m_FlayerPlayerPickup;
 
     [Header("アニメーター自動"), SerializeField]
     private Animator m_Animator;
 
-    [Header("油のメーターをアタッチ"),SerializeField]
+    [Header("油のメーターをアタッチ"), SerializeField]
     private Slider m_Oilslider;
 
-    [Header("オイルの秒数（OUT）"),SerializeField]
-    private int m_Oilcount=10;
+    [Header("オイルの秒数（OUT）"), SerializeField]
+    private int m_Oilcount = 10;
 
-    [Header("フライヤーにいれたかどうか"),SerializeField]
+    [Header("フライヤーにいれたかどうか"), SerializeField]
     private bool m_FlayerIN = false;
 
-    [Header("フライヤーの中に入っているドーナツの数"),SerializeField]
+    [Header("フライヤーの中に入っているドーナツの数"), SerializeField]
     private GameObject[] m_DountSlots;
+
+    [Header("油のSE"), SerializeField]
+    private AudioSource m_OilInSE;
+
+    [Header("タイマーのSE"), SerializeField]
+    private AudioSource m_TimerSE;
+
+    [Header("タイマーは一回だけ流すフラグ"),SerializeField]
+    private bool m_IsTimerSoundPlayed = false;
 
     /// <summary>
     /// 開始
@@ -40,7 +49,7 @@ public class Flayer : FurnitureOwner
             slot.SetActive(false);
         }
 
-        // Animatorを全て取得
+        // コンポーネント取得
         m_Animator = GetComponent<Animator>();
 
         //Keyの入力を入れる
@@ -55,6 +64,10 @@ public class Flayer : FurnitureOwner
 
         //非表示
         m_Oilslider.gameObject.SetActive(false);
+
+        //SEを最初はStop
+        m_OilInSE.Stop();
+        m_TimerSE.Stop();
     }
 
     /// <summary>
@@ -70,9 +83,9 @@ public class Flayer : FurnitureOwner
         }
     }
 
-/// <summary>
-/// 更新
-/// </summary>
+    /// <summary>
+    /// 更新
+    /// </summary>
     private void Update()
     {
         //右クリック押すとフライヤーにIn
@@ -86,7 +99,7 @@ public class Flayer : FurnitureOwner
             OilCount();
         }
     }
-    
+
     /// <summary>
     /// フライヤーのアニメーションの処理
     /// </summary>
@@ -100,19 +113,28 @@ public class Flayer : FurnitureOwner
                 Debug.Log("油にドーナツをIN");
                 m_Animator.SetBool("IN", true);
                 m_FlayerIN = true;
+
                 //カウントをリセット
                 m_Oilslider.value = 0f;
+
                 //表示
                 m_Oilslider.gameObject.SetActive(true);
             }
             //カウントが０になったら上げる
-            else if(m_Oilslider.value >= m_Oilslider.maxValue)
+            else if (m_Oilslider.value >= m_Oilslider.maxValue)
             {
                 Debug.Log("油からドーナツをOUT");
                 m_Animator.SetBool("IN", false);
+
                 m_FlayerIN = false;
+                m_IsTimerSoundPlayed = false;
+
                 //表示
                 m_Oilslider.gameObject.SetActive(false);
+
+                //SEの音をstop
+                m_OilInSE.Stop();
+                m_TimerSE.Stop();
             }
             else
             {
@@ -174,18 +196,38 @@ public class Flayer : FurnitureOwner
         }
     }
 
-   /// <summary>
-   /// ドーナツを上げる際のカウント
-   /// </summary>
+    /// <summary>
+    /// ドーナツを上げる際のカウント
+    /// </summary>
     private void OilCount()
     {
         m_Oilslider.value += Time.deltaTime;
 
-        // 10秒経過したら完成
+        //タイマーが10秒たったら
         if (m_Oilslider.value >= m_Oilslider.maxValue)
         {
             m_Oilslider.value = m_Oilslider.maxValue;
-            Debug.Log("揚げ終わり！ OUTできる状態！");
+
+            if (!m_IsTimerSoundPlayed)
+            {
+                Debug.Log("タイマー音 再生！");
+                m_TimerSE.loop = true;
+                m_TimerSE.Play();
+
+                m_IsTimerSoundPlayed = true;
+            }
         }
+    }
+
+    /// <summary>
+    /// アニメーションイベントでドーナツを油に入れたときのSE
+    /// </summary>
+    private void OilInSound()
+    {
+        Debug.Log("油の音を再生");
+
+        //再生（油の音）
+        m_OilInSE.loop = true;
+        m_OilInSE.Play();
     }
 }
