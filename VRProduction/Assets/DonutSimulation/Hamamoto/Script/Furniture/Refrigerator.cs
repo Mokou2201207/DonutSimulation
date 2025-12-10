@@ -10,6 +10,14 @@ public class Refrigerator : FurnitureOwner
     [Header("冷蔵庫のドアが開いたかどうか"), SerializeField]
     private bool m_DoorRefrigerator = false;
 
+    [Header("処理中の無視フラグ"),SerializeField]
+    private bool m_IsAnimating=false;
+
+    [Header("冷蔵庫を開く音"), SerializeField]
+    private AudioSource m_RefrigeratorOpenSE;
+
+    [Header("冷蔵庫を閉める音"), SerializeField]
+    private AudioSource m_RefrigeratorCloseSE;
     /// <summary>
     /// 開始
     /// </summary>
@@ -23,6 +31,10 @@ public class Refrigerator : FurnitureOwner
 
         //UIを表示
         m_KeyHint = "Q";
+
+        //Soundを停止
+        m_RefrigeratorCloseSE.Stop();
+        m_RefrigeratorOpenSE.Stop();
     }
 
     /// <summary>
@@ -30,6 +42,11 @@ public class Refrigerator : FurnitureOwner
     /// </summary>
     public override void Interact()
     {
+        //アニメーション中なら処理しない
+        if(m_IsAnimating)return;
+
+        m_IsAnimating = true;
+
         //Qキーを押したらドアが開く
         if (!m_DoorRefrigerator)
         {
@@ -39,6 +56,9 @@ public class Refrigerator : FurnitureOwner
 
             //Doorフラグオン
             m_DoorRefrigerator = true;
+
+            //再生
+            m_RefrigeratorOpenSE.Play();
         }
         else
         {
@@ -48,8 +68,20 @@ public class Refrigerator : FurnitureOwner
 
             //Doorフラグオフ
             m_DoorRefrigerator = false;
+
+            //再生
+            m_RefrigeratorCloseSE.Play();
         }
+
+        //アニメーションに合わせる
+        Invoke(nameof(ReleaseLock), 1.0f);
     }
 
-
+    /// <summary>
+    /// 開くor閉まるアニメーションが終わったらフラグを戻す処理
+    /// </summary>
+    private void ReleaseLock()
+    {
+        m_IsAnimating=false;
+    }
 }
