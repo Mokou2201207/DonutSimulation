@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 /// <summary>
@@ -5,36 +6,73 @@ using UnityEngine.AI;
 /// </summary>
 public class CashPositon : MonoBehaviour
 {
-    [Header("レジに寄る位置")]
-    public Transform m_CashPositon;
+    [Header("レジに寄る位置"), SerializeField]
+    private Transform[] m_CashPositon;
 
-    [Header("レジが開いているか")]
-    public bool m_IsOpen = false;
+    [Header("レジに立っているリスト"), SerializeField]
+    public GameObject[] m_CashNpcList;
 
+    [Header("レジが開いているか"), SerializeField]
+    private bool m_IsOpen = false;
+
+    /// <summary>
+    /// エリアに入ったらレジへ
+    /// </summary>
+    /// <param name="other">お客さん</param>
     private void OnTriggerEnter(Collider other)
     {
+        //エリアに入ったTagがCustomerじゃなかったら処理しない
         if (!other.CompareTag("Customer")) return;
 
-        if (!m_IsOpen) return;
+        //お店がOpenしたら処理をする。
+        if (!m_IsOpen)
+        {
+            Debug.Log("まだお店は空いてません");
+            return;
+        }
 
         NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
         MoveWaypoint move = other.GetComponent<MoveWaypoint>();
 
         if (agent == null || move == null) return;
+        if (move.m_IsCashed) return;
 
-        // レジへ向かわせる
-        agent.destination = m_CashPositon.position;
-        move.m_IsGoingToCash = true;
+        //NPCリストが空いているかチェック
+        for (int i = 0; i < m_CashNpcList.Length; i++)
+        {
+            if (m_CashNpcList[i] == null)
+            {
+                //ここのレジが空いてる
+                m_CashNpcList[i] = other.gameObject;
+                // このレジの位置へ移動
+                move.GoingtoCash(m_CashPositon[i].position);
+
+                break;
+            }
+        }
     }
+
+    /// <summary>
+    /// NPCが出たらレジを空ける
+    /// </summary>
+    /// <param name="other">お客さん</param>
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Customer")) return;
 
         MoveWaypoint move = other.GetComponent<MoveWaypoint>();
-        if (move != null)
+
+        //NPCをリストから抜く
+        for (int i=0; i<m_CashNpcList.Length; i++)
         {
-            move.m_IsGoingToCash = false;
+            //リストにそのオブジェクトがあるならnullを返す
+            if (m_CashNpcList[i] == other.gameObject)
+            {
+                m_CashNpcList[i] = null;
+                break;
+            }
         }
+
     }
 
 }
