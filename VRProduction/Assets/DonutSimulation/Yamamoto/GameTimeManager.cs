@@ -7,15 +7,14 @@ public class GameTimeManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     [Header("Time Settings")]
-    public int hour = 0;
+    public int hour = 6;   // ★6時スタート！
     public int minute = 0;
-    public float timeSpeed = 60f; // 1秒 = 1ゲーム内分
+    public float timeSpeed = 60f;
 
     private float timer = 0f;
 
-    [Header("Shop Settings")]
-    public int openTime = 9;
-    public int closeTime = 22;
+    [Header("Game Flow")]
+    public bool timeStart = false;
 
     [Header("Lighting")]
     public Light mainLight;
@@ -25,16 +24,29 @@ public class GameTimeManager : MonoBehaviour
 
     [Header("Sky System")]
     public Ultrabolt.SkyEngine.SkyCore skyCore;
+
     void Update()
     {
-        UpdateTime();
         UpdateUI();
         UpdateLighting();
-        UpdateSky(); // ★時間と空を連動
+
+        if (timeStart)
+            UpdateTime();
+
+        UpdateSky();
     }
 
+    //==============================
+    // 時間進行（6時スタート & 21時で停止）
+    //==============================
     void UpdateTime()
     {
+        if (hour >= 21)
+        {
+            timeStart = false;
+            return;
+        }
+
         timer += Time.deltaTime * timeSpeed;
 
         if (timer >= 60f)
@@ -48,22 +60,20 @@ public class GameTimeManager : MonoBehaviour
             minute = 0;
             hour++;
         }
-
-        if (hour >= 24)
-            hour = 0;
     }
 
+    //==============================
+    // UI
+    //==============================
     void UpdateUI()
     {
         if (timeText != null)
             timeText.text = $"{hour:00}:{minute:00}";
     }
 
-    public bool IsOpen()
-    {
-        return hour >= openTime && hour < closeTime;
-    }
-
+    //==============================
+    // ライト
+    //==============================
     void UpdateLighting()
     {
         if (mainLight == null) return;
@@ -78,27 +88,27 @@ public class GameTimeManager : MonoBehaviour
     }
 
     //==============================
-    // ★ SkyEngine の太陽・月角度更新
+    // SkyEngine の時間補正
     //==============================
-
     void UpdateSky()
     {
         if (skyCore == null) return;
 
-        float totalMinutes = hour * 60 + minute;
+        // ★ 0:00 → 0
+        // ★ 6:00 → 0（SkyCore内部の朝）
+        // ★ 21:00 でストップ
+        float totalMinutes = (hour * 60 + minute);
 
         // 1日の進行度（0〜1）
         float dayProgress = totalMinutes / (24f * 60f);
 
-        // SkyCore は 6時スタートなので、逆補正する
+        // ★SkyCore の 0 = 6:00 → 補正
         dayProgress -= (6f / 24f);
 
-        // マイナスになった時の補正
         if (dayProgress < 0)
             dayProgress += 1f;
 
-        // SkyCore に渡す
+        // SkyCoreに反映
         skyCore.timeOfDay = dayProgress;
     }
-
 }
