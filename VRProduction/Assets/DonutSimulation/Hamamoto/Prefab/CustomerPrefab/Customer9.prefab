@@ -7842,9 +7842,10 @@ GameObject:
   - component: {fileID: 6720861652074633944}
   - component: {fileID: 945152575569200103}
   - component: {fileID: -1049693178109747022}
+  - component: {fileID: -8412090176923026019}
   m_Layer: 0
   m_Name: Customer9
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7991,6 +7992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveWaypoint
   m_Manager: {fileID: 0}
+  m_agent: {fileID: 0}
+  m_currentIndex: 0
+  m_IsGoingToCash: 0
 --- !u!54 &-1049693178109747022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8018,6 +8022,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-8412090176923026019
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174326141219191701}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19738634
+  m_Height: 1.4805932
+  m_Direction: 1
+  m_Center: {x: 0.0015281588, y: 0.9677477, z: 0}
 --- !u!1 &6237690498214755225
 GameObject:
   m_ObjectHideFlags: 0

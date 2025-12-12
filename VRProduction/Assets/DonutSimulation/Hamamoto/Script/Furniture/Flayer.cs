@@ -35,7 +35,7 @@ public class Flayer : FurnitureOwner
     [Header("タイマーのSE"), SerializeField]
     private AudioSource m_TimerSE;
 
-    [Header("タイマーは一回だけ流すフラグ"),SerializeField]
+    [Header("タイマーは一回だけ流すフラグ"), SerializeField]
     private bool m_IsTimerSoundPlayed = false;
 
     /// <summary>
@@ -88,10 +88,15 @@ public class Flayer : FurnitureOwner
     /// </summary>
     private void Update()
     {
-        //右クリック押すとフライヤーにIn
-        if (Input.GetMouseButtonDown(1)) // 右クリック
+        // PlayerPickup に触っている家具が Flayer かどうか確認
+        if (m_FlayerPlayerPickup != null &&
+            m_FlayerPlayerPickup.m_currentFurniture == this)
         {
-            HandleFryerInOut();
+            //右クリック押すとフライヤーにIn/Out
+            if (Input.GetMouseButtonDown(1))
+            {
+                HandleFryerInOut();
+            }
         }
         // INのときだけ油のカウントを進める
         if (m_FlayerIN)

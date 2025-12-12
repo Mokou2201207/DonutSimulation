@@ -478,7 +478,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 98c54b9350e15544c9d651f145214e44, type: 2}
     - target: {fileID: 919132149155446097, guid: 7f394e12257befb43992c3be83001db7, type: 3}
       propertyPath: m_Name
-      value: npc_csl_00_character_02m_01 1
+      value: Customer11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f394e12257befb43992c3be83001db7, type: 3}
+      propertyPath: m_TagString
+      value: Customer
       objectReference: {fileID: 0}
     - target: {fileID: 2741002763748688562, guid: 7f394e12257befb43992c3be83001db7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -701,6 +705,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f394e12257befb43992c3be83001db7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1265712854338527035}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f394e12257befb43992c3be83001db7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1942697310030648234}
   m_SourcePrefab: {fileID: 100100000, guid: 7f394e12257befb43992c3be83001db7, type: 3}
 --- !u!137 &333775983412167443 stripped
 SkinnedMeshRenderer:
@@ -902,6 +909,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveWaypoint
   m_Manager: {fileID: 0}
+  m_agent: {fileID: 0}
+  m_currentIndex: 0
+  m_IsGoingToCash: 0
 --- !u!54 &1265712854338527035
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -929,6 +939,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-1942697310030648234
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978816779655408403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19738634
+  m_Height: 1.4805932
+  m_Direction: 1
+  m_Center: {x: 0.0015281588, y: 0.9677477, z: 0}
 --- !u!4 &5072750214636447684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1134662855679897990, guid: 7f394e12257befb43992c3be83001db7, type: 3}

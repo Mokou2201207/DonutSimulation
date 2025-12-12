@@ -37,7 +37,7 @@ public class PlayerPickup : MonoBehaviour
     private float m_PickUpItemDist;
 
     [Header("FurnitureOwner（自動）"), SerializeField]
-    private FurnitureOwner m_currentFurniture;
+    public FurnitureOwner m_currentFurniture;
 
     [Header("AudioSource（自動）"), SerializeField]
     private AudioSource m_AudioSource;

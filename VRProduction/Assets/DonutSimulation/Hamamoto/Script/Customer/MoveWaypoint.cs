@@ -16,6 +16,9 @@ public class MoveWaypoint : MonoBehaviour
     [Header("どのWaypointに向かっているか"), SerializeField]
     private int m_currentIndex = 0;
 
+    [Header("レジに向かっているかどうか"),SerializeField]
+    public  bool m_IsGoingToCash=false;
+
     /// <summary>
     /// 開始
     /// </summary>
@@ -38,11 +41,15 @@ public class MoveWaypoint : MonoBehaviour
         ////次のPointへ
         MoveToNextPoint();
     }
+
     /// <summary>
     /// 更新
     /// </summary>
     private void Update()
     {
+        // レジに向かっている時はWaypoint移動しない
+        if (m_IsGoingToCash) return;
+
         //NavMeshが有効化どうか
         if (m_agent.enabled)
         {

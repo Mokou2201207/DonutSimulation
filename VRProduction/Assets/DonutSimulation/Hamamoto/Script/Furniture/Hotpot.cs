@@ -13,6 +13,9 @@ public class Hotpot : FurnitureOwner
     [Header("チョコレートを入れたかどうか"), SerializeField]
     private bool m_InChoko=false;
 
+    [Header("チョコを鍋に入れるSE"), SerializeField]
+    private AudioSource m_InChocolateSE;
+
     /// <summary>
     /// 開始
     /// </summary>
@@ -24,6 +27,9 @@ public class Hotpot : FurnitureOwner
         //Key入力とUI表示
         m_UseKey = UseKey.RightClick;
         m_KeyHint = "右クリック";
+
+        //音を停止
+        m_InChocolateSE.Stop();
     }
 
     /// <summary>
@@ -94,6 +100,9 @@ public class Hotpot : FurnitureOwner
 
         //フラグをオン
         m_InChoko = true;
+
+        //再生
+        m_InChocolateSE.Play();
 
         return true;
     }

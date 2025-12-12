@@ -7434,11 +7434,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 58159088b4330c043b756ac278d08403, type: 2}
     - target: {fileID: 919132149155446097, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
       propertyPath: m_Name
-      value: npc_casual_set_00 1
+      value: Customer1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
+      propertyPath: m_TagString
+      value: Customer
       objectReference: {fileID: 0}
     - target: {fileID: 955260670426400693, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
       propertyPath: m_DirtyAABB
@@ -12871,6 +12875,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2600458603017337881}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3679955618269946830}
   m_SourcePrefab: {fileID: 100100000, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}
 --- !u!137 &12261157847747889 stripped
 SkinnedMeshRenderer:
@@ -13834,6 +13841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveWaypoint
   m_Manager: {fileID: 0}
+  m_agent: {fileID: 0}
+  m_currentIndex: 0
+  m_IsGoingToCash: 0
 --- !u!54 &-2600458603017337881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13861,6 +13871,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-3679955618269946830
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049320596049450795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19738634
+  m_Height: 1.4805932
+  m_Direction: 1
+  m_Center: {x: 0.0015281588, y: 0.9677477, z: 0}
 --- !u!137 &2049539207049940329 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -8304458611408181485, guid: 7e49df0e776c1614da368ac187d54ce0, type: 3}

@@ -9,6 +9,8 @@ TagManager:
   - Furniture
   - Chocolate
   - Doughnutdough
+  - CashPositon
+  - Customer
   layers:
   - Default
   - TransparentFX
