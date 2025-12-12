@@ -1245,11 +1245,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimeManager
   timeText: {fileID: 1321448529}
-  hour: 0
+  hour: 6
   minute: 0
-  timeSpeed: 60
-  openTime: 9
-  closeTime: 22
+  timeSpeed: 6000
+  timeStart: 0
   mainLight: {fileID: 299639868}
   dayLightIntensity: 1
   nightLightIntensity: 0.2
