@@ -22,8 +22,8 @@ TagManager:
   - RaycastBlock
   - Furniture
   - Field
-  - 
-  - 
+  - NotNavMesh
+  - NavMesh
   - 
   - 
   - 

@@ -16,8 +16,12 @@ public class MoveWaypoint : MonoBehaviour
     [Header("どのWaypointに向かっているか"), SerializeField]
     private int m_currentIndex = 0;
 
-    [Header("レジに向かっているかどうか"),SerializeField]
-    public  bool m_IsGoingToCash=false;
+    [Header("レジに向かっているかどうか"), SerializeField]
+    public bool m_IsGoingToCash = false;
+
+    private bool m_IsCashing = false;
+
+    public bool m_IsCashed=false;
 
     /// <summary>
     /// 開始
@@ -42,22 +46,51 @@ public class MoveWaypoint : MonoBehaviour
         MoveToNextPoint();
     }
 
+    public void GoingtoCash(Vector3 pos)
+    {
+        m_IsGoingToCash = true;
+        m_agent.destination = pos;
+    }
+
+    public void Cashed()
+    {
+        m_IsCashed=true;
+        m_IsGoingToCash = false;
+        m_IsCashing=false;
+        m_agent.isStopped = false;
+        // 次の移動ポイントをセット
+        m_agent.destination = m_Manager.m_Waypoints[m_currentIndex].position;
+    }
     /// <summary>
     /// 更新
     /// </summary>
     private void Update()
     {
-        // レジに向かっている時はWaypoint移動しない
-        if (m_IsGoingToCash) return;
-
-        //NavMeshが有効化どうか
-        if (m_agent.enabled)
+        if (m_IsGoingToCash)
         {
-            //NavMeshAgentがまだ経路を計算中ではなく現在の目的地に到着したら
-            if (!m_agent.pathPending && m_agent.remainingDistance < 0.5f)
-                //次のPointへ
-                MoveToNextPoint();
+            if (!m_IsCashing)
+            {
+                if (!m_agent.pathPending && m_agent.remainingDistance <= m_agent.stoppingDistance)
+                {
+                    // レジに到着
+                    m_agent.isStopped = true;
+                    m_IsCashing = true;
+                    Invoke("Cashed", 3f);
+                }
+            }
         }
+        else
+        {
+            //NavMeshが有効化どうか
+            if (m_agent.enabled)
+            {
+                //NavMeshAgentがまだ経路を計算中ではなく現在の目的地に到着したら
+                if (!m_agent.pathPending && m_agent.remainingDistance < m_agent.stoppingDistance)
+                    //次のPointへ
+                    MoveToNextPoint();
+            }
+        }
+
     }
     /// <summary>
     /// Pointについたら次のPointへ

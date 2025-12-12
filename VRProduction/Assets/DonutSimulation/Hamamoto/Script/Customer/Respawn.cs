@@ -38,7 +38,7 @@ public class Respawn : MonoBehaviour
         //その位置にスポーン
         Instantiate(customer, spawnPos.position, spawnPos.rotation);
 
-        //次のスポーンをランダムで時間を決める
+        ////次のスポーンをランダムで時間を決める
         float nextspown = Random.Range(m_RespawnTime, m_RespawnMaxTime);
         Invoke(nameof(Spawn), nextspown);
     }
