@@ -16,12 +16,14 @@ public class MoveWaypoint : MonoBehaviour
     [Header("どのWaypointに向かっているか"), SerializeField]
     private int m_currentIndex = 0;
 
-    [Header("レジに向かっているかどうか"), SerializeField]
+    [Header("レジに向かっているかどうか")]
     public bool m_IsGoingToCash = false;
 
-    private bool m_IsCashing = false;
+    [Header("会計が終わったかどうか")]
+    public bool m_IsCashed = false;
 
-    public bool m_IsCashed=false;
+    [Header("買っている最中かどうか"), SerializeField]
+    private bool m_IsCashing = false;
 
     /// <summary>
     /// 開始
@@ -46,21 +48,30 @@ public class MoveWaypoint : MonoBehaviour
         MoveToNextPoint();
     }
 
+    /// <summary>
+    /// 会計最中
+    /// </summary>
+    /// <param name="pos"></param>
     public void GoingtoCash(Vector3 pos)
     {
         m_IsGoingToCash = true;
         m_agent.destination = pos;
     }
 
+    /// <summary>
+    /// 会計が終わった後
+    /// </summary>
     public void Cashed()
     {
         m_IsCashed=true;
         m_IsGoingToCash = false;
         m_IsCashing=false;
         m_agent.isStopped = false;
+
         // 次の移動ポイントをセット
         m_agent.destination = m_Manager.m_Waypoints[m_currentIndex].position;
     }
+
     /// <summary>
     /// 更新
     /// </summary>

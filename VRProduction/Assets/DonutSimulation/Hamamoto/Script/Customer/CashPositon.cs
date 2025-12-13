@@ -34,6 +34,7 @@ public class CashPositon : MonoBehaviour
         NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
         MoveWaypoint move = other.GetComponent<MoveWaypoint>();
 
+        //‰ïŒv‚ªI‚í‚Á‚Ä‚¢‚½‚ç‰½‚à‚µ‚È‚¢
         if (agent == null || move == null) return;
         if (move.m_IsCashed) return;
 
