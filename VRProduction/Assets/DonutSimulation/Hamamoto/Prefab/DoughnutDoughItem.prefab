@@ -69,6 +69,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1752840685209003485, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752840685209003485, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -78,11 +82,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       propertyPath: m_Name
-      value: "\u30C9\u30FC\u30CA\u30C4\u306E\u751F\u5730Item"
+      value: DoughnutDoughItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       propertyPath: m_TagString
       value: Doughnutdough
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296526782400284508, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8296526782400284508, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       propertyPath: m_IsActive
@@ -99,6 +111,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3999714173880443950}
+    - targetCorrespondingSourceObject: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8204600230677781204}
   m_SourcePrefab: {fileID: 100100000, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
 --- !u!1 &5750600731084070756 stripped
 GameObject:
@@ -155,3 +170,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8204600230677781204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750600731084070756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7b24521e085f84dafbb2db6ce2501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SencePickup
+  m_KeyHint: Q
+  m_UseKey: 2
+  m_PlayerPickup: {fileID: 0}
+  m_GetItem: {fileID: 5750600731084070756}

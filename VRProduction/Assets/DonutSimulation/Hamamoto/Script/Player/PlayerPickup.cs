@@ -193,7 +193,7 @@ public class PlayerPickup : MonoBehaviour
             m_IsPickUpFrame = true;
 
             // Scene上のアイテムを手の子にする
-            // item.transform.SetParent(m_HandHave);
+             item.transform.SetParent(m_HandHave);
 
             // ローカル座標をリセット
             item.transform.position = m_HandHave.position;
@@ -298,39 +298,44 @@ public class PlayerPickup : MonoBehaviour
             Debug.Log("すでにアイテムを持っています。");
         }
     }
-    //アイテムを離す処理
-    //public void PlaceItem()
-    //{
-    //    //アイテムを持っていなかったら実行しない
-    //    if (!m_HandHaveNow || m_HaveItem == null) return;
 
-    //    // クロスヘア方向にRayを飛ばす
-    //    Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-    //    RaycastHit hit;
-    //    int layerMask = LayerMask.GetMask("Furniture"); // 置けるテーブル用のLayer
+    // アイテムを離す処理
+    public void PlaceItem()
+    {
+        // アイテムを持っていなかったら実行しない
+        if (!m_HandHaveNow || m_HaveItem == null) return;
 
-    //    if (Physics.Raycast(ray, out hit, 5f, layerMask))
-    //    {
-    //        // 手から外す
-    //        m_HaveItem.transform.SetParent(null);
+        // クロスヘア方向にRayを飛ばす
+        Ray ray = Camera.main.ScreenPointToRay(
+            new Vector3(Screen.width / 2, Screen.height / 2, 0)
+        );
 
-    //        // アイテムの位置をRayが当たった位置に
-    //        m_HaveItem.transform.position = hit.point;
+        RaycastHit hit;
+        int layerMask = LayerMask.GetMask("Furniture"); // 置けるテーブル用のLayer
 
-    //        // アイテムの回転をテーブルの法線方向に合わせる
-    //        m_HaveItem.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90, 0, 0);
+        if (Physics.Raycast(ray, out hit, 5f, layerMask))
+        {
+            // 手から外す
+            m_HaveItem.transform.SetParent(null);
 
-    //        // 手を空にする
-    //        m_HaveItem = null;
-    //        m_HandHaveNow = false;
+            // アイテムの位置をRayが当たった位置に
+            m_HaveItem.transform.position = hit.point;
 
-    //        Debug.Log("アイテムを置きました：" + hit.collider.name);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("置ける場所がありません");
-    //    }
-    //}
+            // アイテムの回転をテーブルの法線方向に合わせる
+            m_HaveItem.transform.rotation =
+                Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90, 0, 0);
+
+            // 手を空にする
+            m_HaveItem = null;
+            m_HandHaveNow = false;
+
+            Debug.Log("アイテムを置きました：" + hit.collider.name);
+        }
+        else
+        {
+            Debug.Log("置ける場所がありません");
+        }
+    }
 
     /// <summary>
     /// 現在持っているアイテムのタグが指定したタグと一致するか確認する

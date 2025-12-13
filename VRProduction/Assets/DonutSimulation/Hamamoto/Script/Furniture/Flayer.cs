@@ -23,11 +23,17 @@ public class Flayer : FurnitureOwner
     [Header("オイルの秒数（OUT）"), SerializeField]
     private int m_Oilcount = 10;
 
-    [Header("フライヤーにいれたかどうか"), SerializeField]
-    private bool m_FlayerIN = false;
-
     [Header("フライヤーの中に入っているドーナツの数"), SerializeField]
     private GameObject[] m_DountSlots;
+
+    [Header("ドーナツの生地マテリアル"), SerializeField]
+    private Material m_DoughnutDoughMaterial;
+
+    [Header("ドーナツが上げ終わったときのマテリアル"),SerializeField]
+    private Material m_DonutFryMaterial;
+
+    [Header("揚げたドーナツのprefab"), SerializeField]
+    private GameObject m_FringDountPrefab;
 
     [Header("油のSE"), SerializeField]
     private AudioSource m_OilInSE;
@@ -37,6 +43,12 @@ public class Flayer : FurnitureOwner
 
     [Header("タイマーは一回だけ流すフラグ"), SerializeField]
     private bool m_IsTimerSoundPlayed = false;
+
+    [Header("フライヤーにいれたかどうか"), SerializeField]
+    private bool m_FlayerIN = false;
+
+    [Header("ドーナツを揚げたかどうか"),SerializeField]
+    private bool m_IsDountFring=false;
 
     /// <summary>
     /// 開始
@@ -71,15 +83,21 @@ public class Flayer : FurnitureOwner
     }
 
     /// <summary>
-    /// 
+    /// 入力処理
     /// </summary>
     public override void Interact()
     {
-        //ドーナツ生地を持っていればかつドーナツが三つ以上入って無ければ
-        if (m_FlayerPlayerPickup.CheckHaveItem("Doughnutdough") && m_CurrentCount < 3)
+        //ドーナツ生地を持っていればかつドーナツが三つ以上入ってなく揚げて終わった後じゃなければ
+        if (m_FlayerPlayerPickup.CheckHaveItem("Doughnutdough") && m_CurrentCount < 3&&!m_IsDountFring)
         {
             m_FlayerPlayerPickup.UseItem();
             PutInChocolate();
+        }
+
+        //ドーナツが揚げていたら
+        if (m_IsDountFring)
+        {
+            TakeFriedDonuts();
         }
     }
 
@@ -133,6 +151,7 @@ public class Flayer : FurnitureOwner
 
                 m_FlayerIN = false;
                 m_IsTimerSoundPlayed = false;
+                m_IsDountFring = true;
 
                 //表示
                 m_Oilslider.gameObject.SetActive(false);
@@ -219,8 +238,35 @@ public class Flayer : FurnitureOwner
                 m_TimerSE.loop = true;
                 m_TimerSE.Play();
 
+                //タイマーフラグオン
                 m_IsTimerSoundPlayed = true;
+
+                ChangeDountFryColor();
             }
+        }
+    }
+
+    /// <summary>
+    /// 揚げているドーナツを取る処理
+    /// </summary>
+    private void TakeFriedDonuts()
+    {
+        if (m_CurrentCount <= 0) return;
+
+        //持つ処理
+        m_FlayerPlayerPickup.HandHave(m_FringDountPrefab);
+
+        //ドーナツを一つ減らし非表示の関数へ
+        m_CurrentCount --;
+        UpdateDountSlots();
+
+        //ドーナツが０ならフラグを返す
+        if (m_CurrentCount==0)
+        {
+            //フラグを戻す
+            m_IsDountFring=false;
+            //生地の色へ
+            ChangeDoughnutDoughColor();
         }
     }
 
@@ -235,4 +281,48 @@ public class Flayer : FurnitureOwner
         m_OilInSE.loop = true;
         m_OilInSE.Play();
     }
+
+    /// <summary>
+    /// ドーナツを上げた時に色を変える処理
+    /// </summary>
+    private void ChangeDountFryColor()
+    {
+        foreach(GameObject donut in m_InDount)
+        {
+
+            if (donut == null) continue;
+
+            //ローカル変数にドーナツのRendererをコンポーネント
+            Renderer DontRenderer =donut.GetComponentInChildren<Renderer>();
+
+            //マテリアルを変更
+            if (DontRenderer != null)
+            {
+                DontRenderer.material = m_DonutFryMaterial;
+            }
+
+        }
+    }
+    /// <summary>
+    /// ドーナツ生地のマテリアルに戻す処理
+    /// </summary>
+    private void ChangeDoughnutDoughColor()
+    {
+        foreach (GameObject donut in m_InDount)
+        {
+
+            if (donut == null) continue;
+
+            //ローカル変数にドーナツのRendererをコンポーネント
+            Renderer DontRenderer = donut.GetComponentInChildren<Renderer>();
+
+            //マテリアルを変更
+            if (DontRenderer != null)
+            {
+                DontRenderer.material = m_DoughnutDoughMaterial;
+            }
+
+        }
+    }
+    
 }

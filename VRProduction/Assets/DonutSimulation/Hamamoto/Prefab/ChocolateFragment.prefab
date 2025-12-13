@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6022536726990006583}
   - component: {fileID: 2145579966695272158}
   - component: {fileID: 6430031185304467274}
-  - component: {fileID: 4513502168693231963}
   - component: {fileID: 8821813373093851045}
+  - component: {fileID: 6260633449897241053}
   m_Layer: 6
   m_Name: ChocolateFragment
   m_TagString: Chocolate
@@ -113,22 +113,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4513502168693231963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780255671014341823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28923fcf20b0ea948b5c3bafbc6e5102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChocolateFragment
-  m_KeyHint: Q
-  useKey: 2
-  m_PlayerPickup: {fileID: 0}
-  m_Choko: {fileID: 780255671014341823}
 --- !u!54 &8821813373093851045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +140,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6260633449897241053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780255671014341823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7b24521e085f84dafbb2db6ce2501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SencePickup
+  m_KeyHint: Q
+  m_UseKey: 2
+  m_PlayerPickup: {fileID: 0}
+  m_GetItem: {fileID: 780255671014341823}

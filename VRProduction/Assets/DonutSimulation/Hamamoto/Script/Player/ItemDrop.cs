@@ -1,4 +1,4 @@
-using UnityEngine;//※このスクリプトは今は使われてません31行が無効されてます
+using UnityEngine;
 /// <summary>
 /// 持っているアイテムを落とす処理
 /// </summary>
@@ -28,7 +28,8 @@ public class ItemDrop : MonoBehaviour
         {
             if (Input.GetMouseButton(1))
             {
-               // m_playerPickup.Drop();
+                
+               m_playerPickup.PlaceItem();
             }
         }
     }

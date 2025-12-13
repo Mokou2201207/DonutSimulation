@@ -150,6 +150,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 463184932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &52702232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52702233}
+  m_Layer: 0
+  m_Name: SencePickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &52702233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52702232}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05256653, y: -4.4904857, z: -3.3456297}
+  m_LocalScale: {x: 10, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 738399072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71761722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,9 +2100,10 @@ GameObject:
   - component: {fileID: 668083824}
   - component: {fileID: 668083823}
   - component: {fileID: 668083822}
+  - component: {fileID: 668083828}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,6 +2369,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &668083828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668083819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7b24521e085f84dafbb2db6ce2501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SencePickup
+  m_KeyHint: Q
+  m_UseKey: 2
+  m_PlayerPickup: {fileID: 0}
+  m_GetItem: {fileID: 0}
 --- !u!1001 &668858320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2641,6 +2689,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1751229796}
+  - {fileID: 52702233}
   m_Father: {fileID: 71761723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778045564
@@ -3487,9 +3536,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 668083820}
     - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_DonutFryMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 34839a1d9476d98469d8e09195a2cb1d, type: 2}
+    - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_FringDountPrefab
+      value: 
+      objectReference: {fileID: 5750600731084070756, guid: 25740550b6baa204ca3c7b77262ca4f5, type: 3}
+    - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_FlayerPlayerPickup
       value: 
       objectReference: {fileID: 668083820}
+    - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_DoughnutDoughMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a3b10f8ebb598435e8bf5fb0b11d3187, type: 2}
     - target: {fileID: 1750806042468582574, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_Name
       value: FlyerInDonutDough
@@ -3573,6 +3634,10 @@ PrefabInstance:
     - target: {fileID: 6605392476645429380, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_Name
       value: DonutHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677389636052941179, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6677389636052941179, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_PlayerHand
