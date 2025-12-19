@@ -125,6 +125,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2576779691562213735}
+    - targetCorrespondingSourceObject: {fileID: 5444106225104204422, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7865989604187078109}
   m_SourcePrefab: {fileID: 100100000, guid: a88e38d4a68324d9ab1feaf76c74b467, type: 3}
 --- !u!23 &509133265284213226 stripped
 MeshRenderer:
@@ -216,3 +219,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dount
   m_Renderer: {fileID: 509133265284213226}
   m_DarkMat: {fileID: 2100000, guid: 1958ba3c528324d1a9e485f7bc5b3abf, type: 2}
+--- !u!114 &-7865989604187078109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750600731084070756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649222fc0a154964e945751403ae6834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  m_ItemType: 0

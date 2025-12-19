@@ -42,6 +42,8 @@ public class PlayerPickup : MonoBehaviour
     [Header("AudioSource（自動）"), SerializeField]
     private AudioSource m_AudioSource;
 
+    private Item holdItem;
+
     /// <summary>
     /// 開始
     /// </summary>
@@ -364,6 +366,29 @@ public class PlayerPickup : MonoBehaviour
         m_HaveItem = null;
 
         // 持っていない状態に戻す
+        m_HandHaveNow = false;
+    }
+
+    /// <summary>
+    /// プレイヤーが今持ってるアイテムを返す
+    /// </summary>
+    /// <returns></returns>
+    public Item GetHoldItem()
+    {
+        if (m_HaveItem == null) return null;
+        return m_HaveItem.GetComponent<Item>();
+    }
+
+
+    /// <summary>
+    /// 手に持っているアイテムを完全に手放す
+    /// </summary>
+    public void RemoveItem()
+    {
+        if (m_HaveItem == null) return;
+
+        Destroy(m_HaveItem);
+        m_HaveItem = null;
         m_HandHaveNow = false;
     }
 }
