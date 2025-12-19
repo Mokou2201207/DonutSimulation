@@ -4,6 +4,12 @@ using UnityEngine;
 /// </summary>
 public class Hotpot : FurnitureOwner
 {
+    [Header("ChocolateCoatingのscriptをアタッチ"), SerializeField]
+    private ChocolateCoating m_HotpotChocolateCoating;
+
+    [Header("Dountをアタッチ"), SerializeField]
+    private Dount m_HotPotDount;
+
     [Header("PlayerPickupscriptをアタッチ"),SerializeField]
     private PlayerPickup m_PlayerPickup;
 
@@ -11,7 +17,7 @@ public class Hotpot : FurnitureOwner
     private GameObject m_HptpotChoko;
 
     [Header("チョコレートを入れたかどうか"), SerializeField]
-    private bool m_InChoko=false;
+    public bool m_InChoko=false;
 
     [Header("チョコを鍋に入れるSE"), SerializeField]
     private AudioSource m_InChocolateSE;
@@ -44,7 +50,7 @@ public class Hotpot : FurnitureOwner
             return;
         }
 
-        //チョコを持っていれば
+        //手にチョコを持っていれば
         if (m_PlayerPickup.CheckHaveItem("Chocolate"))
         {
 
@@ -56,6 +62,12 @@ public class Hotpot : FurnitureOwner
             Debug.Log("それはチョコじゃない！");
         }
 
+        //中にチョコレートが入っており手にドーナツが入っていたら
+        if (m_InChoko&&m_PlayerPickup.CheckHaveItem("Dount")) 
+        {
+            Debug.Log(111);
+            m_HotPotDount.DountChangeMaterial();
+        }
        
     }
 
