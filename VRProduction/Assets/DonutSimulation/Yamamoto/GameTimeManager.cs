@@ -27,6 +27,12 @@ public class GameTimeManager : MonoBehaviour
 
     void Update()
     {
+        // ★ Pキーで時間スタート（1回だけ）
+        if (!timeStart && Input.GetKeyDown(KeyCode.P))
+        {
+            timeStart = true;
+        }
+
         UpdateUI();
         UpdateLighting();
 
