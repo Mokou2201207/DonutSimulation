@@ -3,53 +3,53 @@ using static UnityEngine.XR.Interaction.Toolkit.Interactors.NearFarInteractor;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 /// <summary>
-/// NPC‚ÌˆÚ“®ƒvƒƒOƒ‰ƒ€
+/// NPCã®ç§»å‹•ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 /// </summary>
 public class MoveWaypoint : MonoBehaviour
 {
-    [Header("WaypointManager‚Ìscript‚ğ©“®ƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("WaypointManagerã®scriptã‚’è‡ªå‹•ã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private WaypointManager m_Manager;
 
-    [Header("NavMeshAgent‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("NavMeshAgentã‚’ã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private NavMeshAgent m_agent;
 
-    [Header("‚Ç‚ÌWaypoint‚ÉŒü‚©‚Á‚Ä‚¢‚é‚©"), SerializeField]
+    [Header("ã©ã®Waypointã«å‘ã‹ã£ã¦ã„ã‚‹ã‹"), SerializeField]
     private int m_currentIndex = 0;
 
-    [Header("ƒŒƒW‚ÉŒü‚©‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©")]
+    [Header("ãƒ¬ã‚¸ã«å‘ã‹ã£ã¦ã„ã‚‹ã‹ã©ã†ã‹")]
     public bool m_IsGoingToCash = false;
 
-    [Header("‰ïŒv‚ªI‚í‚Á‚½‚©‚Ç‚¤‚©")]
+    [Header("ä¼šè¨ˆãŒçµ‚ã‚ã£ãŸã‹ã©ã†ã‹")]
     public bool m_IsCashed = false;
 
-    [Header("”ƒ‚Á‚Ä‚¢‚éÅ’†‚©‚Ç‚¤‚©"), SerializeField]
+    [Header("è²·ã£ã¦ã„ã‚‹æœ€ä¸­ã‹ã©ã†ã‹"), SerializeField]
     private bool m_IsCashing = false;
 
     /// <summary>
-    /// ŠJn
+    /// é–‹å§‹
     /// </summary>
     [System.Obsolete]
     private void Start()
     {
-        //ƒ}ƒl[ƒWƒƒ‚ª–¢İ’è‚È‚ç‹ß‚­‚Ì‚à‚Ì‚ğ©“®’Tõ
+        //ãƒãƒãƒ¼ã‚¸ãƒ£ãŒæœªè¨­å®šãªã‚‰è¿‘ãã®ã‚‚ã®ã‚’è‡ªå‹•æ¢ç´¢
         if (m_Manager == null)
         {
             m_Manager = FindClosestManager();
             if (m_Manager == null)
             {
-                Debug.LogError("WaypointManager‚ª“ü‚Á‚Ä‚Ü‚¹‚ñB");
+                Debug.LogError("WaypointManagerãŒå…¥ã£ã¦ã¾ã›ã‚“ã€‚");
             }
         }
 
-        //ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+        //ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—
         m_agent = GetComponent<NavMeshAgent>();
 
-        ////Ÿ‚ÌPoint‚Ö
+        ////æ¬¡ã®Pointã¸
         MoveToNextPoint();
     }
 
     /// <summary>
-    /// ‰ïŒvÅ’†
+    /// ä¼šè¨ˆæœ€ä¸­
     /// </summary>
     /// <param name="pos"></param>
     public void GoingtoCash(Vector3 pos)
@@ -59,7 +59,7 @@ public class MoveWaypoint : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰ïŒv‚ªI‚í‚Á‚½Œã
+    /// ä¼šè¨ˆãŒçµ‚ã‚ã£ãŸå¾Œ
     /// </summary>
     public void Cashed()
     {
@@ -68,12 +68,12 @@ public class MoveWaypoint : MonoBehaviour
         m_IsCashing=false;
         m_agent.isStopped = false;
 
-        // Ÿ‚ÌˆÚ“®ƒ|ƒCƒ“ƒg‚ğƒZƒbƒg
+        // æ¬¡ã®ç§»å‹•ãƒã‚¤ãƒ³ãƒˆã‚’ã‚»ãƒƒãƒˆ
         m_agent.destination = m_Manager.m_Waypoints[m_currentIndex].position;
     }
 
     /// <summary>
-    /// XV
+    /// æ›´æ–°
     /// </summary>
     private void Update()
     {
@@ -83,74 +83,74 @@ public class MoveWaypoint : MonoBehaviour
             {
                 if (!m_agent.pathPending && m_agent.remainingDistance <= m_agent.stoppingDistance)
                 {
-                    // ƒŒƒW‚É“’…
+                    // ãƒ¬ã‚¸ã«åˆ°ç€
                     m_agent.isStopped = true;
                     m_IsCashing = true;
-                    Invoke("Cashed", 3f);
+                    // Invoke("Cashed", 3f);
                 }
             }
         }
         else
         {
-            //NavMesh‚ª—LŒø‰»‚Ç‚¤‚©
+            //NavMeshãŒæœ‰åŠ¹åŒ–ã©ã†ã‹
             if (m_agent.enabled)
             {
-                //NavMeshAgent‚ª‚Ü‚¾Œo˜H‚ğŒvZ’†‚Å‚Í‚È‚­Œ»İ‚Ì–Ú“I’n‚É“’…‚µ‚½‚ç
+                //NavMeshAgentãŒã¾ã çµŒè·¯ã‚’è¨ˆç®—ä¸­ã§ã¯ãªãç¾åœ¨ã®ç›®çš„åœ°ã«åˆ°ç€ã—ãŸã‚‰
                 if (!m_agent.pathPending && m_agent.remainingDistance < m_agent.stoppingDistance)
-                    //Ÿ‚ÌPoint‚Ö
+                    //æ¬¡ã®Pointã¸
                     MoveToNextPoint();
             }
         }
 
     }
     /// <summary>
-    /// Point‚É‚Â‚¢‚½‚çŸ‚ÌPoint‚Ö
+    /// Pointã«ã¤ã„ãŸã‚‰æ¬¡ã®Pointã¸
     /// </summary>
     void MoveToNextPoint()
     {
         if (m_Manager == null || m_Manager.m_Waypoints.Length == 0)
         {
-            Debug.Log("WaypointManager‚Ìscript‚ªŒ´ˆö‚Å‚·B");
+            Debug.Log("WaypointManagerã®scriptãŒåŸå› ã§ã™ã€‚");
             return;
         }
 
-        // ÅŒã‚Ì waypoint ‚É’…‚¢‚½‚©ƒ`ƒFƒbƒN
+        // æœ€å¾Œã® waypoint ã«ç€ã„ãŸã‹ãƒã‚§ãƒƒã‚¯
         if (m_currentIndex >= m_Manager.m_Waypoints.Length)
         {
-            // ©•ª‚ğíœ
+            // è‡ªåˆ†ã‚’å‰Šé™¤
             Destroy(gameObject);
             return;
         }
 
-        // Ÿ‚ÌˆÚ“®ƒ|ƒCƒ“ƒg‚ğƒZƒbƒg
+        // æ¬¡ã®ç§»å‹•ãƒã‚¤ãƒ³ãƒˆã‚’ã‚»ãƒƒãƒˆ
         m_agent.destination = m_Manager.m_Waypoints[m_currentIndex].position;
 
-        // Ÿ‚Ì index ‚Ö
+        // æ¬¡ã® index ã¸
         m_currentIndex++;
     }
     /// <summary>
-    /// ƒV[ƒ““à‚ÌWaypointManager‚Ì’†‚©‚çÅ‚à‹ß‚¢‚à‚Ì‚ğŒŸõ‚µ‚Ü‚·
+    /// ã‚·ãƒ¼ãƒ³å†…ã®WaypointManagerã®ä¸­ã‹ã‚‰æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’æ¤œç´¢ã—ã¾ã™
     /// </summary>
-    /// <returns>Å‚à‹ß‚¢WaypointManager</returns>
+    /// <returns>æœ€ã‚‚è¿‘ã„WaypointManager</returns>
     [System.Obsolete]
     WaypointManager FindClosestManager()
     {
-        //ƒV[ƒ“‚É‚ ‚é‘S‚Ä‚ÌWaypointManager‚ğŠl“¾
+        //ã‚·ãƒ¼ãƒ³ã«ã‚ã‚‹å…¨ã¦ã®WaypointManagerã‚’ç²å¾—
         WaypointManager[] managers = FindObjectsOfType<WaypointManager>();
 
-        //Å‚à‹ß‚¢‚à‚Ì‚ğ•Û‘¶‚·‚é•¨
+        //æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’ä¿å­˜ã™ã‚‹ç‰©
         WaypointManager closest = null;
 
-        //Å¬‹——£‚Ì‰Šú’l
+        //æœ€å°è·é›¢ã®åˆæœŸå€¤
         float minDist = Mathf.Infinity;
 
-        //Šl“¾‚µ‚½WaypointManager‚ğˆê‚Â‚¸‚Â’²‚×‚é
+        //ç²å¾—ã—ãŸWaypointManagerã‚’ä¸€ã¤ãšã¤èª¿ã¹ã‚‹
         foreach (var m in managers)
         {
-            //‹——£‚ğŒvZ
+            //è·é›¢ã‚’è¨ˆç®—
             float dist = Vector3.Distance(transform.position, m.transform.position);
 
-            //¡‚Ü‚Å‚æ‚è‚à‹ß‚¢‚à‚Ì‚ª‚ ‚ê‚ÎXV
+            //ä»Šã¾ã§ã‚ˆã‚Šã‚‚è¿‘ã„ã‚‚ã®ãŒã‚ã‚Œã°æ›´æ–°
             if (dist < minDist)
             {
                 minDist = dist;
@@ -158,7 +158,31 @@ public class MoveWaypoint : MonoBehaviour
             }
         }
 
-        //ÅI“I‚É‹ß‚©‚Á‚½‚à‚Ì‚ğ‚¢‚ê‚é
+        //æœ€çµ‚çš„ã«è¿‘ã‹ã£ãŸã‚‚ã®ã‚’ã„ã‚Œã‚‹
         return closest;
+    }
+
+    /// <summary>
+    /// Item collision detection
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if we are at the register waiting for a donut
+        if (!m_IsCashing) return;
+
+        // Check for Item layer
+        if (other.gameObject.layer != LayerMask.NameToLayer("Item")) return;
+
+        // Check if it is a Donut
+        Dount donut = other.GetComponent<Dount>();
+        if (donut != null || other.CompareTag("Dount") || other.CompareTag("Donut"))
+        {
+             // Eat the donut (Destroy it)
+             Destroy(other.gameObject);
+             
+             // Leave
+             Cashed();
+        }
     }
 }

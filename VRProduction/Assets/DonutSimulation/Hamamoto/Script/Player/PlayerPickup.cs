@@ -1,51 +1,51 @@
 using UnityEngine;
 using static FurnitureOwner;
 /// <summary>
-/// ƒvƒŒƒCƒ„[‚ÌgE‚¤Œn‚Ìs“®h‚ğ‘S•”ŠÇ—‚·‚éƒvƒƒOƒ‰ƒ€
+/// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®â€œæ‹¾ã†ç³»ã®è¡Œå‹•â€ã‚’å…¨éƒ¨ç®¡ç†ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 /// </summary>
 public class PlayerPickup : MonoBehaviour
 {
 
-    [Header("ƒAƒCƒeƒ€‚ğE‚¤‰¹"), SerializeField]
+    [Header("ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ‹¾ã†éŸ³"), SerializeField]
     private AudioClip m_ItemGetSE;
 
-    [Header("E‚¦‚é‹——£"), SerializeField]
+    [Header("æ‹¾ãˆã‚‹è·é›¢"), SerializeField]
     private float m_PickUpDistance = 5f;
 
-    [Header("ƒAƒCƒeƒ€‚ÌˆÚ“®‘¬“x"), SerializeField]
+    [Header("ã‚¢ã‚¤ãƒ†ãƒ ã®ç§»å‹•é€Ÿåº¦"), SerializeField]
     private float m_ItemMoveSpeed = 0.1f;
 
-    [Header("E‚¦‚é‹——£"), SerializeField]
+    [Header("æ‹¾ãˆã‚‹è·é›¢"), SerializeField]
     private float m_ItemDistance = 5f;
 
-    [Header("ƒAƒCƒeƒ€‚ğ‚ÂêŠ"), SerializeField]
+    [Header("ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã¤å ´æ‰€"), SerializeField]
     private Transform m_HandHave;
 
-    [Header("KeyUI‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("KeyUIã‚’ã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private KeyUI m_KeyUI;
 
-    [Header("¡‰½‚ğ‚Á‚Ä‚¢‚é‚©")]
+    [Header("ä»Šä½•ã‚’æŒã£ã¦ã„ã‚‹ã‹")]
     public GameObject m_HaveItem;
 
-    [Header("è‚É‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©")]
+    [Header("æ‰‹ã«æŒã£ã¦ã„ã‚‹ã‹ã©ã†ã‹")]
     public bool m_HandHaveNow = false;
 
-    [Header("ƒAƒCƒeƒ€‚ğE‚Á‚½’¼Œã‚ÌƒtƒŒ[ƒ€‚©‚Ç‚¤‚©"), SerializeField]
+    [Header("ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ‹¾ã£ãŸç›´å¾Œã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‹ã©ã†ã‹"), SerializeField]
     private bool m_IsPickUpFrame = false;
 
-    [Header("è‚©‚çƒAƒCƒeƒ€‚Ü‚Å‚Ì‹——£"), SerializeField]
+    [Header("æ‰‹ã‹ã‚‰ã‚¢ã‚¤ãƒ†ãƒ ã¾ã§ã®è·é›¢"), SerializeField]
     private float m_PickUpItemDist;
 
-    [Header("FurnitureOwneri©“®j"), SerializeField]
+    [Header("FurnitureOwnerï¼ˆè‡ªå‹•ï¼‰"), SerializeField]
     public FurnitureOwner m_currentFurniture;
 
-    [Header("AudioSourcei©“®j"), SerializeField]
+    [Header("AudioSourceï¼ˆè‡ªå‹•ï¼‰"), SerializeField]
     private AudioSource m_AudioSource;
 
     private Item holdItem;
 
     /// <summary>
-    /// ŠJn
+    /// é–‹å§‹
     /// </summary>
     private void Start()
     {
@@ -54,20 +54,20 @@ public class PlayerPickup : MonoBehaviour
             m_AudioSource = GetComponent<AudioSource>();
             if (m_AudioSource == null)
             {
-                Debug.LogError("AudioSource‚ª“ü‚Á‚Ä‚Ü‚¹‚ñB");
+                Debug.LogError("AudioSourceãŒå…¥ã£ã¦ã¾ã›ã‚“ã€‚");
             }
         }
     }
 
     /// <summary>
-    /// XV
+    /// æ›´æ–°
     /// </summary>
     private void Update()
     {
-        //Ray‚ğƒJƒƒ‰‚Ì^‚ñ’†‚Éİ’è
+        //Rayã‚’ã‚«ãƒ¡ãƒ©ã®çœŸã‚“ä¸­ã«è¨­å®š
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-        //¦Raycast ‚ªu‰½‚É“–‚½‚Á‚½‚©Hv‚ğ‹³‚¦‚Ä‚­‚ê‚é‚Ì‚ª RaycastHitB
+        //â€»Raycast ãŒã€Œä½•ã«å½“ãŸã£ãŸã‹ï¼Ÿã€ã‚’æ•™ãˆã¦ãã‚Œã‚‹ã®ãŒ RaycastHitã€‚
         RaycastHit hit;
 
         m_currentFurniture = null;
@@ -76,28 +76,42 @@ public class PlayerPickup : MonoBehaviour
 
         int layerMask = LayerMask.GetMask("Item", "RaycastBlock");
 
-        //3mˆÈ“à‚Åƒqƒbƒg‚µ‚½‚çˆ—‚ğs‚¤
+        //3mä»¥å†…ã§ãƒ’ãƒƒãƒˆã—ãŸã‚‰å‡¦ç†ã‚’è¡Œã†
         if (Physics.Raycast(ray, out hit, m_PickUpDistance, layerMask))
         {
-            // FurnitureOwner ƒRƒ“ƒ|[ƒlƒ“ƒg‚ª‚ ‚ê‚Îæ“¾
+            // FurnitureOwner ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒã‚ã‚Œã°å–å¾—
             FurnitureOwner furniture = hit.collider.GetComponent<FurnitureOwner>();
             if (furniture != null)
             {
                 m_currentFurniture = furniture;
                 furnitureHit = true;
-                Debug.Log("•¨‚ªƒNƒƒXƒwƒA‚ªd‚È‚Á‚Ä‚Ü‚·");
+                Debug.Log("ç‰©ãŒã‚¯ãƒ­ã‚¹ãƒ˜ã‚¢ãŒé‡ãªã£ã¦ã¾ã™");
+            }
+
+            // ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ãªã„ & RayãŒå½“ãŸã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã« Item ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒã‚ã‚‹
+            if (!m_HandHaveNow)
+            {
+                Item item = hit.collider.GetComponent<Item>();
+                if (item != null)
+                {
+                    // å·¦ã‚¯ãƒªãƒƒã‚¯ã§æ‹¾ã†
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        PickUp(hit.collider.gameObject);
+                    }
+                }
             }
         }
 
-        // UI‚Ì•\¦/”ñ•\¦‚Í Raycast ‚Æ FurnitureOwner ‚Ì”»’è‚ÅŒˆ‚ß‚é
-        //Image‰¼
+        // UIã®è¡¨ç¤º/éè¡¨ç¤ºã¯ Raycast ã¨ FurnitureOwner ã®åˆ¤å®šã§æ±ºã‚ã‚‹
+        //Imageä»®
         m_KeyUI.m_KeyImage.enabled = furnitureHit;
         if (furnitureHit)
         {
             m_KeyUI.SetKey(m_currentFurniture.m_KeyHint);
         }
 
-        //Key“ü—Í
+        //Keyå…¥åŠ›
         if (m_currentFurniture != null)
         {
             if (CheckInput(m_currentFurniture.m_UseKey))
@@ -109,11 +123,11 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    /// •¨—ˆ—
+    /// ç‰©ç†å‡¦ç†
     /// </summary>
     private void FixedUpdate()
     {
-        //‚Á‚Ä‚éƒAƒCƒeƒ€‚ğè‚ÌˆÊ’u‚ÉŒÅ’èi“®‚¢‚Ä‚àA¶‰E‰ñ“]‚µ‚Ä‚àj
+        //æŒã£ã¦ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ‰‹ã®ä½ç½®ã«å›ºå®šï¼ˆå‹•ã„ã¦ã‚‚ã€å·¦å³å›è»¢ã—ã¦ã‚‚ï¼‰
         if (m_HaveItem != null)
         {
             Vector3 havePos = m_HandHave.position;
@@ -122,21 +136,21 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    /// —‚Æ‚·Key‚Ìˆ—‚ÆƒzƒC[ƒ‹‚Å‹——£‚ğ’²®
+    /// è½ã¨ã™Keyã®å‡¦ç†ã¨ãƒ›ã‚¤ãƒ¼ãƒ«ã§è·é›¢ã‚’èª¿æ•´
     /// </summary>
     private void UpdatePickUp()
     {
 
         if (m_HaveItem == null) return;
 
-        //’Í‚ñ‚¾‚ç’¼ŒãƒNƒŠƒbƒN‚ğ–³Œø‰»
+        //æ´ã‚“ã ã‚‰ç›´å¾Œã‚¯ãƒªãƒƒã‚¯ã‚’ç„¡åŠ¹åŒ–
         if (m_IsPickUpFrame)
         {
             m_IsPickUpFrame = false;
         }
         else
         {
-            //¶ƒNƒŠƒbƒN‚ğ‰Ÿ‚·‚Æ—‚Æ‚·ˆ—‚Ö
+            //å·¦ã‚¯ãƒªãƒƒã‚¯ã‚’æŠ¼ã™ã¨è½ã¨ã™å‡¦ç†ã¸
             if (Input.GetMouseButtonDown(0))
             {
                 Drop();
@@ -144,7 +158,7 @@ public class PlayerPickup : MonoBehaviour
             }
         }
 
-        //ƒ}ƒEƒXƒzƒC[ƒ‹ˆ—
+        //ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«å‡¦ç†
         float scrollDelta = Input.mouseScrollDelta.y;
 
         if (scrollDelta != 0f)
@@ -155,10 +169,10 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    /// Key“ü—Í‚Ìİ’è
+    /// Keyå…¥åŠ›ã®è¨­å®š
     /// </summary>
-    /// <param name="key">‰Ÿ‚·Key‚Ì–¼‘O</param>
-    /// <returns>ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚« trueA‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢‚Æ‚« false</returns>
+    /// <param name="key">æŠ¼ã™Keyã®åå‰</param>
+    /// <returns>ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ã trueã€æŠ¼ã•ã‚Œã¦ã„ãªã„ã¨ã false</returns>
     private bool CheckInput(UseKey key)
     {
         switch (key)
@@ -183,194 +197,201 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    ///è‚É‚Âˆ—iƒe[ƒuƒ‹‚©‚çæ‚éê‡j
+    ///æ‰‹ã«æŒã¤å‡¦ç†ï¼ˆãƒ†ãƒ¼ãƒ–ãƒ«ã‹ã‚‰å–ã‚‹å ´åˆï¼‰
     /// </summary>
-    /// <param name="item">E‚¤ƒAƒCƒeƒ€</param>
+    /// <param name="item">æ‹¾ã†ã‚¢ã‚¤ãƒ†ãƒ </param>
     public void PickUp(GameObject item)
     {
-        //ƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚È‚©‚Á‚½‚ç’Í‚Ş
+        //ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ãªã‹ã£ãŸã‚‰æ´ã‚€
         if (!m_HandHaveNow)
         {
             m_HandHaveNow = true;
             m_IsPickUpFrame = true;
 
-            // Sceneã‚ÌƒAƒCƒeƒ€‚ğè‚Ìq‚É‚·‚é
+            // Sceneä¸Šã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ‰‹ã®å­ã«ã™ã‚‹
              item.transform.SetParent(m_HandHave);
 
-            // ƒ[ƒJƒ‹À•W‚ğƒŠƒZƒbƒg
+            // ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ã‚’ãƒªã‚»ãƒƒãƒˆ
             item.transform.position = m_HandHave.position;
             item.transform.rotation = m_HandHave.rotation;
             m_PickUpItemDist = 0f;
 
             m_HaveItem = item;
 
-            //‚Á‚½‚çƒRƒ‰ƒCƒ_[‚ğƒIƒt
+            //æŒã£ãŸã‚‰ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ã‚ªãƒ•
             Collider col = m_HaveItem.GetComponent<Collider>();
             if (col != null)
             {
                 col.enabled = false;
             }
 
-            //‚Á‚½‚çƒLƒlƒ}‚ğƒIƒ“
+            //æŒã£ãŸã‚‰ã‚­ãƒãƒã‚’ã‚ªãƒ³
             Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
 
-            Debug.Log("ƒAƒCƒeƒ€æ“¾F" + item.name);
+            Debug.Log("ã‚¢ã‚¤ãƒ†ãƒ å–å¾—ï¼š" + item.name);
         }
         else
         {
-            Debug.Log("‚·‚Å‚ÉƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚Ü‚·B");
+            Debug.Log("ã™ã§ã«ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ã¾ã™ã€‚");
         }
 
     }
 
     /// <summary>
-    /// •¨‚ğ—‚Æ‚·ˆ—
+    /// ç‰©ã‚’è½ã¨ã™å‡¦ç†
     /// </summary>
     public void Drop()
     {
         if (m_HaveItem == null) return;
 
-        //è‚©‚ç—£‚µ‚½‚çƒRƒ‰ƒCƒ_[‚ğƒIƒ“‚É
+        //æ‰‹ã‹ã‚‰é›¢ã—ãŸã‚‰ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ã‚ªãƒ³ã«
         Collider col = m_HaveItem.GetComponent<Collider>();
         if (col != null)
         {
             col.enabled = true;
         }
 
-        //è‚©‚ç—£‚µ‚½‚çƒLƒlƒ}‚ğƒIƒt‚É
+        //æ‰‹ã‹ã‚‰é›¢ã—ãŸã‚‰ã‚­ãƒãƒã‚’ã‚ªãƒ•ã«
         Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = false;
         }
 
-        // Šî•ñ‚ğƒNƒŠƒA
+        // æ‰€æŒæƒ…å ±ã‚’ã‚¯ãƒªã‚¢
         m_HaveItem = null;
 
-        // ‚Á‚Ä‚¢‚È‚¢ó‘Ô‚É–ß‚·
+        // æŒã£ã¦ã„ãªã„çŠ¶æ…‹ã«æˆ»ã™
         m_HandHaveNow = false;
     }
 
     /// <summary>
-    /// è‚É‚Âˆ—(ƒe[ƒuƒ‹‚É’u‚¢‚Ä‚È‚¢•¨‚ğæ‚éê‡)
+    /// æ‰‹ã«æŒã¤å‡¦ç†(ãƒ†ãƒ¼ãƒ–ãƒ«ã«ç½®ã„ã¦ãªã„ç‰©ã‚’å–ã‚‹å ´åˆ)
     /// </summary>
-    /// <param name="Item">E‚¤ƒAƒCƒeƒ€</param>
+    /// <param name="Item">æ‹¾ã†ã‚¢ã‚¤ãƒ†ãƒ </param>
     public void HandHave(GameObject Item)
     {
-        //ƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚È‚©‚Á‚½‚ç’Í‚Ş
+        //ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ãªã‹ã£ãŸã‚‰æ´ã‚€
         if (!m_HandHaveNow)
         {
-            //ƒAƒCƒeƒ€ƒQƒbƒgSE
+            //ã‚¢ã‚¤ãƒ†ãƒ ã‚²ãƒƒãƒˆSE
             m_AudioSource.PlayOneShot(m_ItemGetSE);
 
-            //è‚É‚Á‚Ä‚¢‚é
+            //æ‰‹ã«æŒã£ã¦ã„ã‚‹
             m_HandHaveNow = true;
             m_IsPickUpFrame = true;
 
-            //ƒvƒŒƒCƒ„[‚Ìè‚ÌˆÊ’u‚É¶¬
+            //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ‰‹ã®ä½ç½®ã«ç”Ÿæˆ
             GameObject obj = Instantiate(Item, m_HandHave.position, m_HandHave.rotation);
             obj.transform.position = m_HandHave.position;
             obj.transform.rotation = m_HandHave.rotation;
             m_PickUpItemDist = 0f;
 
-            //¡‚È‚É‚ğ‚Á‚Ä‚¢‚é‚©•Û‘¶
+            //ä»Šãªã«ã‚’æŒã£ã¦ã„ã‚‹ã‹ä¿å­˜
             m_HaveItem = obj;
 
-            //è‚É‚Á‚Ä‚¢‚é‚Æ‚«‚ÍƒRƒ‰ƒCƒ_[‚ğƒIƒt
+            //æ‰‹ã«æŒã£ã¦ã„ã‚‹ã¨ãã¯ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ã‚ªãƒ•
             Collider col = m_HaveItem.GetComponent<Collider>();
             if (col != null)
             {
                 col.enabled = false;
             }
 
-            //è‚É‚Á‚Ä‚¢‚é‚ÍƒLƒlƒ}‚ğƒIƒ“
+            //æ‰‹ã«æŒã£ã¦ã„ã‚‹æ™‚ã¯ã‚­ãƒãƒã‚’ã‚ªãƒ³
             Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
-            Debug.Log("ƒAƒCƒeƒ€æ“¾F" + Item.name);
+            Debug.Log("ã‚¢ã‚¤ãƒ†ãƒ å–å¾—ï¼š" + Item.name);
         }
         else
         {
-            Debug.Log("‚·‚Å‚ÉƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚Ü‚·B");
+            Debug.Log("ã™ã§ã«ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ã¾ã™ã€‚");
         }
     }
 
-    // ƒAƒCƒeƒ€‚ğ—£‚·ˆ—
+    // ã‚¢ã‚¤ãƒ†ãƒ ã‚’é›¢ã™å‡¦ç†
     public void PlaceItem()
     {
-        // ƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚È‚©‚Á‚½‚çÀs‚µ‚È‚¢
+        // ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ãªã‹ã£ãŸã‚‰å®Ÿè¡Œã—ãªã„
         if (!m_HandHaveNow || m_HaveItem == null) return;
 
-        // ƒNƒƒXƒwƒA•ûŒü‚ÉRay‚ğ”ò‚Î‚·
+        // ã‚¯ãƒ­ã‚¹ãƒ˜ã‚¢æ–¹å‘ã«Rayã‚’é£›ã°ã™
         Ray ray = Camera.main.ScreenPointToRay(
             new Vector3(Screen.width / 2, Screen.height / 2, 0)
         );
 
         RaycastHit hit;
-        int layerMask = LayerMask.GetMask("Furniture"); // ’u‚¯‚éƒe[ƒuƒ‹—p‚ÌLayer
+        int layerMask = LayerMask.GetMask("Furniture"); // ç½®ã‘ã‚‹ãƒ†ãƒ¼ãƒ–ãƒ«ç”¨ã®Layer
 
         if (Physics.Raycast(ray, out hit, 5f, layerMask))
         {
-            // è‚©‚çŠO‚·
+            // æ‰‹ã‹ã‚‰å¤–ã™
             m_HaveItem.transform.SetParent(null);
 
-            // ƒAƒCƒeƒ€‚ÌˆÊ’u‚ğRay‚ª“–‚½‚Á‚½ˆÊ’u‚É
+            // ã‚¢ã‚¤ãƒ†ãƒ ã®ä½ç½®ã‚’RayãŒå½“ãŸã£ãŸä½ç½®ã«
             m_HaveItem.transform.position = hit.point;
 
-            // ƒAƒCƒeƒ€‚Ì‰ñ“]‚ğƒe[ƒuƒ‹‚Ì–@ü•ûŒü‚É‡‚í‚¹‚é
+            // ã‚¢ã‚¤ãƒ†ãƒ ã®å›è»¢ã‚’ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ³•ç·šæ–¹å‘ã«åˆã‚ã›ã‚‹
             m_HaveItem.transform.rotation =
                 Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90, 0, 0);
 
-            // è‚ğ‹ó‚É‚·‚é
+            // ç½®ã„ãŸã‚¢ã‚¤ãƒ†ãƒ ã®ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ã‚ªãƒ³ã«ã™ã‚‹
+            Collider col = m_HaveItem.GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = true;
+            }
+
+            // æ‰‹ã‚’ç©ºã«ã™ã‚‹
             m_HaveItem = null;
             m_HandHaveNow = false;
 
-            Debug.Log("ƒAƒCƒeƒ€‚ğ’u‚«‚Ü‚µ‚½F" + hit.collider.name);
+            Debug.Log("ã‚¢ã‚¤ãƒ†ãƒ ã‚’ç½®ãã¾ã—ãŸï¼š" + hit.collider.name);
         }
         else
         {
-            Debug.Log("’u‚¯‚éêŠ‚ª‚ ‚è‚Ü‚¹‚ñ");
+            Debug.Log("ç½®ã‘ã‚‹å ´æ‰€ãŒã‚ã‚Šã¾ã›ã‚“");
         }
     }
 
     /// <summary>
-    /// Œ»İ‚Á‚Ä‚¢‚éƒAƒCƒeƒ€‚Ìƒ^ƒO‚ªw’è‚µ‚½ƒ^ƒO‚Æˆê’v‚·‚é‚©Šm”F‚·‚é
+    /// ç¾åœ¨æŒã£ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®ã‚¿ã‚°ãŒæŒ‡å®šã—ãŸã‚¿ã‚°ã¨ä¸€è‡´ã™ã‚‹ã‹ç¢ºèªã™ã‚‹
     /// </summary>
-    /// <param name="tag">Šm”F‚µ‚½‚¢ƒ^ƒO–¼</param>
-    /// <returns>ƒ^ƒO‚ªˆê’v‚µ‚Ä‚¢‚ê‚Î trueAˆá‚¦‚Î false</returns>
+    /// <param name="tag">ç¢ºèªã—ãŸã„ã‚¿ã‚°å</param>
+    /// <returns>ã‚¿ã‚°ãŒä¸€è‡´ã—ã¦ã„ã‚Œã° trueã€é•ãˆã° false</returns>
     public bool CheckHaveItem(string tag)
     {
-        //‰½‚àƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚È‚©‚Á‚½‚çˆ—‚µ‚È‚¢
+        //ä½•ã‚‚ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ãªã‹ã£ãŸã‚‰å‡¦ç†ã—ãªã„
         if (m_HaveItem == null) return false;
-        //ƒAƒCƒeƒ€‚ÆTag‚ª“¯‚¶‚©ƒ`ƒFƒbƒN
+        //ã‚¢ã‚¤ãƒ†ãƒ ã¨TagãŒåŒã˜ã‹ãƒã‚§ãƒƒã‚¯
         return m_HaveItem.CompareTag(tag);
     }
 
     /// <summary>
-    /// ƒAƒCƒeƒ€APlayer‚ª‚Á‚Ä‚é‚à‚Ì‚ğƒNƒŠƒA
+    /// ã‚¢ã‚¤ãƒ†ãƒ ã€PlayerãŒæŒã£ã¦ã‚‹ã‚‚ã®ã‚’ã‚¯ãƒªã‚¢
     /// </summary>
     public void UseItem()
     {
         if (m_HaveItem == null) return;
 
-        // è‚É‚Á‚Ä‚¢‚éƒAƒCƒeƒ€‚ğÁ‚·
+        // æ‰‹ã«æŒã£ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¶ˆã™
         Destroy(m_HaveItem);
 
-        // Šî•ñ‚ğƒNƒŠƒA
+        // æ‰€æŒæƒ…å ±ã‚’ã‚¯ãƒªã‚¢
         m_HaveItem = null;
 
-        // ‚Á‚Ä‚¢‚È‚¢ó‘Ô‚É–ß‚·
+        // æŒã£ã¦ã„ãªã„çŠ¶æ…‹ã«æˆ»ã™
         m_HandHaveNow = false;
     }
 
     /// <summary>
-    /// ƒvƒŒƒCƒ„[‚ª¡‚Á‚Ä‚éƒAƒCƒeƒ€‚ğ•Ô‚·
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒä»ŠæŒã£ã¦ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿”ã™
     /// </summary>
     /// <returns></returns>
     public Item GetHoldItem()
@@ -381,7 +402,7 @@ public class PlayerPickup : MonoBehaviour
 
 
     /// <summary>
-    /// è‚É‚Á‚Ä‚¢‚éƒAƒCƒeƒ€‚ğŠ®‘S‚Éè•ú‚·
+    /// æ‰‹ã«æŒã£ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’å®Œå…¨ã«æ‰‹æ”¾ã™
     /// </summary>
     public void RemoveItem()
     {
