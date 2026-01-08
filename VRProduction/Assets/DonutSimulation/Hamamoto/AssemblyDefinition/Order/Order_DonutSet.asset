@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OrderData
   conditions:
   - m_ItemType: 0
-    m_Count: 2
+    m_Count: 1

@@ -22,11 +22,11 @@ public class QuestText : MonoBehaviour
     /// </summary>
     private void UpdateQuestDisplay()
     {
-        if (m_OrderManager == null || m_OrderManager.currentOrder == null)
-        {
-            ClearAllTexts();
-            return;
-        }
+        // if (m_OrderManager == null || m_OrderManager.currentOrder == null)
+        //{
+        // ClearAllTexts();
+        //return;
+        // }
 
         var conditions = m_OrderManager.GetActiveConditions();
 
@@ -36,9 +36,6 @@ public class QuestText : MonoBehaviour
             {
                 var cond = conditions[i];
                 // 注文の種類ごとに一行 or 二行で表示
-                // 例:
-                // Donut_Chocolate
-                // あと 3個
                 m_QuestTexts[i].text = $"{cond.m_ItemType}\nあと {cond.m_Count}個";
             }
             else
