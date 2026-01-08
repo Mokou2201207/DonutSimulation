@@ -3,44 +3,86 @@ using System.Collections.Generic;
 
 public class OrderManager : MonoBehaviour
 {
-    public OrderData currentOrder;
-    [Header("ƒŒƒWSE"), SerializeField]
+    [Header("å¯èƒ½ãªã‚ªãƒ¼ãƒ€ãƒ¼ã®ãƒªã‚¹ãƒˆ"), SerializeField]
+    private List<OrderData> m_PossibleOrders;
+
+    [Header("ãƒ¬ã‚¸SE"), SerializeField]
     private AudioSource m_RegistSE;
-    /// <summary>
-    /// ¡“n‚³‚ê‚½ƒAƒCƒeƒ€‚ªAŒ»İ‚ÌƒI[ƒ_[‚É‚¿‚á‚ñ‚Æ‡‚Á‚Ä‚¢‚é‚©
-    /// </summary>
-    /// <param name="item">ƒvƒŒƒCƒ„[‚ª‚Á‚Ä‚¢‚½ƒAƒCƒeƒ€</param>
-    public void Deliver(Item item)
+
+    // ç¾åœ¨é€²è¡Œä¸­ã®ã‚ªãƒ¼ãƒ€ãƒ¼æƒ…å ±
+    public OrderData currentOrder { get; private set; }
+    
+    // ç¾åœ¨ã®é€²è¡ŒçŠ¶æ³ï¼ˆå…ƒãƒ‡ãƒ¼ã‚¿ã‚’å£Šã•ãªã„ãŸã‚ã®ã‚³ãƒ”ãƒ¼ï¼‰
+    private List<OrderCondition> m_ActiveConditions = new List<OrderCondition>();
+
+    public List<OrderCondition> GetActiveConditions() => m_ActiveConditions;
+
+    private void Start()
     {
-        // ƒI[ƒ_[‚ª–³‚¢ or ƒAƒCƒeƒ€–³‚µ
-        if (currentOrder == null || item == null) return;
-
-        // ğŒ‚ğ1‚Â‚¸‚Âƒ`ƒFƒbƒN
-        foreach (OrderCondition cond in currentOrder.conditions)
-        {
-            // í—Ş‚ªˆê’v • ‚Ü‚¾•K—v”‚ªc‚Á‚Ä‚¢‚é
-            if (cond.m_ItemType == item.m_ItemType && cond.m_Count > 0)
-            {
-                cond.m_Count--;          // ”[•iƒJƒEƒ“ƒg‚ğŒ¸‚ç‚·
-                CheckComplete();       // ƒNƒŠƒAŠm”F
-                return;                // 1ŒÂ”[•i‚µ‚½‚çI—¹
-            }
-        }
-
-        // ‚±‚±‚É—ˆ‚½‚çu’•¶‚Æˆá‚¤•¨v
-        Debug.Log("’•¶‚Æˆá‚¤ƒAƒCƒeƒ€‚Å‚·");
+        // æœ€åˆã«ãƒ©ãƒ³ãƒ€ãƒ ãªã‚ªãƒ¼ãƒ€ãƒ¼ã‚’ã‚»ãƒƒãƒˆï¼ˆå¿…è¦ã«å¿œã˜ã¦ï¼‰
+        SetRandomOrder();
     }
 
     /// <summary>
-    /// ƒI[ƒ_[‚ª‚·‚×‚Ä’Ê‚Á‚½‚©Šm”F
+    /// ãƒ©ãƒ³ãƒ€ãƒ ãªã‚ªãƒ¼ãƒ€ãƒ¼ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+    /// </summary>
+    public void SetRandomOrder()
+    {
+        if (m_PossibleOrders == null || m_PossibleOrders.Count == 0) return;
+
+        // ãƒ©ãƒ³ãƒ€ãƒ ã«é¸æŠ
+        int index = Random.Range(0, m_PossibleOrders.Count);
+        currentOrder = m_PossibleOrders[index];
+
+        // é€²è¡ŒçŠ¶æ³ã‚’åˆæœŸåŒ–ï¼ˆå…ƒãƒ‡ãƒ¼ã‚¿ã‹ã‚‰ã‚³ãƒ”ãƒ¼ï¼‰
+        m_ActiveConditions.Clear();
+        foreach (var cond in currentOrder.conditions)
+        {
+            m_ActiveConditions.Add(new OrderCondition 
+            { 
+                m_ItemType = cond.m_ItemType, 
+                m_Count = cond.m_Count 
+            });
+        }
+
+        Debug.Log($"æ–°ã—ã„ã‚ªãƒ¼ãƒ€ãƒ¼ã‚’ã‚»ãƒƒãƒˆã—ã¾ã—ãŸ: {currentOrder.name}");
+    }
+
+    /// <summary>
+    /// ä»Šæ¸¡ã•ã‚ŒãŸã‚¢ã‚¤ãƒ†ãƒ ãŒã€ç¾åœ¨ã®ã‚ªãƒ¼ãƒ€ãƒ¼ã«ã¡ã‚ƒã‚“ã¨åˆã£ã¦ã„ã‚‹ã‹
+    /// </summary>
+    /// <param name="item">ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒæŒã£ã¦ã„ãŸã‚¢ã‚¤ãƒ†ãƒ </param>
+    public void Deliver(Item item)
+    {
+        // ã‚ªãƒ¼ãƒ€ãƒ¼ãŒç„¡ã„ or ã‚¢ã‚¤ãƒ†ãƒ ç„¡ã—
+        if (currentOrder == null || item == null) return;
+
+        // æ¡ä»¶ã‚’1ã¤ãšã¤ãƒã‚§ãƒƒã‚¯
+        foreach (OrderCondition cond in m_ActiveConditions)
+        {
+            // ç¨®é¡ãŒä¸€è‡´ ï¼† ã¾ã å¿…è¦æ•°ãŒæ®‹ã£ã¦ã„ã‚‹
+            if (cond.m_ItemType == item.m_ItemType && cond.m_Count > 0)
+            {
+                cond.m_Count--;          // ç´å“ã‚«ã‚¦ãƒ³ãƒˆã‚’æ¸›ã‚‰ã™
+                CheckComplete();       // ã‚¯ãƒªã‚¢ç¢ºèª
+                return;                // 1å€‹ç´å“ã—ãŸã‚‰çµ‚äº†
+            }
+        }
+
+        // ã“ã“ã«æ¥ãŸã‚‰ã€Œæ³¨æ–‡ã¨é•ã†ç‰©ã€
+        Debug.Log("æ³¨æ–‡ã¨é•ã†ã‚¢ã‚¤ãƒ†ãƒ ã§ã™");
+    }
+
+    /// <summary>
+    /// ã‚ªãƒ¼ãƒ€ãƒ¼ãŒã™ã¹ã¦é€šã£ãŸã‹ç¢ºèª
     /// </summary>
     private void CheckComplete()
     {
-        // ‚·‚×‚Ä‚ÌğŒ‚ª 0 ‚©Šm”F
-        foreach (OrderCondition cond in currentOrder.conditions)
+        // ã™ã¹ã¦ã®æ¡ä»¶ãŒ 0 ã‹ç¢ºèª
+        foreach (OrderCondition cond in m_ActiveConditions)
         {
             if (cond.m_Count > 0)
-                // ‚Ü‚¾–¢’B¬
+                // ã¾ã æœªé”æˆ
                 return; 
         }
 
@@ -48,16 +90,16 @@ public class OrderManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒI[ƒ_[Š®—¹
+    /// ã‚ªãƒ¼ãƒ€ãƒ¼å®Œäº†
     /// </summary>
     private void CompleteOrder()
     {
-        Debug.Log("ƒI[ƒ_[’B¬I");
+        Debug.Log("ã™ã¹ã¦ã®ã‚ªãƒ¼ãƒ€ãƒ¼ã‚’é”æˆã—ã¾ã—ãŸï¼");
 
-        //Ä¶
-        m_RegistSE.Play();
+        //å†ç”Ÿ
+        if (m_RegistSE != null) m_RegistSE.Play();
 
-        // Ÿ‚ÌƒI[ƒ_[‚Öi¡‚Í‰¼j
-        currentOrder = null;
+        // å®Œäº†ã—ãŸã‚‰æ¬¡ã®ãƒ©ãƒ³ãƒ€ãƒ ã‚ªãƒ¼ãƒ€ãƒ¼ã¸
+        SetRandomOrder();
     }
 }
