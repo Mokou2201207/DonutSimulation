@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static FurnitureOwner;
 /// <summary>
 /// プレイヤーの“拾う系の行動”を全部管理するプログラム
@@ -42,7 +43,29 @@ public class PlayerPickup : MonoBehaviour
     [Header("AudioSource（自動）"), SerializeField]
     private AudioSource m_AudioSource;
 
+    [Header("参照"), SerializeField]
+    private PlayerInput m_PlayerInput;
+
+    private InputAction m_inputA;
+
     private Item holdItem;
+
+    /// <summary>
+    /// 初期化
+    /// </summary>
+    private void Awake()
+    {
+        if (m_PlayerInput == null)
+        {
+            m_PlayerInput = GetComponent<PlayerInput>();
+        }
+
+        if (m_PlayerInput != null)
+        {
+            m_PlayerInput.currentActionMap.Enable();
+            m_inputA = m_PlayerInput.currentActionMap.FindAction("A");
+        }
+    }
 
     /// <summary>
     /// 開始
@@ -94,8 +117,8 @@ public class PlayerPickup : MonoBehaviour
                 Item item = hit.collider.GetComponent<Item>();
                 if (item != null)
                 {
-                    // 左クリックで拾う
-                    if (Input.GetMouseButtonDown(0))
+                    // 左クリックまたはVRのAボタンで拾う
+                    if (Input.GetMouseButtonDown(0) || (m_inputA != null && m_inputA.WasPressedThisFrame()))
                     {
                         PickUp(hit.collider.gameObject);
                     }
@@ -114,7 +137,7 @@ public class PlayerPickup : MonoBehaviour
         //Key入力
         if (m_currentFurniture != null)
         {
-            if (CheckInput(m_currentFurniture.m_UseKey))
+            if (CheckInput(m_currentFurniture.m_UseKey) || (m_inputA != null && m_inputA.IsPressed()))
             {
                 m_currentFurniture.Interact();
             }
@@ -150,8 +173,8 @@ public class PlayerPickup : MonoBehaviour
         }
         else
         {
-            //左クリックを押すと落とす処理へ
-            if (Input.GetMouseButtonDown(0))
+            //左クリックまたはVRのAボタンを押すと落とす処理へ
+            if (Input.GetMouseButtonDown(0) || (m_inputA != null && m_inputA.WasPressedThisFrame()))
             {
                 Drop();
                 return;
@@ -168,11 +191,7 @@ public class PlayerPickup : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Key入力の設定
-    /// </summary>
-    /// <param name="key">押すKeyの名前</param>
-    /// <returns>キーが押されたとき true、押されていないとき false</returns>
+
     private bool CheckInput(UseKey key)
     {
         switch (key)
@@ -190,7 +209,7 @@ public class PlayerPickup : MonoBehaviour
                 return Input.GetKeyDown(KeyCode.F);
 
             case UseKey.Q:
-                return Input.GetKeyDown(KeyCode.Q);
+                return Input.GetKeyDown(KeyCode.Q) || (m_inputA != null && m_inputA.WasPressedThisFrame());
         }
 
         return false;

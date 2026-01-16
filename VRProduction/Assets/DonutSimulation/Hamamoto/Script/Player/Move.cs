@@ -3,74 +3,75 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 /// <summary>
-/// ƒvƒŒƒCƒ„[‚Ì‘€ì‚ÆƒJƒƒ‰‚Ì¶‰Eã‰º‚Ìˆ—
+/// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ“ä½œã¨ã‚«ãƒ¡ãƒ©ã®å·¦å³ä¸Šä¸‹ã®å‡¦ç†
 /// </summary>
 public class Move : MonoBehaviour
 {
-    [Header("ƒJƒƒ‰‚Ìƒsƒ{ƒbƒgiã‰º‰ñ“]ê—pj"), SerializeField]
+    [Header("ã‚«ãƒ¡ãƒ©ã®ãƒ”ãƒœãƒƒãƒˆï¼ˆä¸Šä¸‹å›è»¢å°‚ç”¨ï¼‰"), SerializeField]
     private Transform m_CameraPivot;
 
-    [Header("ã‰º‰ñ“]İ’èiƒx[ƒXj"), SerializeField]
+    [Header("ä¸Šä¸‹å›è»¢è¨­å®šï¼ˆãƒ™ãƒ¼ã‚¹ï¼‰"), SerializeField]
     private float m_PitchSpeed = 60f;
 
-    [Header("¶‰E‰ñ“]İ’èiƒx[ƒXj"), SerializeField]
+    [Header("å·¦å³å›è»¢è¨­å®šï¼ˆãƒ™ãƒ¼ã‚¹ï¼‰"), SerializeField]
     private float m_CameraSpeed = 120f;
 
-    [Header("‹“_‚Ì‰º‚ÌMaxİ’è"), SerializeField]
+    [Header("è¦–ç‚¹ã®ä¸‹ã®Maxè¨­å®š"), SerializeField]
     private float m_MinPitch = -30f;
 
-    [Header("‹“_‚Ìã‚ÌMaxİ’è"), SerializeField]
+    [Header("è¦–ç‚¹ã®ä¸Šã®Maxè¨­å®š"), SerializeField]
     private float m_MaxPitch = 45f;
 
-    [Header("‹“_‚ÌÅ‰‚ÌˆÊ’u‚ğŒÅ’è"), SerializeField]
+    [Header("è¦–ç‚¹ã®æœ€åˆã®ä½ç½®ã‚’å›ºå®š"), SerializeField]
     private float m_Pitch = 0f;
 
-    [Header("ˆÚ“®ƒXƒs[ƒh"), SerializeField]
+    [Header("ç§»å‹•ã‚¹ãƒ”ãƒ¼ãƒ‰"), SerializeField]
     private float m_MoveSpeed;
 
-    [Header("Debug—p‚ÌText"), SerializeField]
+    [Header("Debugç”¨ã®Text"), SerializeField]
     private Text m_debugText;
 
     [SerializeField] private Rigidbody m_Rigidbody;
     [SerializeField] private PlayerInput m_PlayerInput;
     [SerializeField] private InputAction m_MoveAction;
 
-    // UI‚Å•ÏX‚·‚é”{—¦iSlider—pj
-    [Header("Š´“x”{—¦iUI—pj"), SerializeField]
+    // UIã§å¤‰æ›´ã™ã‚‹å€ç‡ï¼ˆSliderç”¨ï¼‰
+    [Header("æ„Ÿåº¦å€ç‡ï¼ˆUIç”¨ï¼‰"), SerializeField]
     private float m_LookSensitivityMul = 1.0f;
 
     /// <summary>
-    /// ŠJn
+    /// é–‹å§‹
     /// </summary>
     private void Start()
     {
-        // Rigidbody ‚Æ PlayerInput ‚ğæ“¾
+
+        // Rigidbody ã¨ PlayerInput ã‚’å–å¾—
         m_Rigidbody = GetComponent<Rigidbody>();
         m_PlayerInput = GetComponent<PlayerInput>();
 
         m_PlayerInput.currentActionMap.Enable();
         m_MoveAction = m_PlayerInput.actions.FindAction("Move");
 
-        // ƒJ[ƒ\ƒ‹‚ğ’†‰›‚ÉŒÅ’è‚µ‚Ä”ñ•\¦
+        // ã‚«ãƒ¼ã‚½ãƒ«ã‚’ä¸­å¤®ã«å›ºå®šã—ã¦éè¡¨ç¤º
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // •Û‘¶‚³‚ê‚½Š´“x‚ğ“Ç‚İ‚İ
+        // ä¿å­˜ã•ã‚ŒãŸæ„Ÿåº¦ã‚’èª­ã¿è¾¼ã¿
         m_CameraSpeed = PlayerPrefs.GetFloat("LookSensitivity_H", m_CameraSpeed);
         m_PitchSpeed = PlayerPrefs.GetFloat("LookSensitivity_V", m_PitchSpeed);
         m_LookSensitivityMul = PlayerPrefs.GetFloat("LookSensitivity_Mul", 1f);
     }
 
     /// <summary>
-    /// XV
+    /// æ›´æ–°
     /// </summary>
     private void Update()
     {
-        // ¶‰E‰ñ“]iƒvƒŒƒCƒ„[–{‘Ìj
+        // å·¦å³å›è»¢ï¼ˆãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æœ¬ä½“ï¼‰
         float mouseX = Input.GetAxis("Mouse X");
         transform.Rotate(0, mouseX * m_CameraSpeed * m_LookSensitivityMul * Time.deltaTime, 0);
 
-        // ã‰º‰ñ“]iCameraPivotj
+        // ä¸Šä¸‹å›è»¢ï¼ˆCameraPivotï¼‰
         float mouseY = Input.GetAxis("Mouse Y");
         m_Pitch -= mouseY * m_PitchSpeed * m_LookSensitivityMul * Time.deltaTime;
         m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitch, m_MaxPitch);
@@ -80,15 +81,15 @@ public class Move : MonoBehaviour
             m_CameraPivot.localRotation = Quaternion.Euler(m_Pitch, 0f, 0f);
         }
 
-        // ƒfƒoƒbƒO•\¦
+        // ãƒ‡ãƒãƒƒã‚°è¡¨ç¤º
         if (m_debugText != null)
         {
-            m_debugText.text = string.Format("MoveF{0}", m_MoveAction.ReadValue<Vector2>());
+            m_debugText.text = string.Format("Moveï¼š{0}", m_MoveAction.ReadValue<Vector2>());
         }
     }
 
     /// <summary>
-    /// ˆÚ“®
+    /// ç§»å‹•
     /// </summary>
     void FixedUpdate()
     {
@@ -96,14 +97,14 @@ public class Move : MonoBehaviour
         float moveX = input.x * m_MoveSpeed;
         float moveZ = input.y * m_MoveSpeed;
 
-        // …•½•ûŒü‚Ì‘¬“x‚ğİ’èiY‘¬“x‚ÍˆÛj
+        // æ°´å¹³æ–¹å‘ã®é€Ÿåº¦ã‚’è¨­å®šï¼ˆYé€Ÿåº¦ã¯ç¶­æŒï¼‰
         Vector3 velocity = transform.right * moveX + transform.forward * moveZ;
         velocity.y = m_Rigidbody.linearVelocity.y;
         m_Rigidbody.linearVelocity = velocity;
     }
 
     // -------------------
-    // UI—pƒƒ\ƒbƒh
+    // UIç”¨ãƒ¡ã‚½ãƒƒãƒ‰
     // -------------------
     public void SetHorizontalSensitivity(float value)
     {
