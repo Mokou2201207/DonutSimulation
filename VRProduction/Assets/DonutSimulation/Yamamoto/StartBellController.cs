@@ -10,8 +10,7 @@ public class StartBellController : MonoBehaviour
 
     void Update()
     {
-        // まだ時間が始まっていない時だけ
-        if (!hasStarted && Input.GetKeyDown(KeyCode.P))
+        if (!hasStarted && IsStartInput())
         {
             StartSimulation();
         }
@@ -31,5 +30,10 @@ public class StartBellController : MonoBehaviour
         // アニメーション
         if (bellAnimator != null)
             bellAnimator.SetTrigger("Ring");
+    }
+    bool IsStartInput()
+    {
+        return Input.GetKeyDown(KeyCode.P)
+            || Input.GetKeyDown(KeyCode.JoystickButton1); // VRコントローラ
     }
 }

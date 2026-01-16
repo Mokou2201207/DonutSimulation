@@ -27,10 +27,11 @@ public class GameTimeManager : MonoBehaviour
 
     void Update()
     {
-        // ★ Pキーで時間スタート（1回だけ）
-        if (!timeStart && Input.GetKeyDown(KeyCode.P))
+        // ★ Pキー or VRボタンで時間スタート（1回だけ）
+        if (!timeStart && IsStartButtonPressed())
         {
             timeStart = true;
+            
         }
 
         UpdateUI();
@@ -41,6 +42,7 @@ public class GameTimeManager : MonoBehaviour
 
         UpdateSky();
     }
+
 
     //==============================
     // 時間進行（6時スタート & 21時で停止）
@@ -116,5 +118,10 @@ public class GameTimeManager : MonoBehaviour
 
         // SkyCoreに反映
         skyCore.timeOfDay = dayProgress;
+    }
+    bool IsStartButtonPressed()
+    {
+        return Input.GetKeyDown(KeyCode.P)
+            || Input.GetKeyDown(KeyCode.JoystickButton1);
     }
 }
