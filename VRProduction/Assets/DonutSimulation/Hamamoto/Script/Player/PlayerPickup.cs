@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static FurnitureOwner;
 /// <summary>
-/// プレイヤーの“拾う系の行動”を全部管理するプログラム
+/// プレイヤーの"拾う"行動を全部管理するプログラム
 /// </summary>
 public class PlayerPickup : MonoBehaviour
 {
 
-    [Header("アイテムを拾う音"), SerializeField]
+    [Header("アイテムを拾うSE"), SerializeField]
     private AudioClip m_ItemGetSE;
 
     [Header("拾える距離"), SerializeField]
@@ -37,18 +37,43 @@ public class PlayerPickup : MonoBehaviour
     [Header("手からアイテムまでの距離"), SerializeField]
     private float m_PickUpItemDist;
 
-    [Header("FurnitureOwner（自動）"), SerializeField]
+    [Header("FurnitureOwner自動"), SerializeField]
     public FurnitureOwner m_currentFurniture;
 
-    [Header("AudioSource（自動）"), SerializeField]
+    [Header("AudioSource自動"), SerializeField]
     private AudioSource m_AudioSource;
 
     [Header("参照"), SerializeField]
     private PlayerInput m_PlayerInput;
 
+    [Header("VRコントローラー（Raycast用）"), SerializeField]
+    private Transform m_VRController;
+
     private InputAction m_inputA;
 
     private Item holdItem;
+
+    /// <summary>
+    /// VRモードかどうか判定
+    /// </summary>
+    private bool IsVRMode => m_VRController != null;
+
+    /// <summary>
+    /// PC/VRに応じたRayを取得
+    /// </summary>
+    private Ray GetRay()
+    {
+        if (IsVRMode)
+        {
+            // VR: コントローラーからRayを飛ばす
+            return new Ray(m_VRController.position, m_VRController.forward);
+        }
+        else
+        {
+            // PC: カメラの中心からRayを飛ばす
+            return Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        }
+    }
 
     /// <summary>
     /// 初期化
@@ -77,7 +102,7 @@ public class PlayerPickup : MonoBehaviour
             m_AudioSource = GetComponent<AudioSource>();
             if (m_AudioSource == null)
             {
-                Debug.LogError("AudioSourceが入ってません。");
+                Debug.LogError("AudioSourceがありません");
             }
         }
     }
@@ -87,10 +112,10 @@ public class PlayerPickup : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        //Rayをカメラの真ん中に設定
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        // PC/VRに応じたRayを取得
+        Ray ray = GetRay();
 
-        //※Raycast が「何に当たったか？」を教えてくれるのが RaycastHit。
+        //※Raycast が「何に当たったか？」を教えてくれるのがRaycastHit
         RaycastHit hit;
 
         m_currentFurniture = null;
@@ -99,7 +124,7 @@ public class PlayerPickup : MonoBehaviour
 
         int layerMask = LayerMask.GetMask("Item", "RaycastBlock");
 
-        //3m以内でヒットしたら処理を行う
+        //3m以内にヒットしたら処理を行う
         if (Physics.Raycast(ray, out hit, m_PickUpDistance, layerMask))
         {
             // FurnitureOwner コンポーネントがあれば取得
@@ -108,7 +133,7 @@ public class PlayerPickup : MonoBehaviour
             {
                 m_currentFurniture = furniture;
                 furnitureHit = true;
-                Debug.Log("物がクロスヘアが重なってます");
+                Debug.Log("物がクロスヘアと重なっています");
             }
 
             // アイテムを持っていない & Rayが当たったオブジェクトに Item コンポーネントがある
@@ -159,7 +184,7 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    /// 落とすKeyの処理とホイールで距離を調整
+    /// 落とすKeyの処理、ホイールで距離を調整
     /// </summary>
     private void UpdatePickUp()
     {
@@ -173,7 +198,7 @@ public class PlayerPickup : MonoBehaviour
         }
         else
         {
-            //左クリックまたはVRのAボタンを押すと落とす処理へ
+            //左クリックまたはVRのAボタンを押すと落とす処理
             if (Input.GetMouseButtonDown(0) || (m_inputA != null && m_inputA.WasPressedThisFrame()))
             {
                 Drop();
@@ -251,11 +276,11 @@ public class PlayerPickup : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            Debug.Log("アイテム取得：" + item.name);
+            Debug.Log("アイテム取得！" + item.name);
         }
         else
         {
-            Debug.Log("すでにアイテムを持っています。");
+            Debug.Log("すでにアイテムを持っています");
         }
 
     }
@@ -289,7 +314,7 @@ public class PlayerPickup : MonoBehaviour
     }
 
     /// <summary>
-    /// 手に持つ処理(テーブルに置いてない物を取る場合)
+    /// 手に持つ処理（テーブルに置いていないものを取る場合）
     /// </summary>
     /// <param name="Item">拾うアイテム</param>
     public void HandHave(GameObject Item)
@@ -313,24 +338,24 @@ public class PlayerPickup : MonoBehaviour
             //今なにを持っているか保存
             m_HaveItem = obj;
 
-            //手に持っているときはコライダーをオフ
+            //手に持っているときのコライダーをオフ
             Collider col = m_HaveItem.GetComponent<Collider>();
             if (col != null)
             {
                 col.enabled = false;
             }
 
-            //手に持っている時はキネマをオン
+            //手に持っている時のキネマをオン
             Rigidbody rb = m_HaveItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
-            Debug.Log("アイテム取得：" + Item.name);
+            Debug.Log("アイテム取得！" + Item.name);
         }
         else
         {
-            Debug.Log("すでにアイテムを持っています。");
+            Debug.Log("すでにアイテムを持っています");
         }
     }
 
@@ -340,10 +365,8 @@ public class PlayerPickup : MonoBehaviour
         // アイテムを持っていなかったら実行しない
         if (!m_HandHaveNow || m_HaveItem == null) return;
 
-        // クロスヘア方向にRayを飛ばす
-        Ray ray = Camera.main.ScreenPointToRay(
-            new Vector3(Screen.width / 2, Screen.height / 2, 0)
-        );
+        // PC/VRに応じたRayを取得
+        Ray ray = GetRay();
 
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("Furniture"); // 置けるテーブル用のLayer
@@ -383,7 +406,7 @@ public class PlayerPickup : MonoBehaviour
     /// 現在持っているアイテムのタグが指定したタグと一致するか確認する
     /// </summary>
     /// <param name="tag">確認したいタグ名</param>
-    /// <returns>タグが一致していれば true、違えば false</returns>
+    /// <returns>タグが一致していれば true、そうでなければ false</returns>
     public bool CheckHaveItem(string tag)
     {
         //何もアイテムを持っていなかったら処理しない

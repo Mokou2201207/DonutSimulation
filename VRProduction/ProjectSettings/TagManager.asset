@@ -12,6 +12,7 @@ TagManager:
   - CashPositon
   - Customer
   - Dount
+  - DoughnutDough
   layers:
   - Default
   - TransparentFX

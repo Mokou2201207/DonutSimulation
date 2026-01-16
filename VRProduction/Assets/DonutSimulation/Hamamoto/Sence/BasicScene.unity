@@ -3411,7 +3411,7 @@ MonoBehaviour:
   m_PickUpDistance: 5
   m_ItemMoveSpeed: 0.1
   m_ItemDistance: 5
-  m_HandHave: {fileID: 829371032}
+  m_HandHave: {fileID: 933098604}
   m_KeyUI: {fileID: 1575976436}
   m_HaveItem: {fileID: 0}
   m_HandHaveNow: 0
@@ -3420,6 +3420,7 @@ MonoBehaviour:
   m_currentFurniture: {fileID: 0}
   m_AudioSource: {fileID: 0}
   m_PlayerInput: {fileID: 668083822}
+  m_VRController: {fileID: 933098604}
 --- !u!4 &668083821
 Transform:
   m_ObjectHideFlags: 0
@@ -5121,6 +5122,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5167925059111895691, guid: e8b97739f6bc0d94b828e978796c47c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6232745470614056090, guid: e8b97739f6bc0d94b828e978796c47c4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5136,6 +5141,11 @@ PrefabInstance:
 --- !u!4 &933098602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: e8b97739f6bc0d94b828e978796c47c4, type: 3}
+  m_PrefabInstance: {fileID: 933098601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &933098604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1670256625, guid: e8b97739f6bc0d94b828e978796c47c4, type: 3}
   m_PrefabInstance: {fileID: 933098601}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &964257963
@@ -5555,6 +5565,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2576779691562213735, guid: 25740550b6baa204ca3c7b77262ca4f5, type: 3}
     - target: {fileID: 505906988375205975, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_PlayerInput
+      value: 
+      objectReference: {fileID: 668083822}
+    - target: {fileID: 505906988375205975, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_PlayerPickup
       value: 
       objectReference: {fileID: 668083820}
@@ -5586,6 +5600,10 @@ PrefabInstance:
       propertyPath: m_Oilslider
       value: 
       objectReference: {fileID: 1311027134}
+    - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_PlayerInput
+      value: 
+      objectReference: {fileID: 668083822}
     - target: {fileID: 1147773274545853423, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_playerpickup
       value: 
@@ -5629,6 +5647,14 @@ PrefabInstance:
     - target: {fileID: 2103051988884197427, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_Name
       value: 'FFK_RegisterTable_01_01 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485303627322315767, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485303627322315767, guid: be182959590bb984fba7b8400c3a159b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2776547673285611876, guid: be182959590bb984fba7b8400c3a159b, type: 3}
       propertyPath: m_Name

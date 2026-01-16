@@ -1,57 +1,104 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 /// <summary>
-/// ƒ`ƒ‡ƒRƒŒ[ƒg‚ğ“ü‚ê‚é“ç‚Ìˆ—
+/// ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚³ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã®å‡¦ç†
 /// </summary>
 public class Hotpot : FurnitureOwner
 {
-    [Header("ChocolateCoating‚Ìscript‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("ChocolateCoatingscriptã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private ChocolateCoating m_HotpotChocolateCoating;
 
-    [Header("PlayerPickupscript‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("PlayerPickupscriptã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private PlayerPickup m_PlayerPickup;
 
-    [Header("“ç‚É“ü‚Á‚Ä‚éƒ`ƒ‡ƒR"), SerializeField]
+    [Header("é‹ã«å…¥ã£ã¦ã„ã‚‹ãƒãƒ§ã‚³"), SerializeField]
     private GameObject m_HptpotChoko;
 
-    [Header("ƒ`ƒ‡ƒRƒŒ[ƒg‚ğ“ü‚ê‚½‚©‚Ç‚¤‚©"), SerializeField]
+    [Header("ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆãŒå…¥ã‚Œã‚‰ã‚ŒãŸã©ã†ã‹"), SerializeField]
     public bool m_InChoko = false;
 
-    [Header("ƒ`ƒ‡ƒR‚ğ“ç‚É“ü‚ê‚éSE"), SerializeField]
+    [Header("ãƒãƒ§ã‚³ã«å…¥ã‚Œã‚‹SE"), SerializeField]
     private AudioSource m_InChocolateSE;
 
-    [Header("ƒh[ƒiƒc‚ğƒ`ƒ‡ƒR‚É•t‚¯‚éSE"), SerializeField]
+    [Header("ãƒ‰ãƒ¼ãƒŠãƒ„ã«ãƒãƒ§ã‚³ã‚’ä»˜ã‘ã‚‹SE"), SerializeField]
     private AudioSource m_CoatingChocolateSE;
 
+    [Header("PlayerInputå‚ç…§"), SerializeField]
+    private PlayerInput m_PlayerInput;
+
+    // VRå…¥åŠ›ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
+    private InputAction m_inputGrip;  // å³ã‚°ãƒªãƒƒãƒ—ï¼ˆãƒãƒ§ã‚³ã‚³ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ï¼‰
+
     /// <summary>
-    /// ŠJn
+    /// åˆæœŸåŒ–
+    /// </summary>
+    private void Awake()
+    {
+        // PlayerInputãŒãªã‘ã‚Œã°PlayerPickupã‹ã‚‰å–å¾—ã‚’è©¦ã¿ã‚‹
+        if (m_PlayerInput == null && m_PlayerPickup != null)
+        {
+            m_PlayerInput = m_PlayerPickup.GetComponent<PlayerInput>();
+        }
+
+        if (m_PlayerInput != null)
+        {
+            m_PlayerInput.currentActionMap.Enable();
+            m_inputGrip = m_PlayerInput.currentActionMap.FindAction("GripButtonR");
+        }
+    }
+
+    /// <summary>
+    /// é–‹å§‹
     /// </summary>
     private void Start()
     {
-        //”ñ•\¦
+        //éè¡¨ç¤º
         m_HptpotChoko.SetActive(false);
 
-        //Key“ü—Í‚ÆUI•\¦
+        //Keyã®å…¥åŠ›ç”¨UIè¡¨ç¤º
         m_UseKey = UseKey.RightClick;
-        m_KeyHint = "‰EƒNƒŠƒbƒN";
+        m_KeyHint = "å³ã‚¯ãƒªãƒƒã‚¯";
 
-        //‰¹‚ğ’â~
+        //åœæ­¢
         m_InChocolateSE.Stop();
         m_CoatingChocolateSE.Stop();
     }
 
     /// <summary>
-    /// “ç‚Éƒ`ƒ‡ƒR‚©‚Ç‚¤‚©‚ğ’²‚×‚é
+    /// æ›´æ–°
+    /// </summary>
+    private void Update()
+    {
+        // PlayerPickupã«è§¦ã‚Œã¦ã„ã¦ã€ã“ã®HotpotãŒå¯¾è±¡ã®å ´åˆ
+        if (m_PlayerPickup != null &&
+            m_PlayerPickup.m_currentFurniture == this)
+        {
+            // VRå³ã‚°ãƒªãƒƒãƒ—ã§ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚³ãƒ¼ãƒ†ã‚£ãƒ³ã‚°
+            bool gripPressed = m_inputGrip != null && m_inputGrip.WasPressedThisFrame();
+            if (gripPressed)
+            {
+                // ãƒãƒ§ã‚³ãŒå…¥ã£ã¦ã„ã¦ã€ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’æŒã£ã¦ã„ã‚‹å ´åˆ
+                if (m_InChoko && m_PlayerPickup.CheckHaveItem("Dount"))
+                {
+                    CoatDonutWithChocolate();
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// é‹ã«ãƒãƒ§ã‚³ãŒã‚ã‚‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
     /// </summary>
     public override void Interact()
     {
-        //‰½‚à‚Á‚Ä‚¢‚È‚©‚Á‚½‚ç
+        //æŒã£ã¦ã„ãªã„å ´åˆ
         if (m_PlayerPickup.m_HaveItem == null)
         {
-            Debug.Log("‰½‚à‚Á‚Ä‚Ü‚¹‚ñ");
+            Debug.Log("ä½•ã‚‚æŒã£ã¦ã„ã¾ã›ã‚“");
             return;
         }
 
-        //è‚Éƒ`ƒ‡ƒR‚ğ‚Á‚Ä‚¢‚ê‚Î
+        //ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚’æŒã£ã¦ã„ã‚‹å ´åˆ
         if (m_PlayerPickup.CheckHaveItem("Chocolate"))
         {
 
@@ -60,35 +107,42 @@ public class Hotpot : FurnitureOwner
         }
         else
         {
-            Debug.Log("‚»‚ê‚Íƒ`ƒ‡ƒR‚¶‚á‚È‚¢I");
+            Debug.Log("æ‰‹ã«æŒã£ã¦ã„ã‚‹ã®ã¯ãƒãƒ§ã‚³ã˜ã‚ƒãªã„ï¼");
         }
 
-        //’†‚Éƒ`ƒ‡ƒRƒŒ[ƒg‚ª“ü‚Á‚Ä‚¨‚èè‚Éƒh[ƒiƒc‚ª“ü‚Á‚Ä‚¢‚½‚ç
+        //é‹ã«ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆãŒå…¥ã£ã¦ã„ã¦ã€ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’æŒã£ã¦ã„ã‚‹å ´åˆ
         if (m_InChoko && m_PlayerPickup.CheckHaveItem("Dount"))
         {
-            //Ä¶
-            m_CoatingChocolateSE.Play();
-            //¡è‚É‚Á‚Ä‚¢‚é‚à‚Ì‚ğƒQƒbƒgƒRƒ“ƒ|[ƒlƒ“ƒg
-            Dount dount = m_PlayerPickup.m_HaveItem.GetComponent<Dount>();
-            if (dount != null)
-            {
-                dount.DountChangeMaterial();
-            }
-
+            CoatDonutWithChocolate();
         }
 
     }
 
     /// <summary>
-    /// “ç‚Ì’†g‚ªChocolate‚©‚Ç‚¤‚©’²‚×‚é
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„ã«ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚’ã‚³ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã™ã‚‹å‡¦ç†
     /// </summary>
-    /// <param name="other">“ç‚Ì’†g</param>
+    private void CoatDonutWithChocolate()
+    {
+        //SEå†ç”Ÿ
+        m_CoatingChocolateSE.Play();
+        //æ‰‹ã«æŒã£ã¦ã„ã‚‹ãƒ‰ãƒ¼ãƒŠãƒ„ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå–å¾—
+        Dount dount = m_PlayerPickup.m_HaveItem.GetComponent<Dount>();
+        if (dount != null)
+        {
+            dount.DountChangeMaterial();
+        }
+    }
+
+    /// <summary>
+    /// é‹ã®ä¸­ãŒChocolateã‹ã©ã†ã‹èª¿ã¹ã‚‹
+    /// </summary>
+    /// <param name="other">é‹ã®ä¸­èº«</param>
     private void OnTriggerEnter(Collider other)
     {
-        //ƒŒƒCƒ„[‚ªItem‚¶‚á‚È‚©‚Á‚½‚çˆ—‚µ‚È‚¢
+        //ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒItemãªã‚‰å‡¦ç†ã—ãªã„
         if (other.gameObject.layer != LayerMask.NameToLayer("Item")) return;
 
-        //Chocolate‚È‚ç‚Á‚Ä‚¢‚éƒ`ƒ‡ƒRƒŒ[ƒg‚ğÁ‚µ‚ÄŸ‚Ìˆ—‚Ö
+        //Chocolateãªã‚‰æŒã£ã¦ã„ã‚‹ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚’æ¶ˆã—ã¦é‹ã®å‡¦ç†
         GameObject itemObj = other.gameObject;
         if (itemObj.CompareTag("Chocolate"))
         {
@@ -101,27 +155,27 @@ public class Hotpot : FurnitureOwner
     }
 
     /// <summary>
-    /// “ç‚Éƒ`ƒ‡ƒRƒŒ[ƒg“ü‚ê‚éˆ—
+    /// é‹ã«ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚’å…¥ã‚Œã‚‹å‡¦ç†
     /// </summary>
-    /// <returns>ƒ`ƒ‡ƒR‚ª“ü‚Á‚Ä‚È‚©‚Á‚½‚çtrue,–‚½‚³‚ê‚Ä‚¢‚½‚çfalse</returns>
+    /// <returns>ãƒãƒ§ã‚³ã‚’å…¥ã‚Œã‚‰ã‚Œãªã‹ã£ãŸã‚‰true,å…¥ã‚Œã‚‰ã‚ŒãŸã‚‰false</returns>
     private bool PutInChocolate()
     {
-        //’†‚Éƒ`ƒ‡ƒRƒŒ[ƒg‚ª“ü‚Á‚Ä‚¢‚½‚ç‰½‚à‚µ‚È‚¢
+        //é‹ã«ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆãŒå…¥ã£ã¦ã„ãŸã‚‰ä½•ã‚‚ã—ãªã„
         if (m_InChoko)
         {
-            Debug.Log("‚à‚¤’†‚Éƒ`ƒ‡ƒR‚ª“ü‚Á‚Ä‚Ü‚·");
+            Debug.Log("ã™ã§ã«é‹ã«ãƒãƒ§ã‚³ãŒå…¥ã£ã¦ã„ã¾ã™");
             return false;
         }
 
-        Debug.Log("ƒ`ƒ‡ƒR‚ğ“ç‚É");
+        Debug.Log("ãƒãƒ§ã‚³ãƒ¬ãƒ¼ãƒˆã‚’é‹ã«å…¥ã‚Œã¾ã—ãŸ");
 
-        //•\¦
+        //è¡¨ç¤º
         m_HptpotChoko.SetActive(true);
 
-        //ƒtƒ‰ƒO‚ğƒIƒ“
+        //ãƒ•ãƒ©ã‚°ã‚ªãƒ³
         m_InChoko = true;
 
-        //Ä¶
+        //SEå†ç”Ÿ
         m_InChocolateSE.Play();
 
         return true;

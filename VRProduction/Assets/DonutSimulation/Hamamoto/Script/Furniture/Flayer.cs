@@ -1,100 +1,127 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 /// <summary>
-/// ƒtƒ‰ƒCƒ„[‚Ìˆ—
+/// ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼ã®å‡¦ç†
 /// </summary>
 public class Flayer : FurnitureOwner
 {
-    [Header("“ü‚Á‚Ä‚éƒh[ƒiƒc"), SerializeField]
+    [Header("å…¥ã£ã¦ã„ã‚‹ãƒ‰ãƒ¼ãƒŠãƒ„"), SerializeField]
     private GameObject[] m_InDount;
 
-    [Header("¡“ü‚Á‚Ä‚éƒh[ƒiƒc‚Ì”"), SerializeField]
+    [Header("å…¥ã£ã¦ã„ã‚‹ãƒ‰ãƒ¼ãƒŠãƒ„ã®æ•°"), SerializeField]
     private int m_CurrentCount = 0;
 
-    [Header("PlayerPickupscript‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("PlayerPickupscriptã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private PlayerPickup m_FlayerPlayerPickup;
 
-    [Header("ƒAƒjƒ[ƒ^[©“®"), SerializeField]
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚¿ãƒ¼"), SerializeField]
     private Animator m_Animator;
 
-    [Header("–û‚Ìƒ[ƒ^[‚ğƒAƒ^ƒbƒ`"), SerializeField]
+    [Header("æ²¹ã®ãƒ¡ãƒ¼ã‚¿ãƒ¼ã‚¢ã‚¿ãƒƒãƒ"), SerializeField]
     private Slider m_Oilslider;
 
-    [Header("ƒIƒCƒ‹‚Ì•b”iOUTj"), SerializeField]
+    [Header("æ²¹ã®ç§’æ•°ï¼ˆOUTï¼‰"), SerializeField]
     private int m_Oilcount = 10;
 
-    [Header("ƒtƒ‰ƒCƒ„[‚Ì’†‚É“ü‚Á‚Ä‚¢‚éƒh[ƒiƒc‚Ì”"), SerializeField]
+    [Header("ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼ã®ä¸­ã«å…¥ã£ã¦ã„ã‚‹ãƒ‰ãƒ¼ãƒŠãƒ„ã®æ•°"), SerializeField]
     private GameObject[] m_DountSlots;
 
-    [Header("ƒh[ƒiƒc‚Ì¶’nƒ}ƒeƒŠƒAƒ‹"), SerializeField]
+    [Header("ãƒ‰ãƒ¼ãƒŠãƒ„ã®ç”Ÿåœ°ãƒãƒ†ãƒªã‚¢ãƒ«"), SerializeField]
     private Material m_DoughnutDoughMaterial;
 
-    [Header("ƒh[ƒiƒc‚ªã‚°I‚í‚Á‚½‚Æ‚«‚Ìƒ}ƒeƒŠƒAƒ‹"),SerializeField]
+    [Header("ãƒ‰ãƒ¼ãƒŠãƒ„æšã’çµ‚ã‚ã‚Šã®ãƒãƒ†ãƒªã‚¢ãƒ«"),SerializeField]
     private Material m_DonutFryMaterial;
 
-    [Header("—g‚°‚½ƒh[ƒiƒc‚Ìprefab"), SerializeField]
+    [Header("æšã’ãƒ‰ãƒ¼ãƒŠãƒ„prefab"), SerializeField]
     private GameObject m_FringDountPrefab;
 
-    [Header("–û‚ÌSE"), SerializeField]
+    [Header("æ²¹SE"), SerializeField]
     private AudioSource m_OilInSE;
 
-    [Header("ƒ^ƒCƒ}[‚ÌSE"), SerializeField]
+    [Header("ã‚¿ã‚¤ãƒãƒ¼SE"), SerializeField]
     private AudioSource m_TimerSE;
 
-    [Header("ƒ^ƒCƒ}[‚Íˆê‰ñ‚¾‚¯—¬‚·ƒtƒ‰ƒO"), SerializeField]
+    [Header("ã‚¿ã‚¤ãƒãƒ¼ã¯ä¸€å›ã ã‘ãƒ•ãƒ©ã‚°"), SerializeField]
     private bool m_IsTimerSoundPlayed = false;
 
-    [Header("ƒtƒ‰ƒCƒ„[‚É‚¢‚ê‚½‚©‚Ç‚¤‚©"), SerializeField]
+    [Header("ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼ã«å…¥ã‚Œã‚‰ã‚ŒãŸã©ã†ã‹"), SerializeField]
     private bool m_FlayerIN = false;
 
-    [Header("ƒh[ƒiƒc‚ğ—g‚°‚½‚©‚Ç‚¤‚©"),SerializeField]
+    [Header("ãƒ‰ãƒ¼ãƒŠãƒ„æšã’ãŸã©ã†ã‹"),SerializeField]
     private bool m_IsDountFring=false;
 
+    [Header("PlayerInputå‚ç…§"), SerializeField]
+    private PlayerInput m_PlayerInput;
+
+    // VRå…¥åŠ›ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
+    private InputAction m_inputA;       // Aãƒœã‚¿ãƒ³ï¼ˆãƒ‰ãƒ¼ãƒŠãƒ„å›åï¼‰
+    private InputAction m_inputGrip;    // å³ã‚°ãƒªãƒƒãƒ—ï¼ˆæšã’æ“ä½œï¼‰
+
     /// <summary>
-    /// ŠJn
+    /// åˆæœŸåŒ–
+    /// </summary>
+    private void Awake()
+    {
+        // PlayerInputãŒãªã‘ã‚Œã°PlayerPickupã‹ã‚‰å–å¾—ã‚’è©¦ã¿ã‚‹
+        if (m_PlayerInput == null && m_FlayerPlayerPickup != null)
+        {
+            m_PlayerInput = m_FlayerPlayerPickup.GetComponent<PlayerInput>();
+        }
+
+        if (m_PlayerInput != null)
+        {
+            m_PlayerInput.currentActionMap.Enable();
+            m_inputA = m_PlayerInput.currentActionMap.FindAction("A");
+            m_inputGrip = m_PlayerInput.currentActionMap.FindAction("GripButtonR");
+        }
+    }
+
+    /// <summary>
+    /// é–‹å§‹
     /// </summary>
     private void Start()
     {
-        // Å‰‚Í‘S•””ñ•\¦‚É‚·‚é
+        // æœ€åˆã¯å…¨éè¡¨ç¤ºã«ã™ã‚‹
         foreach (GameObject slot in m_InDount)
         {
             slot.SetActive(false);
         }
 
-        // ƒRƒ“ƒ|[ƒlƒ“ƒgæ“¾
+        // ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå–å¾—
         m_Animator = GetComponent<Animator>();
 
-        //Key‚Ì“ü—Í‚ğ“ü‚ê‚é
+        //Keyã®å…¥åŠ›ç”¨
         m_UseKey = UseKey.LeftClick;
 
-        //UI‚ğ•\¦
-        m_KeyHint = "¶ƒNƒŠƒbƒN";
+        //UIè¡¨ç¤º
+        m_KeyHint = "ã‚¯ãƒªãƒƒã‚¯";
 
-        //ƒIƒCƒ‹‚ÌŠÔ‚ğİ’è
+        //ã‚ªã‚¤ãƒ«ã®æ™‚é–“ã‚’è¨­å®š
         m_Oilslider.maxValue = 10f;
         m_Oilslider.value = 0f;
 
-        //”ñ•\¦
+        //éè¡¨ç¤º
         m_Oilslider.gameObject.SetActive(false);
 
-        //SE‚ğÅ‰‚ÍStop
+        //SEæœ€åˆStop
         m_OilInSE.Stop();
         m_TimerSE.Stop();
     }
 
     /// <summary>
-    /// “ü—Íˆ—
+    /// ã‚¤ãƒ³ã‚¿ãƒ©ã‚¯ãƒˆå‡¦ç†
     /// </summary>
     public override void Interact()
     {
-        //ƒh[ƒiƒc¶’n‚ğ‚Á‚Ä‚¢‚ê‚Î‚©‚Âƒh[ƒiƒc‚ªO‚ÂˆÈã“ü‚Á‚Ä‚È‚­—g‚°‚ÄI‚í‚Á‚½Œã‚¶‚á‚È‚¯‚ê‚Î
+        //ãƒ‰ãƒ¼ãƒŠãƒ„ç”Ÿåœ°ã‚’æŒã£ã¦ã„ã‚Œã°ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’3å€‹ä»¥ä¸Šå…¥ã£ã¦ã„ãªãã¦æšã’çµ‚ã‚ã£ã¦ã„ãªã‘ã‚Œã°
         if (m_FlayerPlayerPickup.CheckHaveItem("Doughnutdough") && m_CurrentCount < 3&&!m_IsDountFring)
         {
             m_FlayerPlayerPickup.UseItem();
             PutInChocolate();
         }
 
-        //ƒh[ƒiƒc‚ª—g‚°‚Ä‚¢‚½‚ç
+        //ãƒ‰ãƒ¼ãƒŠãƒ„æšã’ã¦ã‚Œã°
         if (m_IsDountFring)
         {
             TakeFriedDonuts();
@@ -102,21 +129,29 @@ public class Flayer : FurnitureOwner
     }
 
     /// <summary>
-    /// XV
+    /// æ›´æ–°
     /// </summary>
     private void Update()
     {
-        // PlayerPickup ‚ÉG‚Á‚Ä‚¢‚é‰Æ‹ï‚ª Flayer ‚©‚Ç‚¤‚©Šm”F
+        // PlayerPickup ã«è§¦ã‚Œã¦ã„ã‚‹ã¨åŒæ™‚ã« Flayer ã‹ã©ã†ã‹ç¢ºèª
         if (m_FlayerPlayerPickup != null &&
             m_FlayerPlayerPickup.m_currentFurniture == this)
         {
-            //‰EƒNƒŠƒbƒN‰Ÿ‚·‚Æƒtƒ‰ƒCƒ„[‚ÉIn/Out
-            if (Input.GetMouseButtonDown(1))
+            // å³ã‚¯ãƒªãƒƒã‚¯ã¾ãŸã¯VRå³ã‚°ãƒªãƒƒãƒ—ã§ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼In/Out
+            bool gripPressed = m_inputGrip != null && m_inputGrip.WasPressedThisFrame();
+            if (Input.GetMouseButtonDown(1) || gripPressed)
             {
                 HandleFryerInOut();
             }
+
+            // VR Aãƒœã‚¿ãƒ³ã§æšã’ãŸãƒ‰ãƒ¼ãƒŠãƒ„ã‚’å›å
+            bool aButtonPressed = m_inputA != null && m_inputA.WasPressedThisFrame();
+            if (aButtonPressed && m_IsDountFring)
+            {
+                TakeFriedDonuts();
+            }
         }
-        // IN‚Ì‚Æ‚«‚¾‚¯–û‚ÌƒJƒEƒ“ƒg‚ği‚ß‚é
+        // INã®ã¨ãã®ã‚«ã‚¦ãƒ³ãƒˆé€²ã‚ã‚‹
         if (m_FlayerIN)
         {
             OilCount();
@@ -124,93 +159,104 @@ public class Flayer : FurnitureOwner
     }
 
     /// <summary>
-    /// ƒtƒ‰ƒCƒ„[‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚Ìˆ—
+    /// ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å‡¦ç†
     /// </summary>
     private void HandleFryerInOut()
     {
-        //ƒh[ƒiƒc‚ªˆê‚Â‚Å‚à“ü‚Á‚Ä‚½‚çˆ—‚ğs‚¤
+        //ãƒ‰ãƒ¼ãƒŠãƒ„ãŒå…¥ã£ã¦ã„ã‚Œã°å‡¦ç†å®Ÿè¡Œ
         if (m_CurrentCount >= 1)
         {
             if (!m_FlayerIN)
             {
-                Debug.Log("–û‚Éƒh[ƒiƒc‚ğIN");
+                Debug.Log("ãƒ‰ãƒ¼ãƒŠãƒ„IN");
                 m_Animator.SetBool("IN", true);
                 m_FlayerIN = true;
 
-                //ƒJƒEƒ“ƒg‚ğƒŠƒZƒbƒg
+                //ã‚«ã‚¦ãƒ³ãƒˆã‚»ãƒƒãƒˆ
                 m_Oilslider.value = 0f;
 
-                //•\¦
+                //è¡¨ç¤º
                 m_Oilslider.gameObject.SetActive(true);
             }
-            //ƒJƒEƒ“ƒg‚ª‚O‚É‚È‚Á‚½‚çã‚°‚é
+            //ã‚«ã‚¦ãƒ³ãƒˆ0ã«ãªã£ãŸã‚‰æšã’çµ‚ã‚ã‚Š
             else if (m_Oilslider.value >= m_Oilslider.maxValue)
             {
-                Debug.Log("–û‚©‚çƒh[ƒiƒc‚ğOUT");
+                Debug.Log("ãƒ‰ãƒ¼ãƒŠãƒ„OUT");
                 m_Animator.SetBool("IN", false);
 
                 m_FlayerIN = false;
                 m_IsTimerSoundPlayed = false;
                 m_IsDountFring = true;
 
-                //•\¦
+                //éè¡¨ç¤º
                 m_Oilslider.gameObject.SetActive(false);
 
-                //SE‚Ì‰¹‚ğstop
+                //SEã®éŸ³stop
                 m_OilInSE.Stop();
                 m_TimerSE.Stop();
             }
             else
             {
-                Debug.Log("‚Ü‚¾Ä‚«ã‚ª‚Á‚Ä‚È‚¢I");
+                Debug.Log("ã¾ã æšã’ã‚ãŒã£ã¦ãªã„ï¼");
             }
         }
     }
 
     /// <summary>
-    /// Tag‚ªDoughnutDough‚È‚çƒh[ƒiƒc‚ÌƒJƒEƒ“ƒg‚ğˆ—
+    /// TagãŒDoughnutDoughãªã‚‰ãƒ‰ãƒ¼ãƒŠãƒ„ã®ã‚«ã‚¦ãƒ³ãƒˆå‡¦ç†
     /// </summary>
-    /// <param name="other">ƒh[ƒiƒc</param>
+    /// <param name="other">ãƒ‰ãƒ¼ãƒŠãƒ„</param>
     private void OnTriggerEnter(Collider other)
     {
-        //è‚É‚Á‚Ä‚¢‚é‚à‚Ì‚ªItem‚¶‚á‚È‚©‚Á‚½‚çˆ—‚µ‚È‚¢
-        if (other.gameObject.layer != LayerMask.NameToLayer("Item")) return;
+        Debug.Log($"OnTriggerEnteræ¤œçŸ¥: {other.gameObject.name}, Layer: {LayerMask.LayerToName(other.gameObject.layer)}, Tag: {other.gameObject.tag}");
+
+        //ä»ŠæŒã£ã¦ã„ã‚‹ã®ãŒItemãªã‚‰å‡¦ç†ã—ãªã„ â†’ Itemãƒ¬ã‚¤ãƒ¤ãƒ¼ã§ãªã‘ã‚Œã°å‡¦ç†ã—ãªã„
+        if (other.gameObject.layer != LayerMask.NameToLayer("Item"))
+        {
+            Debug.Log($"Itemãƒ¬ã‚¤ãƒ¤ãƒ¼ã§ã¯ãªã„ã®ã§ã‚¹ã‚­ãƒƒãƒ—: {LayerMask.LayerToName(other.gameObject.layer)}");
+            return;
+        }
 
         GameObject itemObj = other.gameObject;
         if (itemObj.CompareTag("DoughnutDough"))
         {
+            Debug.Log("DoughnutDoughã‚¿ã‚°æ¤œçŸ¥ï¼ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’å…¥ã‚Œã¾ã™");
             bool success = PutInChocolate();
             if (success)
             {
                 Destroy(itemObj);
             }
         }
+        else
+        {
+            Debug.Log($"ã‚¿ã‚°ãŒä¸€è‡´ã—ã¾ã›ã‚“: {itemObj.tag}");
+        }
     }
     /// <summary>
-    /// ƒh[ƒiƒcƒJƒEƒ“ƒgˆ—
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„ã‚«ã‚¦ãƒ³ãƒˆå‡¦ç†
     /// </summary>
-    /// <returns>ƒh[ƒiƒc‚ğ“ü‚ê‚ç‚ê‚½‚çtrue,–ƒ^ƒ“‚È‚çfalse</returns>
+    /// <returns>ãƒ‰ãƒ¼ãƒŠãƒ„å…¥ã‚Œã‚‰ã‚ŒãŸã‚‰true,å…¥ã‚Œã‚‰ã‚Œãªã‘ã‚Œã°false</returns>
     private bool PutInChocolate()
     {
-        //O‚ÂˆÈã“ü‚ê‚æ‚¤‚Æ‚µ‚½‚ç“ü‚ê‚ê‚È‚­‚È‚é
+        //3å€‹ä»¥ä¸Šå…¥ã‚Œã‚ˆã†ã¨ã—ãŸã‚‰å…¥ã‚‰ãªã„
         if (m_CurrentCount >= 3)
         {
-            Debug.Log("‚à‚¤ƒh[ƒiƒc‚ª–ƒ^ƒ“‚Å‚·");
+            Debug.Log("ãƒ‰ãƒ¼ãƒŠãƒ„æº€ã‚¿ãƒ³ã§ã™");
             return false;
         }
 
-        //ƒh[ƒiƒc‚ğ‰ÁZ
+        //ãƒ‰ãƒ¼ãƒŠãƒ„å¢—ãˆã‚‹
         m_CurrentCount++;
-        Debug.Log($"ƒh[ƒiƒc‚ğ–û‚Ì–Ô‚É“ü‚ê‚Ü‚µ‚½iŒ»İ {m_CurrentCount}/3j");
+        Debug.Log($"ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’æ²¹ã®ä¸­ã«å…¥ã‚Œã¾ã—ãŸï¼ˆè¨ˆ {m_CurrentCount}/3ï¼‰");
 
-        // “ü‚ê‚½”‚É‰‚¶‚ÄƒXƒƒbƒg•\¦
+        // å…¥ã‚ŒãŸæ•°ã«å¿œã˜ã¦ã‚¹ãƒ­ãƒƒãƒˆè¡¨ç¤º
         UpdateDountSlots();
 
         return true;
     }
 
     /// <summary>
-    /// ƒh[ƒiƒc‚ğ“ü‚ê‚½‚Æ‚«‚Éƒtƒ‰ƒCƒ„[‚Ì’†‚Éƒh[ƒiƒc‚ğ•\¦
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’å…¥ã‚ŒãŸã¨ãã«ãƒ•ãƒ©ã‚¤ãƒ¤ãƒ¼ã®ä¸­ã«ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’è¡¨ç¤º
     /// </summary>
     private void UpdateDountSlots()
     {
@@ -221,24 +267,24 @@ public class Flayer : FurnitureOwner
     }
 
     /// <summary>
-    /// ƒh[ƒiƒc‚ğã‚°‚éÛ‚ÌƒJƒEƒ“ƒg
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„æšã’ä¸­ã®ã‚«ã‚¦ãƒ³ãƒˆ
     /// </summary>
     private void OilCount()
     {
         m_Oilslider.value += Time.deltaTime;
 
-        //ƒ^ƒCƒ}[‚ª10•b‚½‚Á‚½‚ç
+        //ã‚¿ã‚¤ãƒãƒ¼ãŒ10ç§’ä»¥ä¸Š
         if (m_Oilslider.value >= m_Oilslider.maxValue)
         {
             m_Oilslider.value = m_Oilslider.maxValue;
 
             if (!m_IsTimerSoundPlayed)
             {
-                Debug.Log("ƒ^ƒCƒ}[‰¹ Ä¶I");
+                Debug.Log("ã‚¿ã‚¤ãƒãƒ¼å®Œäº† å†ç”Ÿï¼");
                 m_TimerSE.loop = true;
                 m_TimerSE.Play();
 
-                //ƒ^ƒCƒ}[ƒtƒ‰ƒOƒIƒ“
+                //ã‚¿ã‚¤ãƒãƒ¼ãƒ•ãƒ©ã‚°ã‚ªãƒ³
                 m_IsTimerSoundPlayed = true;
 
                 ChangeDountFryColor();
@@ -247,43 +293,43 @@ public class Flayer : FurnitureOwner
     }
 
     /// <summary>
-    /// —g‚°‚Ä‚¢‚éƒh[ƒiƒc‚ğæ‚éˆ—
+    /// æšã’ã¦ã„ã‚‹ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’å–ã‚‹å‡¦ç†
     /// </summary>
     private void TakeFriedDonuts()
     {
         if (m_CurrentCount <= 0) return;
 
-        //‚Âˆ—
+        //å–ã‚‹
         m_FlayerPlayerPickup.HandHave(m_FringDountPrefab);
 
-        //ƒh[ƒiƒc‚ğˆê‚ÂŒ¸‚ç‚µ”ñ•\¦‚ÌŠÖ”‚Ö
+        //ãƒ‰ãƒ¼ãƒŠãƒ„æ¸›ã‚‰ã—è¡¨ç¤ºã®é–¢æ•°
         m_CurrentCount --;
         UpdateDountSlots();
 
-        //ƒh[ƒiƒc‚ª‚O‚È‚çƒtƒ‰ƒO‚ğ•Ô‚·
+        //ãƒ‰ãƒ¼ãƒŠãƒ„ãŒ0ãªã‚‰ ãƒ•ãƒ©ã‚°æˆ»ã™
         if (m_CurrentCount==0)
         {
-            //ƒtƒ‰ƒO‚ğ–ß‚·
+            //ãƒ•ãƒ©ã‚°æˆ»ã™
             m_IsDountFring=false;
-            //¶’n‚ÌF‚Ö
+            //ç”Ÿåœ°ã®è‰²ã«æˆ»ã™
             ChangeDoughnutDoughColor();
         }
     }
 
     /// <summary>
-    /// ƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒxƒ“ƒg‚Åƒh[ƒiƒc‚ğ–û‚É“ü‚ê‚½‚Æ‚«‚ÌSE
+    /// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆã§ãƒ‰ãƒ¼ãƒŠãƒ„ã‚’æ²¹ã«å…¥ã‚ŒãŸã¨ãSE
     /// </summary>
     private void OilInSound()
     {
-        Debug.Log("–û‚Ì‰¹‚ğÄ¶");
+        Debug.Log("æ²¹ã®éŸ³å†ç”Ÿ");
 
-        //Ä¶i–û‚Ì‰¹j
+        //å†ç”Ÿï¼ˆæ²¹ã®éŸ³ï¼‰
         m_OilInSE.loop = true;
         m_OilInSE.Play();
     }
 
     /// <summary>
-    /// ƒh[ƒiƒc‚ğã‚°‚½‚ÉF‚ğ•Ï‚¦‚éˆ—
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„æšã’çµ‚ã‚ã‚Šã«è‰²ã‚’å¤‰ãˆã‚‹å‡¦ç†
     /// </summary>
     private void ChangeDountFryColor()
     {
@@ -292,10 +338,10 @@ public class Flayer : FurnitureOwner
 
             if (donut == null) continue;
 
-            //ƒ[ƒJƒ‹•Ï”‚Éƒh[ƒiƒc‚ÌRenderer‚ğƒRƒ“ƒ|[ƒlƒ“ƒg
+            //ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã«ãƒ‰ãƒ¼ãƒŠãƒ„ã®Rendererã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
             Renderer DontRenderer =donut.GetComponentInChildren<Renderer>();
 
-            //ƒ}ƒeƒŠƒAƒ‹‚ğ•ÏX
+            //ãƒãƒ†ãƒªã‚¢ãƒ«å¤‰æ›´
             if (DontRenderer != null)
             {
                 DontRenderer.material = m_DonutFryMaterial;
@@ -304,7 +350,7 @@ public class Flayer : FurnitureOwner
         }
     }
     /// <summary>
-    /// ƒh[ƒiƒc¶’n‚Ìƒ}ƒeƒŠƒAƒ‹‚É–ß‚·ˆ—
+    /// ãƒ‰ãƒ¼ãƒŠãƒ„ç”Ÿåœ°ã®ãƒãƒ†ãƒªã‚¢ãƒ«ã«æˆ»ã™
     /// </summary>
     private void ChangeDoughnutDoughColor()
     {
@@ -313,10 +359,10 @@ public class Flayer : FurnitureOwner
 
             if (donut == null) continue;
 
-            //ƒ[ƒJƒ‹•Ï”‚Éƒh[ƒiƒc‚ÌRenderer‚ğƒRƒ“ƒ|[ƒlƒ“ƒg
+            //ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã«ãƒ‰ãƒ¼ãƒŠãƒ„ã®Rendererã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
             Renderer DontRenderer = donut.GetComponentInChildren<Renderer>();
 
-            //ƒ}ƒeƒŠƒAƒ‹‚ğ•ÏX
+            //ãƒãƒ†ãƒªã‚¢ãƒ«å¤‰æ›´
             if (DontRenderer != null)
             {
                 DontRenderer.material = m_DoughnutDoughMaterial;
